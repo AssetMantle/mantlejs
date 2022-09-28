@@ -56,9 +56,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.decryptStore = exports.createStore = exports.getWalletPath = exports.createWallet = exports.createRandomWallet = exports.getWallet = void 0;
-var bip39 = __importStar(require("bip39"));
-var bip32 = __importStar(require("bip32"));
 var tmSig = __importStar(require("@tendermint/sig"));
+var bip32 = __importStar(require("bip32"));
+var bip39 = __importStar(require("bip39"));
 var crypto = __importStar(require("crypto"));
 var config = __importStar(require("../config.json"));
 var passwordHashAlgorithm = "sha512";
@@ -109,7 +109,7 @@ exports.createWallet = function (mnemonic, bip39Passphrase) { return __awaiter(v
     });
 }); };
 exports.getWalletPath = function () {
-    return "m/44'/118'/0'/0/0";
+    return config.HDPath;
 };
 exports.createStore = function (mnemonic, password) {
     try {

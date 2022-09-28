@@ -1,6 +1,6 @@
-import * as bip39 from "bip39";
-import * as bip32 from "bip32";
 import * as tmSig from "@tendermint/sig";
+import * as bip32 from "bip32";
+import * as bip39 from "bip39";
 import * as crypto from "crypto";
 import * as config from "../config.json";
 
