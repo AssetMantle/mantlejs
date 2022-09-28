@@ -13,7 +13,7 @@ export class queryOrders extends Persistence {
     };
 
     return new Promise(function (resolve, reject) {
-      Request(options, async function (error: any, res: { body: string; }) {
+      Request(options, async function (error: any, res: { body: string }) {
         if (error) {
           reject(error);
         }
@@ -24,7 +24,7 @@ export class queryOrders extends Persistence {
     }).catch(function (error) {
       console.log("Promise Rejected: " + error);
     });
-  }
+  };
 
   queryOrderWithID = async (id: any): Promise<any> => {
     let path = this.path;
@@ -35,7 +35,7 @@ export class queryOrders extends Persistence {
       headers: {},
     };
     return new Promise(function (resolve, reject) {
-      Request(options, async function (error: any, res: { body: any; }) {
+      Request(options, async function (error: any, res: { body: any }) {
         if (error) {
           reject(error);
         }
@@ -45,5 +45,5 @@ export class queryOrders extends Persistence {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 }

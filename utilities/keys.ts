@@ -1,27 +1,22 @@
 import * as bip39 from "bip39";
-import * as bip32  from "bip32";
-import * as tmSig  from "@tendermint/sig";
-import * as crypto  from "crypto";
+import * as bip32 from "bip32";
+import * as tmSig from "@tendermint/sig";
+import * as crypto from "crypto";
 import * as config from "../config.json";
 
 const passwordHashAlgorithm = "sha512";
 
-export const getWallet = (
-  mnemonic: string,
-  bip39Passphrase: string
-): Promise<any> => {
+export const getWallet = (mnemonic: string, bip39Passphrase: string): Promise<any> => {
   return new Promise(function (resolve) {
     const seed = bip39.mnemonicToSeedSync(mnemonic, bip39Passphrase);
     const masterKey = bip32.fromSeed(seed);
     const walletPath = getWalletPath();
-    resolve(
-      tmSig.createWalletFromMasterKey(masterKey, config.prefix, walletPath)
-    );
+    resolve(tmSig.createWalletFromMasterKey(masterKey, config.prefix, walletPath));
   });
 };
 
-export const createRandomWallet = async(
-  bip39Passphrase: string
+export const createRandomWallet = async (
+  bip39Passphrase: string,
 ): Promise<{ address: string; mnemonic: string }> => {
   const mnemonic = await bip39.generateMnemonic(256);
   const walletInfo = await getWallet(mnemonic, bip39Passphrase);
@@ -32,9 +27,9 @@ export const createRandomWallet = async(
   };
 };
 
-export const createWallet = async(
+export const createWallet = async (
   mnemonic: string,
-  bip39Passphrase: string
+  bip39Passphrase: string,
 ): Promise<{ address: string; mnemonic: string }> => {
   let validateMnemonic = bip39.validateMnemonic(mnemonic);
   if (validateMnemonic) {
@@ -55,10 +50,7 @@ export const getWalletPath = (): string => {
   return "m/44'/118'/0'/0/0";
 };
 
-export const createStore = (
-  mnemonic: string,
-  password: string
-): { Response: any; error: any } => {
+export const createStore = (mnemonic: string, password: string): { Response: any; error: any } => {
   try {
     const key = crypto.randomBytes(32);
     const iv = crypto.randomBytes(16);
@@ -67,10 +59,7 @@ export const createStore = (
     encrypted = Buffer.concat([encrypted, cipher.final()]);
 
     let obj = {
-      hashpwd: crypto
-        .createHash(passwordHashAlgorithm)
-        .update(password)
-        .digest("hex"),
+      hashpwd: crypto.createHash(passwordHashAlgorithm).update(password).digest("hex"),
       iv: iv.toString("hex"),
       salt: key.toString("hex"),
       crypted: encrypted.toString("hex"),
@@ -87,27 +76,17 @@ export const createStore = (
   }
 };
 
-export const decryptStore = (
-  fileData: any,
-  password: string
-): { mnemonic: any } => {
+export const decryptStore = (fileData: any, password: string): { mnemonic: any } => {
   let hashpwd = fileData.hashpwd;
   let iv = fileData.iv;
   let salt = fileData.salt;
   let crypted = fileData.crypted;
 
-  if (
-    hashpwd ===
-    crypto.createHash(passwordHashAlgorithm).update(password).digest("hex")
-  ) {
+  if (hashpwd === crypto.createHash(passwordHashAlgorithm).update(password).digest("hex")) {
     let ivText = Buffer.from(iv, "hex");
     let encryptedText = Buffer.from(crypted, "hex");
 
-    let decipher = crypto.createDecipheriv(
-      "aes-256-cbc",
-      Buffer.from(salt, "hex"),
-      ivText
-    );
+    let decipher = crypto.createDecipheriv("aes-256-cbc", Buffer.from(salt, "hex"), ivText);
     let decrypted = decipher.update(encryptedText);
     decrypted = Buffer.concat([decrypted, decipher.final()]);
     return {

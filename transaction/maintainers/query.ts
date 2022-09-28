@@ -12,7 +12,7 @@ export class queryMaintainer extends Persistence {
       headers: {},
     };
     return new Promise(function (resolve, reject) {
-      Request(options, async function (error: any, res: { body: any; }) {
+      Request(options, async function (error: any, res: { body: any }) {
         if (error) {
           reject(error);
         }
@@ -22,5 +22,5 @@ export class queryMaintainer extends Persistence {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 }

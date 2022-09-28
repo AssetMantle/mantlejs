@@ -1,20 +1,20 @@
 import * as config from "../../config.json";
 import { Persistence } from "../../utilities/persistenceJS";
 import { getWallet } from "../../utilities/keys";
-import {MsgSend} from "@cosmjs/stargate/build/codec/cosmos/bank/v1beta1/tx";
+import { MsgSend } from "@cosmjs/stargate/build/codec/cosmos/bank/v1beta1/tx";
 
 class keplr extends Persistence {
   createMsg = async (
-      msgSendTypeUrl: string,
-      keplrAddress: string,
-      toAddress: string,
-      amount: any,
-      mnemonic: any,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      mode: any,
-      memo: string
+    msgSendTypeUrl: string,
+    keplrAddress: string,
+    toAddress: string,
+    amount: any,
+    mnemonic: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
   ): Promise<any> => {
     try {
       const wallet = await getWallet(mnemonic, "");
@@ -37,7 +37,7 @@ class keplr extends Persistence {
     } catch (e) {
       console.log("Error ion keplr: ", e);
     }
-  }
+  };
 }
 
 module.exports = keplr;

@@ -6,15 +6,15 @@ import { getWallet } from "../../utilities/keys";
 
 export class nubIdentity extends Persistence {
   nub = async (
-      address: string,
-      chain_id: string,
-      mnemonic: any,
-      nubID: any,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      mode: any,
-      memo: string
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    nubID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
   ): Promise<any> => {
     const wallet = await getWallet(mnemonic, "");
     let path = this.path;
@@ -41,30 +41,39 @@ export class nubIdentity extends Persistence {
     };
 
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           return reject(error);
         }
         let result = JSON.parse(response.body);
 
         resolve(
-          broadcastTx(path, wallet, mnemonic, result.value, chain_id, result.value.fee.gas ,config.GASPRICE ,mode)
+          broadcastTx(
+            path,
+            wallet,
+            mnemonic,
+            result.value,
+            chain_id,
+            result.value.fee.gas,
+            config.GASPRICE,
+            mode,
+          ),
         );
       });
     }).catch(function (error) {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 
   createIdentityNubMsg = async (
-      address: string,
-      chain_id: string,
-      nubID: any,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      memo: string
+    address: string,
+    chain_id: string,
+    nubID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
   ): Promise<any> => {
     let path = this.path;
 
@@ -90,7 +99,7 @@ export class nubIdentity extends Persistence {
     };
 
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           return reject(error);
         }
@@ -102,5 +111,5 @@ export class nubIdentity extends Persistence {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 }

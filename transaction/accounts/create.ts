@@ -11,13 +11,13 @@ export class createAccount extends Persistence {
     denom: string,
     amount: any,
     gas: any,
-    memo: string
+    memo: string,
   ): Promise<any> => {
     let x = {
       address: "",
       hash: "",
     };
-    let path = this.path
+    let path = this.path;
     let keyAddOptions = {
       method: "POST",
       url: path + config.keysAdd,
@@ -28,7 +28,7 @@ export class createAccount extends Persistence {
     };
     // @ts-ignore
     return new Promise(function (resolve, reject) {
-      Request(keyAddOptions, function (error: any, response: { body: string; }) {
+      Request(keyAddOptions, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }
@@ -67,7 +67,7 @@ export class createAccount extends Persistence {
             },
           }),
         };
-        Request(signOptions, function (error: string | undefined, response: { body: string; }) {
+        Request(signOptions, function (error: string | undefined, response: { body: string }) {
           if (error) throw new Error(error);
           let result = JSON.parse(response.body);
           let typekey = result.result.tx.signatures[0].pub_key.type;
@@ -112,7 +112,7 @@ export class createAccount extends Persistence {
               mode: "sync",
             }),
           };
-          Request(broadcastOptions, function (error: string | undefined, resp: { body: string; }) {
+          Request(broadcastOptions, function (error: string | undefined, resp: { body: string }) {
             if (error) throw new Error(error);
             let result = JSON.parse(resp.body);
             x.hash = result.txhash;

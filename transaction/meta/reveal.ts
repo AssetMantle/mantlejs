@@ -6,15 +6,15 @@ import { getWallet } from "../../utilities/keys";
 
 export class revealMeta extends Persistence {
   reveal = async (
-      address: string,
-      chain_id: string,
-      mnemonic: any,
-      metaFact: any,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      mode: any,
-      memo: string
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    metaFact: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
   ): Promise<any> => {
     const wallet = await getWallet(mnemonic, "");
     let path = this.path;
@@ -40,29 +40,38 @@ export class revealMeta extends Persistence {
       }),
     };
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }
         let result = JSON.parse(response.body);
         resolve(
-          broadcastTx(path, wallet, mnemonic, result.value, chain_id, result.value.fee.gas ,config.GASPRICE, mode)
+          broadcastTx(
+            path,
+            wallet,
+            mnemonic,
+            result.value,
+            chain_id,
+            result.value.fee.gas,
+            config.GASPRICE,
+            mode,
+          ),
         );
       });
     }).catch(function (error) {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 
   createMetaRevealMsg = async (
-      address: string,
-      chain_id: string,
-      metaFact: any,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      memo: string
+    address: string,
+    chain_id: string,
+    metaFact: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
   ): Promise<any> => {
     let path = this.path;
 
@@ -87,7 +96,7 @@ export class revealMeta extends Persistence {
       }),
     };
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }
@@ -98,5 +107,5 @@ export class revealMeta extends Persistence {
       console.log("Promise Rejected: " + error);
       return error;
     });
-  }
+  };
 }

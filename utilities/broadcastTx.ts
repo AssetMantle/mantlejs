@@ -1,9 +1,9 @@
 import * as config from "../config.json";
 import { getAccount } from "../helpers/helper";
-import {  Secp256k1HdWallet } from "@cosmjs/amino";
-import {GasPrice, SigningCosmosClient} from '@cosmjs/launchpad'
+import { Secp256k1HdWallet } from "@cosmjs/amino";
+import { GasPrice, SigningCosmosClient } from "@cosmjs/launchpad";
 
-export const broadcastTx = async(
+export const broadcastTx = async (
   path: any,
   wallet: any,
   mnemonic: any,
@@ -11,34 +11,33 @@ export const broadcastTx = async(
   chainID: any,
   gas: any,
   gasPrice: any,
-  mode: any
+  mode: any,
 ): Promise<any> => {
   let getAcc = await getAccount(wallet.address, path);
 
-    let data = {
-    raw_log: ""
+  let data = {
+    raw_log: "",
   };
-  return new Promise(async(resolve, reject) =>{
-      if (getAcc.hasOwnProperty("error")) {
-        data.raw_log = "Account for " + wallet.address + " not found.";
-        return reject(data);
-      }
-      if (Object.keys(getAcc.result.value.address).length === 0) {
-        data.raw_log = "Account for " + wallet.address + " not found.";
-        return reject(data);
-      }
+  return new Promise(async (resolve, reject) => {
+    if (getAcc.hasOwnProperty("error")) {
+      data.raw_log = "Account for " + wallet.address + " not found.";
+      return reject(data);
+    }
+    if (Object.keys(getAcc.result.value.address).length === 0) {
+      data.raw_log = "Account for " + wallet.address + " not found.";
+      return reject(data);
+    }
 
-      const _wallet = await Secp256k1HdWallet.fromMnemonic(mnemonic);
+    const _wallet = await Secp256k1HdWallet.fromMnemonic(mnemonic);
 
-      let concatGas = gasPrice + "stake"
+    let concatGas = gasPrice + "stake";
 
-      let calculateGas = await GasPrice.fromString(concatGas)
+    let calculateGas = await GasPrice.fromString(concatGas);
 
-      let client = new SigningCosmosClient(config.testURL, wallet.address, _wallet, calculateGas, gas, mode);
+    let client = new SigningCosmosClient(config.testURL, wallet.address, _wallet, calculateGas, gas, mode);
 
-      let response = await client.signAndBroadcast(tx.msg, tx.fee, "")
-      resolve(response);
-
+    let response = await client.signAndBroadcast(tx.msg, tx.fee, "");
+    resolve(response);
   }).catch((error: string) => {
     console.log("Promise Rejected: " + error);
     return error;

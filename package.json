@@ -15,7 +15,10 @@
     "build-or-skip": "[ -n \"$SKIP_BUILD\" ] || yarn build",
     "test-node": "node --require esm jasmine-testrunner.js",
     "build-test": "tsc tests.ts --resolveJsonModule --esModuleInterop --downlevelIteration",
-    "test": "yarn build-or-skip && yarn test-node"
+    "test": "yarn build-or-skip && yarn test-node",
+    "clean": "NODE_ENV=development ./scripts/prepare.sh",
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",

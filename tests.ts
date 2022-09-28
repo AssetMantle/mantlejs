@@ -23,12 +23,7 @@ import { takeOrder } from "./transaction/orders/take";
 import { sendSplits } from "./transaction/splits/send";
 import { unwrapsplits } from "./transaction/splits/unwrap";
 import { wrapSplits } from "./transaction/splits/wrap";
-import {
-  createRandomWallet,
-  createStore,
-  createWallet,
-  decryptStore,
-} from "./utilities/keys";
+import { createRandomWallet, createStore, createWallet, decryptStore } from "./utilities/keys";
 
 let url = "http://localhost:1317";
 
@@ -95,7 +90,7 @@ async function test() {
     25,
     "stake",
     200000,
-    "block"
+    "block",
   );
   let _res = JSON.parse(JSON.stringify(result));
   let check = await checkRawLog(_res.rawLog);
@@ -117,7 +112,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     let check = await checkRawLog(res.rawLog);
     if (check) {
@@ -127,11 +122,7 @@ async function test() {
     }
 
     let results = await identityQuery.queryIdentity();
-    let listResponse = await FindInResponse(
-      "identities",
-      results,
-      config.nubID
-    );
+    let listResponse = await FindInResponse("identities", results, config.nubID);
     let clsID = listResponse.classificationID + "|" + listResponse.hashID;
 
     res = await identityDefine.define(
@@ -147,23 +138,17 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for define identity 1** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for define identity 1** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for define identity 1** :" + res.rawLog);
     }
 
     results = await clsQuery.queryClassification();
-    listResponse = await FindInResponse(
-      "classifications",
-      results,
-      "immutableMetaTraits"
-    );
+    listResponse = await FindInResponse("classifications", results, "immutableMetaTraits");
     let classificationID = listResponse.chainID + "." + listResponse.hashID;
 
     res = await identityIssue.issue(
@@ -181,13 +166,11 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for issue identity 1** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for issue identity 1** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for issue identity 1** :" + res.rawLog);
     }
@@ -205,23 +188,17 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for define identity 2** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for define identity 2** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for define identity 2** :" + res.rawLog);
     }
 
     results = await clsQuery.queryClassification();
-    listResponse = await FindInResponse(
-      "classifications",
-      results,
-      "immutableMetaTraits2"
-    );
+    listResponse = await FindInResponse("classifications", results, "immutableMetaTraits2");
     let classificationID1 = listResponse.chainID + "." + listResponse.hashID;
 
     res = await identityIssue.issue(
@@ -239,31 +216,21 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for issue identity 2** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for issue identity 2** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for issue identity 2** :" + res.rawLog);
     }
 
     results = await identityQuery.queryIdentity();
-    listResponse = await FindInResponse(
-      "identities",
-      results,
-      "immutableMetaTraits"
-    );
+    listResponse = await FindInResponse("identities", results, "immutableMetaTraits");
     let identityID1 = listResponse.classificationID + "|" + listResponse.hashID;
 
     results = await identityQuery.queryIdentity();
-    listResponse = await FindInResponse(
-      "identities",
-      results,
-      "immutableMetaTraits2"
-    );
+    listResponse = await FindInResponse("identities", results, "immutableMetaTraits2");
     let identityID2 = listResponse.classificationID + "|" + listResponse.hashID;
 
     res = await identityProvision.provision(
@@ -276,7 +243,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -295,7 +262,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -317,7 +284,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -345,7 +312,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -370,7 +337,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -392,13 +359,11 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for define assets 1** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for define assets 1** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for define assets 1** :" + res.rawLog);
     }
@@ -422,7 +387,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -447,7 +412,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -471,13 +436,11 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for maintainer deputize** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for maintainer deputize** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for maintainer deputize** :" + res.rawLog);
     }
@@ -494,13 +457,11 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
-      console.log(
-        "\n\n**TX HASH for mutate assets 2** :" + res.transactionHash
-      );
+      console.log("\n\n**TX HASH for mutate assets 2** :" + res.transactionHash);
     } else {
       console.log("\n\n**TX failed for mutate assets 2** :" + res.rawLog);
     }
@@ -514,7 +475,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -533,7 +494,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -553,7 +514,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -574,7 +535,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -598,7 +559,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -629,7 +590,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -661,7 +622,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -688,7 +649,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -708,7 +669,7 @@ async function test() {
       "stake",
       200000,
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -727,7 +688,7 @@ async function test() {
       "stake",
       "200000",
       "block",
-      ""
+      "",
     );
     check = await checkRawLog(res.rawLog);
     if (check) {
@@ -751,20 +712,10 @@ async function nub(
   fee: number,
   token: string,
   gas: number,
-  mode: string
+  mode: string,
 ) {
   return new Promise(async function (resolve) {
-    let result = await identityNub.nub(
-      address,
-      chain_id,
-      mnemonic,
-      nubID,
-      fee,
-      token,
-      gas,
-      mode,
-      ""
-    );
+    let result = await identityNub.nub(address, chain_id, mnemonic, nubID, fee, token, gas, mode, "");
     resolve(result);
   });
 }

@@ -14,7 +14,7 @@ export class recoverAccount extends Persistence {
       body: JSON.stringify({ name: name, mnemonic: mnemonic }),
     };
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }

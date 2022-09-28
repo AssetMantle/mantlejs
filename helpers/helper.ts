@@ -1,6 +1,6 @@
 import * as config from "../config.json";
-import fetch from 'node-fetch';
-import {Promise} from 'es6-promise';
+import fetch from "node-fetch";
+import { Promise } from "es6-promise";
 
 export const checkRawLog = (log: any): Promise<boolean> => {
   return new Promise(function (resolve) {
@@ -23,15 +23,11 @@ export const getAccount = (address: string, path: string): Promise<any> => {
     .catch((err) => console.log(JSON.stringify(err)));
 };
 
-export const FindInResponse = (
-  type: string,
-  list: [],
-  id: string
-): Promise<any> => {
+export const FindInResponse = (type: string, list: [], id: string): Promise<any> => {
   let data = {
     classificationID: "",
     hashID: "",
-    chainID:""
+    chainID: "",
   };
 
   let ordersData = {
@@ -45,36 +41,27 @@ export const FindInResponse = (
   return new Promise(function (resolve, reject) {
     switch (type) {
       case "assets":
-        list.forEach(function (value:any) {
-          if (
-            value.value.immutables.value.properties.value.propertyList[0].value
-              .id.value.idString === id
-          ) {
-            data.classificationID =
-              value.value.id.value.classificationID.value.idString;
+        list.forEach(function (value: any) {
+          if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString === id) {
+            data.classificationID = value.value.id.value.classificationID.value.idString;
             data.hashID = value.value.id.value.hashID.value.idString;
             resolve(data);
           }
         });
         break;
       case "identities":
-        list.forEach(function (value:any) {
-          if (
-            value.value.immutables.value.properties.value.propertyList[0].value
-              .id.value.idString === id
-          ) {
-            data.classificationID =
-              value.value.id.value.classificationID.value.idString;
+        list.forEach(function (value: any) {
+          if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString === id) {
+            data.classificationID = value.value.id.value.classificationID.value.idString;
             data.hashID = value.value.id.value.hashID.value.idString;
             resolve(data);
           }
         });
         break;
       case "classifications":
-        list.forEach(function (value:any) {
+        list.forEach(function (value: any) {
           if (
-            value.value.immutableTraits.value.properties.value.propertyList[0]
-              .value.id.value.idString === id
+            value.value.immutableTraits.value.properties.value.propertyList[0].value.id.value.idString === id
           ) {
             data.chainID = value.value.id.value.chainID.value.idString;
             data.hashID = value.value.id.value.hashID.value.idString;
@@ -83,17 +70,11 @@ export const FindInResponse = (
         });
         break;
       case "orders":
-        list.forEach(function (value:any) {
-          if (
-            value.value.immutables.value.properties.value.propertyList[0].value
-              .id.value.idString === id
-          ) {
-            ordersData.classificationID =
-              value.value.id.value.classificationID.value.idString;
-            ordersData.makerOwnableID =
-              value.value.id.value.makerOwnableID.value.idString;
-            ordersData.takerOwnableID =
-              value.value.id.value.takerOwnableID.value.idString;
+        list.forEach(function (value: any) {
+          if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString === id) {
+            ordersData.classificationID = value.value.id.value.classificationID.value.idString;
+            ordersData.makerOwnableID = value.value.id.value.makerOwnableID.value.idString;
+            ordersData.takerOwnableID = value.value.id.value.takerOwnableID.value.idString;
             ordersData.makerID = value.value.id.value.makerID.value.idString;
             ordersData.hashID = value.value.id.value.hashID.value.idString;
             resolve(ordersData);

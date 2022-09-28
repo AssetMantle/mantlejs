@@ -16,7 +16,7 @@ export class bank extends Persistence {
     feesToken: any,
     gas: any,
     mode: any,
-    memo: string
+    memo: string,
   ): Promise<any> => {
     let path = this.path;
     const wallet = await getWallet(mnemonic, "");
@@ -43,12 +43,23 @@ export class bank extends Persistence {
       }),
     };
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }
         let result = JSON.parse(response.body);
-        resolve(broadcastTx(path, wallet, mnemonic, result.value, chain_id, result.value.fee.gas ,config.GASPRICE, mode));
+        resolve(
+          broadcastTx(
+            path,
+            wallet,
+            mnemonic,
+            result.value,
+            chain_id,
+            result.value.fee.gas,
+            config.GASPRICE,
+            mode,
+          ),
+        );
       });
     }).catch(function (error) {
       console.log("Promise Rejected: " + error);
@@ -57,15 +68,15 @@ export class bank extends Persistence {
   };
 
   createSendCoinMsg = async (
-      from_address: string,
-      chain_id: string,
-      to_address: string,
-      denom: string,
-      amount: string,
-      feesAmount: any,
-      feesToken: any,
-      gas: any,
-      memo: string
+    from_address: string,
+    chain_id: string,
+    to_address: string,
+    denom: string,
+    amount: string,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
   ): Promise<any> => {
     let path = this.path;
 
@@ -91,7 +102,7 @@ export class bank extends Persistence {
       }),
     };
     return new Promise(function (resolve, reject) {
-      Request(options, function (error: any, response: { body: string; }) {
+      Request(options, function (error: any, response: { body: string }) {
         if (error) {
           reject(error);
         }

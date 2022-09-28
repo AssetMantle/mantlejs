@@ -13,7 +13,7 @@ export class cls extends Persistence {
     };
 
     return new Promise(function (resolve, reject) {
-      Request(options, async function (error: any, res: { body: string; }) {
+      Request(options, async function (error: any, res: { body: string }) {
         if (error) {
           reject(error);
         }
@@ -36,7 +36,7 @@ export class cls extends Persistence {
       headers: {},
     };
     return new Promise(function (resolve, reject) {
-      Request(options, async function (error: any, res: { body: any; }) {
+      Request(options, async function (error: any, res: { body: any }) {
         if (error) {
           reject(error);
         }
@@ -48,4 +48,3 @@ export class cls extends Persistence {
     });
   };
 }
-
