@@ -25,7 +25,7 @@ import { unwrapsplits } from "./transaction/splits/unwrap";
 import { wrapSplits } from "./transaction/splits/wrap";
 import { createRandomWallet, createStore, createWallet, decryptStore } from "./utilities/keys";
 
-let url = "http://localhost:1317";
+let url = config.testURL;
 
 const assetDefine = new defineAsset(url);
 const assetMint = new mintAsset(url);
