@@ -1,4 +1,4 @@
-import { Persistence } from "../../utilities/persistenceJS";
-export declare class recoverAccount extends Persistence {
-  recover: (mnemonic: string, name: string) => Promise<any>;
+import { AssetMantle } from "../../utilities/mantleJS";
+export declare class recoverAccount extends AssetMantle {
+    recover: (mnemonic: string, name: string) => Promise<any>;
 }

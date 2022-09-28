@@ -1,9 +1,9 @@
 import * as config from "../../config.json";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 import { getWallet } from "../../utilities/keys";
 import { MsgSend } from "@cosmjs/stargate/build/codec/cosmos/bank/v1beta1/tx";
 
-class keplr extends Persistence {
+class keplr extends AssetMantle {
   createMsg = async (
     msgSendTypeUrl: string,
     keplrAddress: string,

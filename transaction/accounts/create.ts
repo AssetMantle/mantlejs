@@ -1,8 +1,8 @@
 import * as config from "../../config.json";
 import Request from "request";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 
-export class createAccount extends Persistence {
+export class createAccount extends AssetMantle {
   create = async (
     address: string,
     chain_id: string,

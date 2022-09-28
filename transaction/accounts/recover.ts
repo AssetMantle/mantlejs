@@ -1,9 +1,9 @@
 import * as config from "../../config.json";
 import Request from "request";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 //import {Promise} from 'es6-promise';
 
-export class recoverAccount extends Persistence {
+export class recoverAccount extends AssetMantle {
   recover = async (mnemonic: string, name: string): Promise<any> => {
     let options = {
       method: "POST",

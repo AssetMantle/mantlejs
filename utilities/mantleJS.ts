@@ -1,4 +1,4 @@
-export class Persistence {
+export class AssetMantle {
   //field
   path: string;
 

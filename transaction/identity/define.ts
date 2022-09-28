@@ -1,10 +1,10 @@
 import * as config from "../../config.json";
 import Request from "request";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 import { broadcastTx } from "../../utilities/broadcastTx";
 import { getWallet } from "../../utilities/keys";
 
-export class defineIdentity extends Persistence {
+export class defineIdentity extends AssetMantle {
   define = async (
     address: string,
     chain_id: string,

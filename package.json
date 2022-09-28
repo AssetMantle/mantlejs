@@ -1,7 +1,7 @@
 {
-  "name": "persistencejs",
-  "version": "1.0.0",
-  "description": "Client side JS libraries for persistenceSDK transaction generation, signing and broadcasting.",
+  "name": "mantlejs",
+  "version": "0.1.0",
+  "description": "Client side JS libraries for AssetMantle SDK transaction generation, signing and broadcasting.",
   "main": "build/main.js",
   "types": "build/main.d.ts",
   "files": [
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/persistenceOne/persistenceJS.git"
+    "url": "git+https://github.com/AssetMantle/javascriptClient.git"
   },
-  "author": "admin@persistence.one",
+  "author": "kamlesh@assetmantle.one",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/persistenceOne/persistenceJS/issues"
+    "url": "https://github.com/AssetMantle/javascriptClient/issues"
   },
-  "homepage": "https://github.com/persistenceOne/persistenceJS#readme",
+  "homepage": "https://github.com/AssetMantle/javascriptClient#readme",
   "dependencies": {
     "@cosmjs/amino": "^0.25.5",
     "@cosmjs/launchpad": "^0.25.5",

@@ -1,10 +1,10 @@
 import Request from "request";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 import { broadcastTx } from "../../utilities/broadcastTx";
 import { getWallet } from "../../utilities/keys";
 import * as config from "../../config.json";
 
-export class bank extends Persistence {
+export class bank extends AssetMantle {
   sendCoin = async (
     from_address: string,
     chain_id: string,

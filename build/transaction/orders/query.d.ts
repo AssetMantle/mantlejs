@@ -1,5 +1,5 @@
-import { Persistence } from "../../utilities/persistenceJS";
-export declare class queryOrders extends Persistence {
-  queryOrder: () => Promise<any>;
-  queryOrderWithID: (id: any) => Promise<any>;
+import { AssetMantle } from "../../utilities/mantleJS";
+export declare class queryOrders extends AssetMantle {
+    queryOrder: () => Promise<any>;
+    queryOrderWithID: (id: any) => Promise<any>;
 }

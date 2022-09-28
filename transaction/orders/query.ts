@@ -1,8 +1,8 @@
 import * as config from "../../config.json";
 import Request from "request";
-import { Persistence } from "../../utilities/persistenceJS";
+import { AssetMantle } from "../../utilities/mantleJS";
 
-export class queryOrders extends Persistence {
+export class queryOrders extends AssetMantle {
   queryOrder = async (): Promise<any> => {
     let path = this.path;
 
