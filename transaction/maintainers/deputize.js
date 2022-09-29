@@ -81,7 +81,7 @@ var deputizeMaintainer = /** @class */ (function (_super) {
     __extends(deputizeMaintainer, _super);
     function deputizeMaintainer() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.deputize = function (address, chain_id, mnemonic, identityID, clsID, toID, maintainedTraits, addMaintainer, removeMaintainer, mutateMaintainer, feesAmount, feesToken, gas, mode, memo) { return __awaiter(_this, void 0, void 0, function () {
+        _this.deputize = function (address, chain_id, mnemonic, identityID, clsID, toID, maintainedProperties, addMaintainer, removeMaintainer, mutateMaintainer, feesAmount, feesToken, gas, mode, memo) { return __awaiter(_this, void 0, void 0, function () {
             var wallet, path, options;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -108,7 +108,7 @@ var deputizeMaintainer = /** @class */ (function (_super) {
                                     toID: toID,
                                     classificationID: clsID,
                                     fromID: identityID,
-                                    maintainedTraits: maintainedTraits,
+                                    maintainedProperties: maintainedProperties,
                                     addMaintainer: addMaintainer,
                                     removeMaintainer: removeMaintainer,
                                     mutateMaintainer: mutateMaintainer
@@ -130,7 +130,7 @@ var deputizeMaintainer = /** @class */ (function (_super) {
                 }
             });
         }); };
-        _this.createDeputizeMsg = function (address, chain_id, identityID, clsID, toID, maintainedTraits, addMaintainer, removeMaintainer, mutateMaintainer, feesAmount, feesToken, gas, memo) { return __awaiter(_this, void 0, void 0, function () {
+        _this.createDeputizeMsg = function (address, chain_id, identityID, clsID, toID, maintainedProperties, addMaintainer, removeMaintainer, mutateMaintainer, feesAmount, feesToken, gas, memo) { return __awaiter(_this, void 0, void 0, function () {
             var path, options;
             return __generator(this, function (_a) {
                 path = this.path;
@@ -153,7 +153,7 @@ var deputizeMaintainer = /** @class */ (function (_super) {
                             toID: toID,
                             classificationID: clsID,
                             fromID: identityID,
-                            maintainedTraits: maintainedTraits,
+                            maintainedProperties: maintainedProperties,
                             addMaintainer: addMaintainer,
                             removeMaintainer: removeMaintainer,
                             mutateMaintainer: mutateMaintainer
