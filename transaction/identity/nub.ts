@@ -1,8 +1,8 @@
-import * as config from "../../config.json";
 import Request from "request";
-import { AssetMantle } from "../../utilities/mantleJS";
+import * as config from "../../config.json";
 import { broadcastTx } from "../../utilities/broadcastTx";
 import { getWallet } from "../../utilities/keys";
+import { AssetMantle } from "../../utilities/mantleJS";
 
 export class nubIdentity extends AssetMantle {
   nub = async (
@@ -31,9 +31,9 @@ export class nubIdentity extends AssetMantle {
           baseReq: {
             from: address,
             chain_id: chain_id,
-            // memo: memo,
-            // fees: [{ amount: String(feesAmount), denom: feesToken }],
-            // gas: String(gas),
+            memo: memo,
+            fees: [{ amount: String(feesAmount), denom: feesToken }],
+            gas: String(gas),
           },
           nubID: nubID,
         },
@@ -57,7 +57,7 @@ export class nubIdentity extends AssetMantle {
             mnemonic,
             result.value,
             chain_id,
-            result.value.fee.gas,
+            config.FEE,
             config.GASPRICE,
             mode,
           ),

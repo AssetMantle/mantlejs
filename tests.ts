@@ -108,7 +108,7 @@ async function test() {
   );
 
   console.log("nub function executed");
-  
+
   let _res = JSON.parse(JSON.stringify(result));
   let check = await checkRawLog(_res.rawLog);
   if (check) {

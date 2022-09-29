@@ -72,11 +72,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 exports.nubIdentity = void 0;
-var config = __importStar(require("../../config.json"));
 var request_1 = __importDefault(require("request"));
-var mantleJS_1 = require("../../utilities/mantleJS");
+var config = __importStar(require("../../config.json"));
 var broadcastTx_1 = require("../../utilities/broadcastTx");
 var keys_1 = require("../../utilities/keys");
+var mantleJS_1 = require("../../utilities/mantleJS");
 var nubIdentity = /** @class */ (function (_super) {
     __extends(nubIdentity, _super);
     function nubIdentity() {
@@ -100,7 +100,10 @@ var nubIdentity = /** @class */ (function (_super) {
                                 value: {
                                     baseReq: {
                                         from: address,
-                                        chain_id: chain_id
+                                        chain_id: chain_id,
+                                        memo: memo,
+                                        fees: [{ amount: String(feesAmount), denom: feesToken }],
+                                        gas: String(gas)
                                     },
                                     nubID: nubID
                                 }
@@ -114,7 +117,7 @@ var nubIdentity = /** @class */ (function (_super) {
                                     }
                                     var result = JSON.parse(response.body);
                                     console.log("post result: ", result);
-                                    resolve(broadcastTx_1.broadcastTx(path, wallet, mnemonic, result.value, chain_id, result.value.fee.gas, config.GASPRICE, mode));
+                                    resolve(broadcastTx_1.broadcastTx(path, wallet, mnemonic, result.value, chain_id, config.FEE, config.GASPRICE, mode));
                                 });
                             })["catch"](function (error) {
                                 console.log("Promise Rejected: " + error);
