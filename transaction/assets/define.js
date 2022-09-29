@@ -81,7 +81,7 @@ var defineAsset = /** @class */ (function (_super) {
     __extends(defineAsset, _super);
     function defineAsset() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.define = function (address, chain_id, mnemonic, fromID, mutableTraits, immutableTraits, mutableMetaTraits, immutableMetaTraits, feesAmount, feesToken, gas, mode, memo) { return __awaiter(_this, void 0, void 0, function () {
+        _this.define = function (address, chain_id, mnemonic, fromID, mutableProperties, immutableProperties, mutableMetaProperties, immutableMetaProperties, feesAmount, feesToken, gas, mode, memo) { return __awaiter(_this, void 0, void 0, function () {
             var wallet, path, options;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -106,10 +106,10 @@ var defineAsset = /** @class */ (function (_super) {
                                         gas: String(gas)
                                     },
                                     fromID: fromID,
-                                    mutableTraits: mutableTraits,
-                                    immutableTraits: immutableTraits,
-                                    mutableMetaTraits: mutableMetaTraits,
-                                    immutableMetaTraits: immutableMetaTraits
+                                    mutableProperties: mutableProperties,
+                                    immutableProperties: immutableProperties,
+                                    mutableMetaProperties: mutableMetaProperties,
+                                    immutableMetaProperties: immutableMetaProperties
                                 }
                             })
                         };
@@ -128,7 +128,7 @@ var defineAsset = /** @class */ (function (_super) {
                 }
             });
         }); };
-        _this.createAssetDefineMsg = function (address, chain_id, fromID, mutableTraits, immutableTraits, mutableMetaTraits, immutableMetaTraits, feesAmount, feesToken, gas, memo) { return __awaiter(_this, void 0, void 0, function () {
+        _this.createAssetDefineMsg = function (address, chain_id, fromID, mutableProperties, immutableProperties, mutableMetaProperties, immutableMetaProperties, feesAmount, feesToken, gas, memo) { return __awaiter(_this, void 0, void 0, function () {
             var path, options;
             return __generator(this, function (_a) {
                 path = this.path;
@@ -149,10 +149,10 @@ var defineAsset = /** @class */ (function (_super) {
                                 gas: String(gas)
                             },
                             fromID: fromID,
-                            mutableTraits: mutableTraits,
-                            immutableTraits: immutableTraits,
-                            mutableMetaTraits: mutableMetaTraits,
-                            immutableMetaTraits: immutableMetaTraits
+                            mutableProperties: mutableProperties,
+                            immutableProperties: immutableProperties,
+                            mutableMetaProperties: mutableMetaProperties,
+                            immutableMetaProperties: immutableMetaProperties
                         }
                     })
                 };

@@ -108,7 +108,7 @@ var splitsUnwrap = new unwrap_1.unwrapsplits(url);
 var mnemonic = "wage thunder live sense resemble foil apple course spin horse glass mansion midnight laundry acoustic rhythm loan scale talent push green direct brick please";
 function test() {
     return __awaiter(this, void 0, void 0, function () {
-        var randomWallet, userGivenMnemonic, wallet, createdStore, keyRes, mnemonicRestored, result, _res, check, res, check_1, results, listResponse, clsID, classificationID, classificationID1, identityID1, identityID2, assetClsID, assetID, assetClsID1, assetID1, mutableMetaTraits, orderCls, orderID;
+        var randomWallet, userGivenMnemonic, wallet, createdStore, keyRes, mnemonicRestored, result, _res, check, res, check_1, results, listResponse, clsID, classificationID, classificationID1, identityID1, identityID2, assetClsID, assetID, assetClsID1, assetID1, mutableMetaProperties, orderCls, orderID;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -177,7 +177,7 @@ function test() {
                 case 10:
                     listResponse = _a.sent();
                     clsID = listResponse.classificationID + "|" + listResponse.hashID;
-                    return [4 /*yield*/, identityDefine.define(wallet.address, config.chain_id, mnemonic, clsID, "mutableTraits111:S|identity11543", "immutableTraits:S|identity22662", "mutableMetaTraits:S|identity34167", "immutableMetaTraits:S|identity45648", 25, "stake", 200000, "block", "")];
+                    return [4 /*yield*/, identityDefine.define(wallet.address, config.chain_id, mnemonic, clsID, "mutableProperties111:S|identity11543", "immutableProperties:S|identity22662", "mutableMetaProperties:S|identity34167", "immutableMetaProperties:S|identity45648", 25, "stake", 200000, "block", "")];
                 case 11:
                     res = _a.sent();
                     return [4 /*yield*/, helper_1.checkRawLog(res.rawLog)];
@@ -192,11 +192,11 @@ function test() {
                     return [4 /*yield*/, clsQuery.queryClassification()];
                 case 13:
                     results = _a.sent();
-                    return [4 /*yield*/, helper_1.FindInResponse("classifications", results, "immutableMetaTraits")];
+                    return [4 /*yield*/, helper_1.FindInResponse("classifications", results, "immutableMetaProperties")];
                 case 14:
                     listResponse = _a.sent();
                     classificationID = listResponse.chainID + "." + listResponse.hashID;
-                    return [4 /*yield*/, identityIssue.issue(wallet.address, config.chain_id, mnemonic, config.testAccountAddress, clsID, classificationID, "mutableTraits111:S|identity11543", "immutableTraits:S|identity22662", "mutableMetaTraits:S|identity34167", "immutableMetaTraits:S|identity45648", 25, "stake", 200000, "block", "")];
+                    return [4 /*yield*/, identityIssue.issue(wallet.address, config.chain_id, mnemonic, config.testAccountAddress, clsID, classificationID, "mutableProperties111:S|identity11543", "immutableProperties:S|identity22662", "mutableMetaProperties:S|identity34167", "immutableMetaProperties:S|identity45648", 25, "stake", 200000, "block", "")];
                 case 15:
                     res = _a.sent();
                     return [4 /*yield*/, helper_1.checkRawLog(res.rawLog)];
@@ -208,7 +208,7 @@ function test() {
                     else {
                         console.log("\n\n**TX failed for issue identity 1** :" + res.rawLog);
                     }
-                    return [4 /*yield*/, identityDefine.define(wallet.address, config.chain_id, mnemonic, clsID, "mutableTraits2:S|identity11543", "immutableTraits2:S|identity22662", "mutableMetaTraits2:S|identity34167", "immutableMetaTraits2:S|identity45648", 25, "stake", 200000, "block", "")];
+                    return [4 /*yield*/, identityDefine.define(wallet.address, config.chain_id, mnemonic, clsID, "mutableProperties2:S|identity11543", "immutableProperties2:S|identity22662", "mutableMetaProperties2:S|identity34167", "immutableMetaProperties2:S|identity45648", 25, "stake", 200000, "block", "")];
                 case 17:
                     res = _a.sent();
                     return [4 /*yield*/, helper_1.checkRawLog(res.rawLog)];
@@ -223,11 +223,11 @@ function test() {
                     return [4 /*yield*/, clsQuery.queryClassification()];
                 case 19:
                     results = _a.sent();
-                    return [4 /*yield*/, helper_1.FindInResponse("classifications", results, "immutableMetaTraits2")];
+                    return [4 /*yield*/, helper_1.FindInResponse("classifications", results, "immutableMetaProperties2")];
                 case 20:
                     listResponse = _a.sent();
                     classificationID1 = listResponse.chainID + "." + listResponse.hashID;
-                    return [4 /*yield*/, identityIssue.issue(wallet.address, config.chain_id, mnemonic, config.testAccountAddress, clsID, classificationID1, "mutableTraits2:S|identity11543", "immutableTraits2:S|identity22662", "mutableMetaTraits2:S|identity34167", "immutableMetaTraits2:S|identity45648", 25, "stake", 200000, "block", "")];
+                    return [4 /*yield*/, identityIssue.issue(wallet.address, config.chain_id, mnemonic, config.testAccountAddress, clsID, classificationID1, "mutableProperties2:S|identity11543", "immutableProperties2:S|identity22662", "mutableMetaProperties2:S|identity34167", "immutableMetaProperties2:S|identity45648", 25, "stake", 200000, "block", "")];
                 case 21:
                     res = _a.sent();
                     return [4 /*yield*/, helper_1.checkRawLog(res.rawLog)];
@@ -242,14 +242,14 @@ function test() {
                     return [4 /*yield*/, identityQuery.queryIdentity()];
                 case 23:
                     results = _a.sent();
-                    return [4 /*yield*/, helper_1.FindInResponse("identities", results, "immutableMetaTraits")];
+                    return [4 /*yield*/, helper_1.FindInResponse("identities", results, "immutableMetaProperties")];
                 case 24:
                     listResponse = _a.sent();
                     identityID1 = listResponse.classificationID + "|" + listResponse.hashID;
                     return [4 /*yield*/, identityQuery.queryIdentity()];
                 case 25:
                     results = _a.sent();
-                    return [4 /*yield*/, helper_1.FindInResponse("identities", results, "immutableMetaTraits2")];
+                    return [4 /*yield*/, helper_1.FindInResponse("identities", results, "immutableMetaProperties2")];
                 case 26:
                     listResponse = _a.sent();
                     identityID2 = listResponse.classificationID + "|" + listResponse.hashID;
@@ -449,8 +449,8 @@ function test() {
                     else {
                         console.log("\n\n**TX failed for Splits Send** :" + res.rawLog);
                     }
-                    mutableMetaTraits = "exchangeRate:D|1,makerOwnableSplit:D|0.000000000000000001,expiry:H|1000000,takerID:I|ID";
-                    return [4 /*yield*/, orderDefine.define(wallet.address, config.chain_id, mnemonic, identityID2, "description:S|", "Which Gift:S|Christmas Gift,What Gift:S|", mutableMetaTraits, "Gift:S|Exchange,AmazonOrderID:S|", 25, "stake", 200000, "block", "")];
+                    mutableMetaProperties = "exchangeRate:D|1,makerOwnableSplit:D|0.000000000000000001,expiry:H|1000000,takerID:I|ID";
+                    return [4 /*yield*/, orderDefine.define(wallet.address, config.chain_id, mnemonic, identityID2, "description:S|", "Which Gift:S|Christmas Gift,What Gift:S|", mutableMetaProperties, "Gift:S|Exchange,AmazonOrderID:S|", 25, "stake", 200000, "block", "")];
                 case 63:
                     res = _a.sent();
                     return [4 /*yield*/, helper_1.checkRawLog(res.rawLog)];
