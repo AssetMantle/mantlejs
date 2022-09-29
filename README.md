@@ -1,3 +1,4 @@
+
 <p style="text-align: center;">
   <img src="https://docs.assetmantle.one/assets/images/Mediakit/png/Horizontal_Dark.png" width="200" alt="AssetMantle">
 </p>
@@ -65,6 +66,5 @@ console.log(web3);
     ...
 }
 ```
-
 
 

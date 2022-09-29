@@ -1,12 +1,12 @@
 {
-  "name": "mantlejs",
-  "version": "0.1.0",
+  "name": "persistencejs",
+  "version": "1.0.0",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
-      "name": "mantlejs",
-      "version": "0.1.0",
+      "name": "persistencejs",
+      "version": "1.0.0",
       "license": "ISC",
       "dependencies": {
         "@cosmjs/amino": "^0.25.5",
