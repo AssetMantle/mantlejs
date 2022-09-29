@@ -147,10 +147,10 @@ async function test() {
       config.chain_id,
       mnemonic,
       clsID,
-      "mutableTraits111:S|identity11543",
-      "immutableTraits:S|identity22662",
-      "mutableMetaTraits:S|identity34167",
-      "immutableMetaTraits:S|identity45648",
+      "mutableProperties111:S|identity11543",
+      "immutableProperties:S|identity22662",
+      "mutableMetaProperties:S|identity34167",
+      "immutableMetaProperties:S|identity45648",
       25,
       "stake",
       200000,
@@ -165,7 +165,7 @@ async function test() {
     }
 
     results = await clsQuery.queryClassification();
-    listResponse = await FindInResponse("classifications", results, "immutableMetaTraits");
+    listResponse = await FindInResponse("classifications", results, "immutableMetaProperties");
     let classificationID = listResponse.chainID + "." + listResponse.hashID;
 
     res = await identityIssue.issue(
@@ -175,10 +175,10 @@ async function test() {
       config.testAccountAddress,
       clsID,
       classificationID,
-      "mutableTraits111:S|identity11543",
-      "immutableTraits:S|identity22662",
-      "mutableMetaTraits:S|identity34167",
-      "immutableMetaTraits:S|identity45648",
+      "mutableProperties111:S|identity11543",
+      "immutableProperties:S|identity22662",
+      "mutableMetaProperties:S|identity34167",
+      "immutableMetaProperties:S|identity45648",
       25,
       "stake",
       200000,
@@ -197,10 +197,10 @@ async function test() {
       config.chain_id,
       mnemonic,
       clsID,
-      "mutableTraits2:S|identity11543",
-      "immutableTraits2:S|identity22662",
-      "mutableMetaTraits2:S|identity34167",
-      "immutableMetaTraits2:S|identity45648",
+      "mutableProperties2:S|identity11543",
+      "immutableProperties2:S|identity22662",
+      "mutableMetaProperties2:S|identity34167",
+      "immutableMetaProperties2:S|identity45648",
       25,
       "stake",
       200000,
@@ -215,7 +215,7 @@ async function test() {
     }
 
     results = await clsQuery.queryClassification();
-    listResponse = await FindInResponse("classifications", results, "immutableMetaTraits2");
+    listResponse = await FindInResponse("classifications", results, "immutableMetaProperties2");
     let classificationID1 = listResponse.chainID + "." + listResponse.hashID;
 
     res = await identityIssue.issue(
@@ -225,10 +225,10 @@ async function test() {
       config.testAccountAddress,
       clsID,
       classificationID1,
-      "mutableTraits2:S|identity11543",
-      "immutableTraits2:S|identity22662",
-      "mutableMetaTraits2:S|identity34167",
-      "immutableMetaTraits2:S|identity45648",
+      "mutableProperties2:S|identity11543",
+      "immutableProperties2:S|identity22662",
+      "mutableMetaProperties2:S|identity34167",
+      "immutableMetaProperties2:S|identity45648",
       25,
       "stake",
       200000,
@@ -243,11 +243,11 @@ async function test() {
     }
 
     results = await identityQuery.queryIdentity();
-    listResponse = await FindInResponse("identities", results, "immutableMetaTraits");
+    listResponse = await FindInResponse("identities", results, "immutableMetaProperties");
     let identityID1 = listResponse.classificationID + "|" + listResponse.hashID;
 
     results = await identityQuery.queryIdentity();
-    listResponse = await FindInResponse("identities", results, "immutableMetaTraits2");
+    listResponse = await FindInResponse("identities", results, "immutableMetaProperties2");
     let identityID2 = listResponse.classificationID + "|" + listResponse.hashID;
 
     res = await identityProvision.provision(
@@ -561,7 +561,7 @@ async function test() {
       console.log("\n\n**TX failed for Splits Send** :" + res.rawLog);
     }
 
-    let mutableMetaTraits =
+    let mutableMetaProperties =
       "exchangeRate:D|1,makerOwnableSplit:D|0.000000000000000001,expiry:H|1000000,takerID:I|ID";
     res = await orderDefine.define(
       wallet.address,
@@ -570,7 +570,7 @@ async function test() {
       identityID2,
       "description:S|",
       "Which Gift:S|Christmas Gift,What Gift:S|",
-      mutableMetaTraits,
+      mutableMetaProperties,
       "Gift:S|Exchange,AmazonOrderID:S|",
       25,
       "stake",
