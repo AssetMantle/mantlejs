@@ -57,15 +57,17 @@ const mnemonic =
 async function test() {
   console.log("Creating random wallet...");
   let randomWallet = await createRandomWallet("");
-  console.log(randomWallet);
+  console.log("randomwallet: ", randomWallet);
 
   let userGivenMnemonic =
     "wage thunder live sense resemble foil apple course spin horse glass mansion midnight laundry acoustic rhythm loan scale talent push green direct brick please";
   console.log("Creating wallet from mnemonic...");
+
   let wallet = await createWallet(userGivenMnemonic, "");
-  console.log(wallet);
+  console.log("wallet: ", wallet);
 
   let createdStore = await createStore(wallet.mnemonic, "123123123");
+
   let keyRes = "";
   if (createdStore.error) {
     console.log(createdStore.error);
@@ -75,14 +77,15 @@ async function test() {
   }
 
   if (createdStore.error) {
-    console.log("Unable to store    Reason: " + createdStore.error);
+    console.log("Unable to store Reason: " + createdStore.error);
   }
 
   console.log("Reading keystore...");
   let mnemonicRestored = await decryptStore(keyRes, "123123123");
-  console.log(mnemonicRestored);
+  console.log("mnemonicRestored: ", mnemonicRestored);
 
-  let result = await nub(
+  console.log(
+    "nub arguments: ",
     wallet.address,
     config.chain_id,
     mnemonic,
@@ -92,6 +95,20 @@ async function test() {
     200000,
     "block",
   );
+
+  let result = await nub(
+    wallet.address,
+    config.chain_id,
+    mnemonic,
+    config.nubID,
+    0,
+    "stake",
+    200000,
+    "block",
+  );
+
+  console.log("nub function executed");
+  
   let _res = JSON.parse(JSON.stringify(result));
   let check = await checkRawLog(_res.rawLog);
   if (check) {

@@ -31,14 +31,16 @@ export class nubIdentity extends AssetMantle {
           baseReq: {
             from: address,
             chain_id: chain_id,
-            memo: memo,
-            fees: [{ amount: String(feesAmount), denom: feesToken }],
-            gas: String(gas),
+            // memo: memo,
+            // fees: [{ amount: String(feesAmount), denom: feesToken }],
+            // gas: String(gas),
           },
           nubID: nubID,
         },
       }),
     };
+
+    console.log("post method options: ", options);
 
     return new Promise(function (resolve, reject) {
       Request(options, function (error: any, response: { body: string }) {
@@ -46,6 +48,7 @@ export class nubIdentity extends AssetMantle {
           return reject(error);
         }
         let result = JSON.parse(response.body);
+        console.log("post result: ", result);
 
         resolve(
           broadcastTx(

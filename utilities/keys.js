@@ -109,7 +109,7 @@ exports.createWallet = function (mnemonic, bip39Passphrase) { return __awaiter(v
     });
 }); };
 exports.getWalletPath = function () {
-    return config.HDPath;
+    return "m/44'/118'/0'/0/0";
 };
 exports.createStore = function (mnemonic, password) {
     try {

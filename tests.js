@@ -116,13 +116,13 @@ function test() {
                     return [4 /*yield*/, keys_1.createRandomWallet("")];
                 case 1:
                     randomWallet = _a.sent();
-                    console.log(randomWallet);
+                    console.log("randomwallet: ", randomWallet);
                     userGivenMnemonic = "wage thunder live sense resemble foil apple course spin horse glass mansion midnight laundry acoustic rhythm loan scale talent push green direct brick please";
                     console.log("Creating wallet from mnemonic...");
                     return [4 /*yield*/, keys_1.createWallet(userGivenMnemonic, "")];
                 case 2:
                     wallet = _a.sent();
-                    console.log(wallet);
+                    console.log("wallet: ", wallet);
                     return [4 /*yield*/, keys_1.createStore(wallet.mnemonic, "123123123")];
                 case 3:
                     createdStore = _a.sent();
@@ -135,16 +135,18 @@ function test() {
                         keyRes = createdStore.Response;
                     }
                     if (createdStore.error) {
-                        console.log("Unable to store    Reason: " + createdStore.error);
+                        console.log("Unable to store Reason: " + createdStore.error);
                     }
                     console.log("Reading keystore...");
                     return [4 /*yield*/, keys_1.decryptStore(keyRes, "123123123")];
                 case 4:
                     mnemonicRestored = _a.sent();
-                    console.log(mnemonicRestored);
-                    return [4 /*yield*/, nub(wallet.address, config.chain_id, mnemonic, config.nubID, 25, "stake", 200000, "block")];
+                    console.log("mnemonicRestored: ", mnemonicRestored);
+                    console.log("nub arguments: ", wallet.address, config.chain_id, mnemonic, config.nubID, 25, "stake", 200000, "block");
+                    return [4 /*yield*/, nub(wallet.address, config.chain_id, mnemonic, config.nubID, 0, "stake", 200000, "block")];
                 case 5:
                     result = _a.sent();
+                    console.log("nub function executed");
                     _res = JSON.parse(JSON.stringify(result));
                     return [4 /*yield*/, helper_1.checkRawLog(_res.rawLog)];
                 case 6:

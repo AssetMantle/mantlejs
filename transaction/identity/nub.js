@@ -100,21 +100,20 @@ var nubIdentity = /** @class */ (function (_super) {
                                 value: {
                                     baseReq: {
                                         from: address,
-                                        chain_id: chain_id,
-                                        memo: memo,
-                                        fees: [{ amount: String(feesAmount), denom: feesToken }],
-                                        gas: String(gas)
+                                        chain_id: chain_id
                                     },
                                     nubID: nubID
                                 }
                             })
                         };
+                        console.log("post method options: ", options);
                         return [2 /*return*/, new Promise(function (resolve, reject) {
                                 request_1["default"](options, function (error, response) {
                                     if (error) {
                                         return reject(error);
                                     }
                                     var result = JSON.parse(response.body);
+                                    console.log("post result: ", result);
                                     resolve(broadcastTx_1.broadcastTx(path, wallet, mnemonic, result.value, chain_id, result.value.fee.gas, config.GASPRICE, mode));
                                 });
                             })["catch"](function (error) {
