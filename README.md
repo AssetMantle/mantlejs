@@ -732,6 +732,232 @@ const handleSubmit = async event => {
     gas: any,
     memo: string,
   ) => Promise<any>;`
+  <p>---------------</p>
+  
+#### <ins>wrapSplits.wrap</ins>
+<p>used to wrap a coin into a split, which is then used for transacting (transfer of value) in AssetMantle's NFT Economy. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`wrap: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    coins: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>wrapSplits.createSplitsWrapMsg</ins>
+<p>used to wrap a coin into a split, which is then used for transacting (transfer of value) in AssetMantle's NFT Economy. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createSplitsWrapMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    coins: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+  <p>---------------</p>
+  
+#### <ins>unwrapsplits.unwrap</ins>
+<p>used to unwrap a split back into a coin, which is then used for transacting (transfer of value) in Cosmos Economy and beyond.   Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`unwrap: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    ownableID: string,
+    split: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>unwrapsplits.createSplitsUnwrapMsg</ins>
+<p>used to unwrap a split back into a coin, which is then used for transacting (transfer of value) in Cosmos Economy and beyond. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createSplitsUnwrapMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    ownableID: string,
+    split: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+  <p>---------------</p>
+
+
+
+<hr>
+
+### transaction / accounts
+<p> APIs pertaining to creating an account in AssetMantle chain for storing and transacting on coins </p>
+
+#### <ins>createAccount.create</ins>
+<p>used to create and initiate an account in the AssetMantle chain</p>
+<p><strong>Function Signature</strong></p>
+
+`create: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    name: string,
+    denom: string,
+    amount: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>recoverAccount.recover</ins>
+<p>used to recover an existing account using a mnemonic</p>
+<p><strong>Function Signature</strong></p>
+
+`recover: (mnemonic: string, name: string) => Promise<any>;`
+
+
+  
+<hr>
+  
+### transaction / bank
+<p> APIs pertaining to transfer of value of coins in the AssetMantle chain and beyond. </p>
+
+#### <ins>bank.sendCoin</ins>
+<p> APIs pertaining to transfer of value of coins in the AssetMantle chain and beyond. </p>
+<p><strong>Function Signature</strong></p>
+
+`create: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    name: string,
+    denom: string,
+    amount: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>bank.createSendCoinMsg</ins>
+<p> APIs pertaining to transfer of value of coins in the AssetMantle chain and beyond. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createSendCoinMsg: (
+    from_address: string,
+    chain_id: string,
+    to_address: string,
+    denom: string,
+    amount: string,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+  <p>---------------</p>
+
+  
+<hr>
+
+### utilities / keys
+<p> APIs pertaining to creation of wallets and keystores in the AssetMantle chain. </p>
+
+#### <ins>createWallet</ins>
+<p>used to create a wallet using a mnemonic and a bip39 passphrase. </p>
+<p><strong>Function Signature</strong></p>
+
+`createWallet: (
+  mnemonic: string,
+  bip39Passphrase: string,
+) => Promise<{
+  address: string;
+  mnemonic: string;
+}>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>createRandomWallet</ins>
+<p>used to create a wallet using a bip39 passphrase, while the mnemonic is generated automatically. </p>
+<p><strong>Function Signature</strong></p>
+
+`createRandomWallet: (bip39Passphrase: string) => Promise<{
+  address: string;
+  mnemonic: string;
+}>;`
+<p>---------------</p>
+
+
+
+#### <ins>getWallet</ins>
+<p>used to get the object pertaining to already created wallet, pertaining to a certain mnemonic and bip39 passphrase </p>
+<p><strong>Function Signature</strong></p>
+
+`getWallet: (mnemonic: string, bip39Passphrase: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>createStore</ins>
+<p>used to create a encrypted keystore using a specified mnemonic and password </p>
+<p><strong>Function Signature</strong></p>
+
+`createStore: (
+  mnemonic: string,
+  password: string,
+) => {
+  Response: any;
+  error: any;
+};`
+<p>---------------</p>
+
+
+
+
+#### <ins>decryptStore</ins>
+<p>used to decrypt / open and encrypted keystore file, by specifying the file path and a password to decrypt. </p>
+<p><strong>Function Signature</strong></p>
+
+`decryptStore: (
+  fileData: any,
+  password: string,
+) => {
+  mnemonic: any;
+};`
+<p>---------------</p>
+
+
 
 <hr>
 
