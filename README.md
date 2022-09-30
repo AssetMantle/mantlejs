@@ -350,6 +350,299 @@ const handleSubmit = async event => {
 
 <hr>
 
+### transaction / classification
+<p> APIs pertaining to manipulating the Classifications or schemas of entities created </p>
+
+#### <ins>cls.queryClassification</ins>
+<p>used to query the details of all Classifications IDs. </p>
+<p><strong>Function Signature</strong></p>
+
+`queryClassification: () => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>cls.queryClassificationWithID</ins>
+<p>used to query the details of Classification IDs pertaining to the ID argument provided in the function</p>
+<p><strong>Function Signature</strong></p>
+
+`queryClassificationWithID: (id: any) => Promise<any>;`
+<p>---------------</p>
+
+
+<hr>
+
+### transaction / maintainer
+<p> APIs pertaining to managing the maintainers and access control lists of various entities </p>
+
+#### <ins>deputizeMaintainer.deputize</ins>
+<p>used to provide or revoke access controls to new maintainer roles. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`deputize: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    identityID: string,
+    clsID: string,
+    toID: string,
+    maintainedTraits: string,
+    addMaintainer: any,
+    removeMaintainer: any,
+    mutateMaintainer: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>deputizeMaintainer.createDeputizeMsg</ins>
+<p>used to provide or revoke access controls to new maintainer roles. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createDeputizeMsg: (
+    address: string,
+    chain_id: string,
+    identityID: string,
+    clsID: string,
+    toID: string,
+    maintainedTraits: string,
+    addMaintainer: any,
+    removeMaintainer: any,
+    mutateMaintainer: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+#### <ins>queryMaintainer.queryMaintainerWithID</ins>
+<p>used to query the details of Classification IDs pertaining to the ID argument provided in the function</p>
+<p><strong>Function Signature</strong></p>
+
+`queryMaintainerWithID: (id: any) => Promise<any>;`
+<p>---------------</p>
+
+
+<hr>
+
+### transaction / order
+<p> APIs pertaining to manipulating the 'order', a DID based entity used to represent orders created to perform a transfer of value between 'identities' and 'assets'. </p>
+
+#### <ins>defineOrder.define</ins>
+<p>used to define a schema for an order type.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`define: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    mutableTraits: string,
+    immutableTraits: any,
+    mutableMetaTraits: any,
+    immutableMetaTraits: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>defineOrder.createOrderDefineMsg</ins>
+<p>used to define a schema for an order type. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createOrderDefineMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    mutableTraits: string,
+    immutableTraits: any,
+    mutableMetaTraits: any,
+    immutableMetaTraits: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+#### <ins>makeOrder.make</ins>
+<p>used to issue an order pertaining to a specific classification.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`make: (
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    fromID: string,
+    classificationID: any,
+    makerOwnableID: string,
+    takerOwnableID: string,
+    expiresIn: any,
+    makerOwnableSplit: any,
+    mutableProperties: string,
+    immutableProperties: any,
+    mutableMetaProperties: any,
+    immutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>makeOrder.createOrderMakeMsg</ins>
+<p>used to issue an order pertaining to a specific classification. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createOrderMakeMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    classificationID: any,
+    makerOwnableID: string,
+    takerOwnableID: string,
+    expiresIn: any,
+    makerOwnableSplit: any,
+    mutableProperties: string,
+    immutableProperties: any,
+    mutableMetaProperties: any,
+    immutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+#### <ins>takeOrder.take</ins>
+<p>used to accept an issued order pertaining to a specific order ID.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`take: (
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    fromID: string,
+    takerOwnableSplit: any,
+    orderID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>takeOrder.createOrderTakeMsg</ins>
+<p>used to accept an issued order pertaining to a specific order ID. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createOrderTakeMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    takerOwnableSplit: any,
+    orderID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+#### <ins>cancelOrder.cancel</ins>
+<p>used to cancel an issued order pertaining to a specific order ID.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`cancel: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    orderID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>cancelOrder.createOrderCancelMsg</ins>
+<p>used to cancel an issued order pertaining to a specific order ID. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createOrderCancelMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    orderID: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+#### <ins>queryOrders.queryOrder</ins>
+<p>used to query for the list of all orders available </p>
+<p><strong>Function Signature</strong></p>
+
+`queryOrder: () => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>queryOrders.queryOrderWithID</ins>
+<p>used to query for a specifc order pertaining to an order ID </p>
+<p><strong>Function Signature</strong></p>
+
+`queryOrderWithID: (id: any) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
