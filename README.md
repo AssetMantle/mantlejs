@@ -51,20 +51,148 @@ yarn add mantlejs
 
 
 
-## Usage
+## Example Usage
 
 ```js
-// In Node.js
-const Web3 = require('web3');
-const web3 = new Web3('ws://localhost:8546');
-console.log(web3);
-// Output
-{
-    eth: ... ,
-    shh: ... ,
-    utils: ...,
-    ...
+import {queryIdentities} from "mantlejs/build/transaction/identity/query";
+
+// get the queryIdentities controller object to perform the query
+const queryIdentitiesControllerObj = new queryIdentities(process.env.REACT_APP_ASSET_MANTLE_API);
+
+const handleSubmit = async event => {
+        event.preventDefault();
+        const IdentityName = event.target.identityname.value;
+        // create double hash
+        const hashGenerate = GetMetaHelper.Hash(GetMetaHelper.Hash(IdentityName));
+        // build identityID using nub classificationID and the generated hash
+        const identityID = config.nubClassificationID+'|'+hashGenerate;
+        // query identities in the chain associated with the particular identityID
+        const identitiesPromise = queryIdentitiesControllerObj.queryIdentityWithID(identityID);
 }
+
 ```
+
+## API List
+<p>The list of critical JS API endpoints which acts as the interface to the AssetMantle SDK, used for rapid Javascript based DApp prototyping</p>
+
+### transaction / identity
+<p> APIs pertaining to manipulating the 'identity', a DID based entity used to represent identity of user. </p>
+
+#### <ins>defineIdentity.define</ins>
+<p>used to define an identity entity. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`define: (address: string, chain_id: string, mnemonic: string, fromID: string, mutableTraits: string, immutableTraits: any, mutableMetaTraits: any, immutableMetaTraits: any, feesAmount: any, feesToken: any, gas: any, mode: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+#### <ins>defineIdentity.createIdentityDefineMsg</ins>
+<p>used to define an identity entity. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createIdentityDefineMsg: (address: string, chain_id: string, fromID: string, mutableTraits: string, immutableTraits: any, mutableMetaTraits: any, immutableMetaTraits: any, feesAmount: any, feesToken: any, gas: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+#### <ins>issueIdentity.issue</ins>
+<p>used to issue an identity entity. Defines a message and initiates the transaction.</p>
+<p><strong>Function Signature</strong></p>
+
+`issue: (address: string, chain_id: string, mnemonic: any, to: any, fromID: string, classificationID: any, mutableProperties: string, immutableProperties: any, mutableMetaProperties: any, immutableMetaProperties: any, feesAmount: any, feesToken: any, gas: any, mode: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+#### <ins>issueIdentity.createIdentityIssueMsg</ins>
+<p>used to issue an identity entity. Only defines and outputs a message object.</p>
+<p><strong>Function Signature</strong></p>
+
+`createIdentityIssueMsg: (address: string, chain_id: string, to: any, fromID: string, classificationID: any, mutableProperties: string, immutableProperties: any, mutableMetaProperties: any, immutableMetaProperties: any, feesAmount: any, feesToken: any, gas: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+#### <ins>nubIdentity.nub</ins>
+<p>used to create a nub ID, which is the simplest but complete and valid unit of identification. Defines a message and initiates the transaction.</p>
+<p><strong>Function Signature</strong></p>
+
+`nub: (address: string, chain_id: string, mnemonic: any, nubID: any, feesAmount: any, feesToken: any, gas: any, mode: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>nubIdentity.createIdentityNubMsg</ins>
+<p>used to create a nub ID, which is the simplest but complete and valid unit of identification. Only defines and outputs a message object.</p>
+<p><strong>Function Signature</strong></p>
+
+`createIdentityNubMsg: (address: string, chain_id: string, nubID: any, feesAmount: any, feesToken: any, gas: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>provisionIdentity.provision</ins>
+<p>used to create a provision address which is used to control / operate an identity. a nub ID, which is the simplest but complete and valid unit of identification. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`provision: (address: string, chain_id: string, mnemonic: any, identityID: any, to: any, feesAmount: any, feesToken: any, gas: any, mode: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>provisionIdentity.createIdentityProvisionMsg</ins>
+<p>used to create a provision address which is used to control / operate an identity. Only defines and outputs a message object</p>
+<p><strong>Function Signature</strong></p>
+
+`createIdentityProvisionMsg: (address: string, chain_id: string, identityID: any, to: any, feesAmount: any, feesToken: any, gas: any, memo: string) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>queryIdentities.queryIdentity</ins>
+<p>used to query the list of all identities. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`queryIdentity: () => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>queryIdentities.queryIdentityWithID</ins>
+<p>used to query the list of all identities pertaining to a certain ID argument passed. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`queryIdentityWithID: (id: any) => Promise<any>;`
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
