@@ -42,11 +42,21 @@ If you want to contribute to MantleJS, please read the instructions in [CODING_G
 ```bash
 npm install mantlejs
 ```
+<p>OR</p>
+
+```bash
+npm install "https://github.com/AssetMantle/javascriptClient.git"
+```
 
 ### Yarn
 
 ```bash
 yarn add mantlejs
+```
+<p>OR</p>
+
+```bash
+yarn add "https://github.com/AssetMantle/javascriptClient.git"
 ```
 
 
