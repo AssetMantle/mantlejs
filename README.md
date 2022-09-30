@@ -430,7 +430,6 @@ const handleSubmit = async event => {
 <p><strong>Function Signature</strong></p>
 
 `queryMaintainerWithID: (id: any) => Promise<any>;`
-<p>---------------</p>
 
 
 <hr>
@@ -628,7 +627,116 @@ const handleSubmit = async event => {
 <p><strong>Function Signature</strong></p>
 
 `queryOrderWithID: (id: any) => Promise<any>;`
+
+
+<hr>
+
+### transaction / meta
+<p> APIs pertaining to querying a certain meta property across the entities </p>
+
+#### <ins>queryMeta.queryMetaWithID</ins>
+<p>used to query for a meta property of entities of a certain ID </p>
+<p><strong>Function Signature</strong></p>
+
+`queryMetaWithID: (id: any) => Promise<any>;`
 <p>---------------</p>
+
+
+
+
+#### <ins>revealMeta.reveal</ins>
+<p>used to cancel an issued order pertaining to a specific order ID.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`reveal: (
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    metaFact: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>revealMeta.createMetaRevealMsg</ins>
+<p>used to cancel an issued order pertaining to a specific order ID. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createMetaRevealMsg: (
+    address: string,
+    chain_id: string,
+    metaFact: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+
+<hr>
+
+### transaction / splits
+<p> APIs pertaining to creating and manipulating fractionalizing of NFTs and their correlation with FTs </p>
+
+#### <ins>querySplits.querySplitsWithID</ins>
+<p>used to query a split (fractional NFT) using a specific ID </p>
+<p><strong>Function Signature</strong></p>
+
+`querySplitsWithID: (id: any) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>sendSplits.send</ins>
+<p>used to send a split from one identity to another.  Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`send: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    toID: string,
+    ownableID: string,
+    split: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>sendSplits.createSplitsSendMsg</ins>
+<p>used to send a split from one identity to another. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createSplitsSendMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    toID: string,
+    ownableID: string,
+    split: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+
+<hr>
+
+
+
 
 
 
