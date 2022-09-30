@@ -170,6 +170,186 @@ const handleSubmit = async event => {
 `queryIdentityWithID: (id: any) => Promise<any>;`
 <hr>
 
+### transaction / assets
+<p> APIs pertaining to manipulating the 'assets', a DID based entity used to represent NFTs. </p>
+
+#### <ins>burnAsset.burn</ins>
+<p>used to burn an Asset. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`burn: (address: string, chain_id: string, mnemonic: string, fromID: string, assetID: string, feesAmount: any, feesToken: any, gas: any, mode: any, memo: string,  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>burnAsset.createAssetBurnMsg</ins>
+<p>used to burn an Asset. Only defines and outputs a message object</p>
+<p><strong>Function Signature</strong></p>
+
+`createAssetBurnMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    assetID: string,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+#### <ins>defineAsset.define</ins>
+<p>used to define the schema of an Asset. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`define: (
+    address: string,
+    chain_id: string,
+    mnemonic: string,
+    fromID: string,
+    mutableTraits: string,
+    immutableTraits: any,
+    mutableMetaTraits: any,
+    immutableMetaTraits: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>defineAsset.createAssetDefineMsg</ins>
+<p>used to define the schema of an Asset. Only defines and outputs a message object</p>
+<p><strong>Function Signature</strong></p>
+
+`createAssetDefineMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    mutableTraits: string,
+    immutableTraits: any,
+    mutableMetaTraits: any,
+    immutableMetaTraits: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+#### <ins>mintAsset.mint</ins>
+<p>used to mint an asset using the defined schema. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+` mint: (
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    toID: any,
+    fromID: string,
+    classificationID: any,
+    mutableProperties: string,
+    immutableProperties: any,
+    mutableMetaProperties: any,
+    immutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>mintAsset.createAssetMintMsg</ins>
+<p>used to mint an asset using the defined schema. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createAssetMintMsg: (
+    address: string,
+    chain_id: string,
+    toID: any,
+    fromID: string,
+    classificationID: any,
+    mutableProperties: string,
+    immutableProperties: any,
+    mutableMetaProperties: any,
+    immutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+#### <ins>mutateAsset.mutate</ins>
+<p>used to change the mutable properties of an Asset. These specific properties must be already defined as mutable in the schema of asset. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`mutate: (
+    address: string,
+    chain_id: string,
+    mnemonic: any,
+    fromID: string,
+    assetID: any,
+    mutableProperties: string,
+    mutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    mode: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>mutateAsset.createAssetMutateMsg</ins>
+<p>used to change the mutable properties of an Asset. These specific properties must be already defined as mutable in the schema of asset. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`createAssetMutateMsg: (
+    address: string,
+    chain_id: string,
+    fromID: string,
+    assetID: any,
+    mutableProperties: string,
+    mutableMetaProperties: any,
+    feesAmount: any,
+    feesToken: any,
+    gas: any,
+    memo: string,
+  ) => Promise<any>;`
+<p>---------------</p>
+
+
+#### <ins>queryAssets.queryAsset</ins>
+<p>used to change the mutable properties of an Asset. These specific properties must be already defined as mutable in the schema of asset. Defines a message and initiates the transaction. </p>
+<p><strong>Function Signature</strong></p>
+
+`queryAsset: () => Promise<any>;`
+<p>---------------</p>
+
+
+
+
+#### <ins>queryAssets.queryAssetWithID</ins>
+<p>used to change the mutable properties of an Asset. These specific properties must be already defined as mutable in the schema of asset. Only defines and outputs a message object. </p>
+<p><strong>Function Signature</strong></p>
+
+`queryAssetWithID: (id: any) => Promise<any>;`
+
+
+<hr>
+
 
 
 
