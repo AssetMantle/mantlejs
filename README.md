@@ -40,7 +40,7 @@ If you want to contribute to MantleJS, please read the instructions in [CODING_G
 ### Node
 
 ```bash
-npm install mantlejs
+npm install @assetmantle/mantlejs
 ```
 <p>OR</p>
 
@@ -51,7 +51,7 @@ npm install "https://github.com/AssetMantle/javascriptClient.git"
 ### Yarn
 
 ```bash
-yarn add mantlejs
+yarn add @assetmantle/mantlejs
 ```
 <p>OR</p>
 
