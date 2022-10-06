@@ -7,8 +7,8 @@
   <h1>MantleJS</h1>
 
 [![License: Apache-2.0](https://img.shields.io/github/license/assetmantle/modules.svg)](https://github.com/assetmantle/modules/blob/main/LICENSE)
-[![Lines Of Code](https://img.shields.io/tokei/lines/github/assetmantle/javascriptClient)](https://github.com/assetmantle/javascriptClient)
-[![Version](https://img.shields.io/github/tag/assetmantle/javascriptClient.svg?cacheSeconds=3600)](https://github.com/assetmantle/javascriptClient/latest)
+[![Lines Of Code](https://img.shields.io/tokei/lines/github/assetmantle/mantlejs)](https://github.com/assetmantle/mantlejs)
+[![Version](https://img.shields.io/github/tag/assetmantle/mantlejs.svg?cacheSeconds=3600)](https://github.com/assetmantle/mantlejs/latest)
 
 </div>
 
@@ -32,7 +32,7 @@ If you want to contribute to MantleJS, please read the instructions in [CODING_G
         <h3 style="margin:-5px 10px 5px;">Contributors</h3>
         <hr align="left" width="20%">
     </div>
-    <img src="https://contrib.rocks/image?repo=assetmantle/javascriptClient&columns=80" style="width:1000;"/>
+    <img src="https://contrib.rocks/image?repo=assetmantle/mantlejs&columns=80" style="width:1000;"/>
 </div>
 
 ## Installation
@@ -45,7 +45,7 @@ npm install @assetmantle/mantlejs
 <p>OR</p>
 
 ```bash
-npm install "https://github.com/AssetMantle/javascriptClient.git"
+npm install "https://github.com/AssetMantle/mantlejs.git"
 ```
 
 ### Yarn
@@ -56,7 +56,7 @@ yarn add @assetmantle/mantlejs
 <p>OR</p>
 
 ```bash
-yarn add "https://github.com/AssetMantle/javascriptClient.git"
+yarn add "https://github.com/AssetMantle/mantlejs.git"
 ```
 
 
