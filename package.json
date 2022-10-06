@@ -1,6 +1,6 @@
 {
   "name": "@assetmantle/mantlejs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Client side JS libraries for AssetMantle SDK transaction generation, signing and broadcasting.",
   "main": "build/main.js",
   "types": "build/main.d.ts",
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AssetMantle/javascriptClient.git"
+    "url": "git+https://github.com/AssetMantle/mantlejs.git"
   },
   "author": "kamlesh@assetmantle.one",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AssetMantle/javascriptClient/issues"
+    "url": "https://github.com/AssetMantle/mantlejs/issues"
   },
-  "homepage": "https://github.com/AssetMantle/javascriptClient#readme",
+  "homepage": "https://github.com/AssetMantle/mantlejs#readme",
   "dependencies": {
     "@cosmjs/amino": "^0.25.5",
     "@cosmjs/launchpad": "^0.25.5",
