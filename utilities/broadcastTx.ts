@@ -1,7 +1,7 @@
-import * as config from "../config.json";
-import { getAccount } from "../helpers/helper";
 import { Secp256k1HdWallet } from "@cosmjs/amino";
 import { GasPrice, SigningCosmosClient } from "@cosmjs/launchpad";
+import * as config from "../config.json";
+import { getAccount } from "../helpers/helper";
 
 export const broadcastTx = async (
   path: any,
@@ -19,6 +19,8 @@ export const broadcastTx = async (
     raw_log: "",
   };
   return new Promise(async (resolve, reject) => {
+    console.log("Account Data: ", getAcc);
+
     if (getAcc.hasOwnProperty("error")) {
       data.raw_log = "Account for " + wallet.address + " not found.";
       return reject(data);
@@ -34,7 +36,14 @@ export const broadcastTx = async (
 
     let calculateGas = await GasPrice.fromString(concatGas);
 
-    let client = new SigningCosmosClient(config.testURL, wallet.address, _wallet, calculateGas, gas, mode);
+    let client = new SigningCosmosClient(
+      config.TENDERMINT_REST_URL,
+      wallet.address,
+      _wallet,
+      calculateGas,
+      gas,
+      mode,
+    );
 
     let response = await client.signAndBroadcast(tx.msg, tx.fee, "");
     resolve(response);
