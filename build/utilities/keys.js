@@ -43,9 +43,9 @@ exports.decryptStore =
   exports.createRandomWallet =
   exports.getWallet =
     void 0;
-const bip39 = __importStar(require("bip39"));
-const bip32 = __importStar(require("bip32"));
 const tmSig = __importStar(require("@tendermint/sig"));
+const bip32 = __importStar(require("bip32"));
+const bip39 = __importStar(require("bip39"));
 const crypto = __importStar(require("crypto"));
 const config = __importStar(require("../config.json"));
 const passwordHashAlgorithm = "sha512";

@@ -37,41 +37,30 @@ var __importStar =
   };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.broadcastTx = void 0;
+const proto_signing_1 = require("@cosmjs/proto-signing");
+const stargate_1 = require("@cosmjs/stargate");
 const config = __importStar(require("../config.json"));
-const helper_1 = require("../helpers/helper");
-const amino_1 = require("@cosmjs/amino");
-const launchpad_1 = require("@cosmjs/launchpad");
 exports.broadcastTx = async (path, wallet, mnemonic, tx, chainID, gas, gasPrice, mode) => {
-  let getAcc = await helper_1.getAccount(wallet.address, path);
-  let data = {
-    raw_log: "",
-  };
-  return new Promise(async (resolve, reject) => {
-    if (getAcc.hasOwnProperty("error")) {
-      data.raw_log = "Account for " + wallet.address + " not found.";
-      return reject(data);
-    }
-    if (Object.keys(getAcc.result.value.address).length === 0) {
-      data.raw_log = "Account for " + wallet.address + " not found.";
-      return reject(data);
-    }
-    const _wallet = await amino_1.Secp256k1HdWallet.fromMnemonic(mnemonic);
-    let concatGas = gasPrice + "stake";
-    let calculateGas = await launchpad_1.GasPrice.fromString(concatGas);
-    let client = new launchpad_1.SigningCosmosClient(
-      config.testURL,
-      wallet.address,
-      _wallet,
-      calculateGas,
-      gas,
-      mode,
+  try {
+    // create a signer object
+    const signer = await proto_signing_1.DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
+      prefix: config.prefix,
+    });
+    const account = await wallet.getAccounts();
+    const addressLocal = account[0].address;
+    console.log("Sending Address: ", addressLocal);
+    // get Stargate client using the signer and RPC endpoint
+    const client = await stargate_1.SigningStargateClient.connectWithSigner(
+      config.TENDERMINT_RPC_URL, // Replace with your own RPC endpoint
+      signer,
     );
-    let response = await client.signAndBroadcast(tx.msg, tx.fee, "");
-    resolve(response);
-  }).catch((error) => {
-    console.log("Promise Rejected: " + error);
+    //initiate sign and broadcast from the stargate client
+    let response = await client.signAndBroadcast(addressLocal, tx.msg, tx.fee, tx.memo || "");
+    return response;
+  } catch (error) {
+    console.error("Error during txn broadcast: ", error);
     return error;
-  });
+  }
 };
 const getTxResponse = (response) => {
   return new Promise((resolve, reject) => {

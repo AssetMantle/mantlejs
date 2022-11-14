@@ -67,7 +67,7 @@
   "queryMetaWithID": "/xprt/metas/metas/",
   "queryMaintainerWithID": "/xprt/maintainers/maintainers/",
   "queryTx": "/txs/",
-  "HDPath": "m/44'/750'/0'/0/0",
+  "HDPath": "m/44'/118'/0'/0/0",
   "msgSend": "cosmos-sdk/MsgSend",
   "splitVal": "0.0000000000000001",
   "coins": "100000umntl",

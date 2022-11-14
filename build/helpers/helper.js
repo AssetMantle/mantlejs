@@ -101,7 +101,8 @@ exports.FindInResponse = (type, list, id) => {
       case "classifications":
         list.forEach(function (value) {
           if (
-            value.value.immutableTraits.value.properties.value.propertyList[0].value.id.value.idString === id
+            value.value.immutableProperties.value.properties.value.propertyList[0].value.id.value.idString ===
+            id
           ) {
             data.chainID = value.value.id.value.chainID.value.idString;
             data.hashID = value.value.id.value.hashID.value.idString;

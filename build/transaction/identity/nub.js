@@ -42,11 +42,11 @@ var __importDefault =
   };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nubIdentity = void 0;
-const config = __importStar(require("../../config.json"));
 const request_1 = __importDefault(require("request"));
-const mantleJS_1 = require("../../utilities/mantleJS");
+const config = __importStar(require("../../config.json"));
 const broadcastTx_1 = require("../../utilities/broadcastTx");
 const keys_1 = require("../../utilities/keys");
+const mantleJS_1 = require("../../utilities/mantleJS");
 class nubIdentity extends mantleJS_1.AssetMantle {
   constructor() {
     super(...arguments);
@@ -73,12 +73,14 @@ class nubIdentity extends mantleJS_1.AssetMantle {
           },
         }),
       };
+      console.log("post method options: ", options);
       return new Promise(function (resolve, reject) {
         request_1.default(options, function (error, response) {
           if (error) {
             return reject(error);
           }
           let result = JSON.parse(response.body);
+          console.log("post result: ", result);
           resolve(
             broadcastTx_1.broadcastTx(
               path,
@@ -86,7 +88,7 @@ class nubIdentity extends mantleJS_1.AssetMantle {
               mnemonic,
               result.value,
               chain_id,
-              result.value.fee.gas,
+              config.FEE,
               config.GASPRICE,
               mode,
             ),

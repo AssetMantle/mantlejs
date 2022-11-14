@@ -1,6 +1,6 @@
 {
   "name": "@assetmantle/mantlejs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Client side JS libraries for AssetMantle SDK transaction generation, signing and broadcasting.",
   "main": "build/main.js",
   "types": "build/main.d.ts",
@@ -18,7 +18,6 @@
     "test": "yarn build-or-skip && yarn test-node",
     "clean": "NODE_ENV=development ./scripts/prepare.sh",
     "format": "prettier --write ."
-    
   },
   "repository": {
     "type": "git",
@@ -33,6 +32,8 @@
   "dependencies": {
     "@cosmjs/amino": "^0.25.5",
     "@cosmjs/launchpad": "^0.25.5",
+    "@cosmjs/proto-signing": "^0.29.3",
+    "@cosmjs/stargate": "^0.29.3",
     "@tendermint/amino-js": "^0.6.2",
     "@tendermint/belt": "^0.3.0",
     "@tendermint/sig": "^0.6.0",
@@ -52,7 +53,6 @@
     "typescript": "^3.9.3"
   },
   "devDependencies": {
-    "@cosmjs/stargate": "^0.25.4",
     "@types/node": "^10.17.60",
     "@types/node-fetch": "^2.5.10"
   },

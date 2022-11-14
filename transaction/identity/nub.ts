@@ -51,16 +51,7 @@ export class nubIdentity extends AssetMantle {
         console.log("post result: ", result);
 
         resolve(
-          broadcastTx(
-            path,
-            wallet,
-            mnemonic,
-            result.value,
-            chain_id,
-            config.FEE,
-            config.GASPRICE,
-            mode,
-          ),
+          broadcastTx(path, wallet, mnemonic, result.value, chain_id, config.FEE, config.GASPRICE, mode),
         );
       });
     }).catch(function (error) {

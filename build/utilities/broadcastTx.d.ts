@@ -3,8 +3,8 @@ export declare const broadcastTx: (
   wallet: any,
   mnemonic: any,
   tx: any,
-  chainID: any,
-  gas: any,
-  gasPrice: any,
-  mode: any,
+  chainID?: any,
+  gas?: any,
+  gasPrice?: any,
+  mode?: any,
 ) => Promise<any>;
