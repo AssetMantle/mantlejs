@@ -46,7 +46,7 @@ exports.broadcastTx = async (path, wallet, mnemonic, tx, chainID, gas, gasPrice,
     const signer = await proto_signing_1.DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
       prefix: config.prefix,
     });
-    const account = await wallet.getAccounts();
+    const account = await signer.getAccounts();
     const addressLocal = account[0].address;
     console.log("Sending Address: ", addressLocal);
     // get Stargate client using the signer and RPC endpoint

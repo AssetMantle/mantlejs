@@ -15,7 +15,7 @@ export const broadcastTx = async (
   try {
     // create a signer object
     const signer = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { prefix: config.prefix });
-    const account = await wallet.getAccounts();
+    const account = await signer.getAccounts();
     const addressLocal = account[0].address;
     console.log("Sending Address: ", addressLocal);
 
