@@ -51,6 +51,8 @@ export class mintAsset extends AssetMantle {
         },
       }),
     };
+
+    console.log("POST REST API options: ", options);
     return new Promise(function (resolve, reject) {
       Request(options, function (error: any, response: { body: string }) {
         if (error) {
