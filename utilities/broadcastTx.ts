@@ -21,7 +21,7 @@ export const broadcastTx = async (
     console.log("tx msg payload: ", tx.msg);
     console.log("tx fee payload: ", tx.fee);
     console.log("tx memo payload: ", tx.memo);
-    console.log("mnemonic: ", mnemonic);
+    console.log("user mnemonic: ", mnemonic);
 
     // get Stargate client using the signer and RPC endpoint
     const client = await SigningStargateClient.connectWithSigner(
