@@ -49,6 +49,9 @@ exports.broadcastTx = async (path, wallet, mnemonic, tx, chainID, gas, gasPrice,
     const account = await signer.getAccounts();
     const addressLocal = account[0].address;
     console.log("Sending Address: ", addressLocal);
+    console.log("tx msg payload: ", tx.msg);
+    console.log("tx fee payload: ", tx.fee);
+    console.log("tx memo payload: ", tx.memo);
     // get Stargate client using the signer and RPC endpoint
     const client = await stargate_1.SigningStargateClient.connectWithSigner(
       config.TENDERMINT_RPC_URL, // Replace with your own RPC endpoint
