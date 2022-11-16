@@ -17,7 +17,8 @@
     "build-test": "tsc tests.ts --resolveJsonModule --esModuleInterop --downlevelIteration",
     "test": "yarn build-or-skip && yarn test-node",
     "clean": "NODE_ENV=development ./scripts/prepare.sh",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -54,7 +55,8 @@
   },
   "devDependencies": {
     "@types/node": "^10.17.60",
-    "@types/node-fetch": "^2.5.10"
+    "@types/node-fetch": "^2.5.10",
+    "husky": "^8.0.2"
   },
   "resolveJsonModule": true,
   "esModuleInterop": true,
