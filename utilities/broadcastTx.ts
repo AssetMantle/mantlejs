@@ -92,25 +92,3 @@ const sendPostRequest = async (url: any, payload: any): Promise<any> => {
 };
 
 export default broadcastTx;
-
-/* const obj1 = {
-  type: "/xprt/assets/mint/request",
-  value: {
-    baseReq: {
-      from: "mantle16qczacumv2dkkx252xqj4fsfxlyev3s3wu5939",
-      chain_id: "devnet-mantle-1",
-      memo: "sync",
-      fees: [{ amount: "0", denom: "umnt1" }],
-      gas: "400000",
-    },
-    toID: "devnet-mantle-1.cGn3HMW8M3t5gMDv-wXa9sseHnA=|aAUYDVGMcWoh2eYUIoya1HsbOgM=",
-    fromID: "devnet-mantle-1.cGn3HMW8M3t5gMDv-wXa9sseHnA=|aAUYDVGMcWoh2eYUIoya1HsbOgM=",
-    classificationID: "devnet-mantle-1.j0Uuu1ZA7krYEQ036oQVnzmkQVs=",
-    mutableProperties: "burn:H|1,lock:H|1",
-    immutableProperties: "color:S|Blue",
-    mutableMetaProperties: "propertyName:S|IkFueXRoaW5nIg==,type:S|asset",
-    immutableMetaProperties:
-      "URI:S|aHR0cHM6Ly8xNDk2OTU4NDcudjIucHJlc3NhYmxlY2RuLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMi8wMi9NZXQtcy1iXzExem9uLmpwZw==,name:S|TWlyYWdl,description:S|Tm90aGluZw==,category:S|ZCB0cw",
-  },
-};
- */
