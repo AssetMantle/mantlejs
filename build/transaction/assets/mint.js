@@ -95,7 +95,6 @@ class mintAsset extends mantleJS_1.AssetMantle {
           },
         }),
       };
-      console.log("POST REST API options: ", options);
       return new Promise(function (resolve, reject) {
         request_1.default(options, function (error, response) {
           if (error) {
