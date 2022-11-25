@@ -19,10 +19,6 @@ export const broadcastTx = async (
     const addressLocal = accounts[0].address;
 
     console.log("Sending Address: ", addressLocal);
-    console.log("tx msg payload: ", tx.msg);
-    console.log("tx fee payload: ", tx.fee);
-    console.log("tx memo payload: ", tx.memo);
-    console.log("user mnemonic: ", mnemonic);
 
     // get the account number and sequence from REST API
     let accountResult = await getAccount(addressLocal, path);
@@ -44,8 +40,8 @@ export const broadcastTx = async (
 
     // get the signed message using raw tx, signMeta and wallet/signer
     let stdTx = signTx(tx, signMeta, wallet);
+    console.log("signed tx msg payload: ", stdTx);
 
-    console.log("signed message", stdTx);
     let signedTemplated = {
       tx: stdTx,
       mode: mode,
@@ -53,7 +49,6 @@ export const broadcastTx = async (
 
     //initiate sign and broadcast from the stargate client
     const response = await sendPostRequest(path.concat(config.broadcastTx), signedTemplated);
-    console.log("Transaction Response: ", response);
     return response;
   } catch (error) {
     console.error("Error during txn broadcast: ", error);
