@@ -10,11 +10,13 @@ export const broadcastTx = async (
   chainID: any = config.chain_id,
   gas: any,
   gasPrice: any,
-  mode: any,
+  mode: any
 ): Promise<any> => {
   try {
     // create a signer object
-    const signer = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { prefix: config.prefix });
+    const signer = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
+      prefix: config.prefix,
+    });
     const accounts = await signer.getAccounts();
     const addressLocal = accounts[0].address;
 
@@ -48,7 +50,10 @@ export const broadcastTx = async (
     };
 
     //initiate sign and broadcast from the stargate client
-    const response = await sendPostRequest(path.concat(config.broadcastTx), signedTemplated);
+    const response = await sendPostRequest(
+      path.concat(config.broadcastTx),
+      signedTemplated
+    );
     return response;
   } catch (error) {
     console.error("Error during txn broadcast: ", error);
@@ -70,7 +75,7 @@ export async function getAccount(address: any, path: any): Promise<any> {
   }
 }
 
-const sendPostRequest = async (url: any, payload: any): Promise<any> => {
+export const sendPostRequest = async (url: any, payload: any): Promise<any> => {
   // const resp = await Axios.post(url, payload);
   // return resp.data;
 
@@ -84,6 +89,12 @@ const sendPostRequest = async (url: any, payload: any): Promise<any> => {
   });
   const content = await rawResponse.json();
   return content;
+};
+
+export const sendGetRequest = async (url: any): Promise<any> => {
+  const rawResponse = await fetch(url);
+  const response = await rawResponse.json();
+  return response;
 };
 
 export default broadcastTx;

@@ -18,8 +18,8 @@
     "@babel/preset-typescript": "^7.18.6"
   },
   "scripts": {
-    "watch": "babel src --out-dir lib --extensions \".ts,.tsx\" --watch",
-    "build": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "watch": "babel src --out-dir build --extensions \".ts,.tsx\" --watch",
+    "build": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check -- --watch"
   },
