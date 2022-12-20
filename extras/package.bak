@@ -1,0 +1,64 @@
+{
+  "name": "@assetmantle/mantlejs",
+  "version": "0.1.8",
+  "description": "Client side JS libraries for AssetMantle SDK transaction generation, signing and broadcasting.",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "files": [
+    "build/",
+    "*.md",
+    "!*.spec.*",
+    "!**/testdata/"
+  ],
+  "scripts": {
+    "build": "rm -rf ./build && tsc",
+    "build-or-skip": "[ -n \"$SKIP_BUILD\" ] || yarn build",
+    "test-node": "node --require esm jasmine-testrunner.js",
+    "build-test": "tsc tests.ts --resolveJsonModule --esModuleInterop --downlevelIteration",
+    "test": "yarn build-or-skip && yarn test-node",
+    "clean": "NODE_ENV=development ./scripts/prepare.sh",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AssetMantle/mantlejs.git"
+  },
+  "author": "kamlesh@assetmantle.one",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AssetMantle/mantlejs/issues"
+  },
+  "homepage": "https://github.com/AssetMantle/mantlejs#readme",
+  "dependencies": {
+    "@cosmjs/amino": "^0.25.5",
+    "@cosmjs/launchpad": "^0.25.5",
+    "@cosmjs/proto-signing": "^0.29.3",
+    "@cosmjs/stargate": "^0.29.3",
+    "@tendermint/amino-js": "^0.6.2",
+    "@tendermint/belt": "^0.3.0",
+    "@tendermint/sig": "^0.6.0",
+    "@types/create-hash": "^1.2.2",
+    "@types/request": "^2.48.5",
+    "@types/secp256k1": "^4.0.2",
+    "bip32": "^2.0.6",
+    "bip39": "^3.0.2",
+    "buffer": "^5.6.0",
+    "crypto": "^1.0.1",
+    "es6-promise": "^4.2.8",
+    "node-fetch": "^2.6.1",
+    "prettier": "^2.8.1",
+    "promise": "^8.1.0",
+    "request": "^2.88.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.60",
+    "@types/node-fetch": "^2.5.10",
+    "husky": "^8.0.2"
+  },
+  "resolveJsonModule": true,
+  "esModuleInterop": true,
+  "keywords": []
+}
