@@ -1,64 +1,89 @@
 {
   "name": "@assetmantle/mantlejs",
-  "version": "0.1.8",
-  "description": "Client side JS libraries for AssetMantle SDK transaction generation, signing and broadcasting.",
-  "main": "build/main.js",
-  "types": "build/main.d.ts",
+  "version": "1.0.0",
+  "description": "Javascript / TypeScript endpoints for AssetMantle SDK for query and transaction creation",
+  "author": "kombos <kamlesh@assetmantle.one>",
+  "homepage": "https://github.com/AssetMantle/mantlejs#readme",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "main/index.js",
+  "module": "module/index.js",
+  "typings": "types/index.d.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
   "files": [
-    "build/",
-    "*.md",
-    "!*.spec.*",
-    "!**/testdata/"
+    "types",
+    "src",
+    "main",
+    "module"
   ],
   "scripts": {
-    "build": "rm -rf ./build && tsc",
-    "build-or-skip": "[ -n \"$SKIP_BUILD\" ] || yarn build",
-    "test-node": "node --require esm jasmine-testrunner.js",
-    "build-test": "tsc tests.ts --resolveJsonModule --esModuleInterop --downlevelIteration",
-    "test": "yarn build-or-skip && yarn test-node",
-    "clean": "NODE_ENV=development ./scripts/prepare.sh",
-    "format": "prettier --write .",
-    "prepare": "husky install"
+    "build:main": "cross-env BABEL_ENV=production babel src --out-dir main --delete-dir-on-start --extensions \".tsx,.ts,.js\"",
+    "build:module": "cross-env MODULE=true babel src --out-dir module --delete-dir-on-start  --extensions \".tsx,.ts,.js\"",
+    "build:ts": "tsc --project ./tsconfig.json",
+    "build": "npm run build:module && npm run build:main",
+    "buidl": "npm run build && npm run build:ts",
+    "codegen": "cross-env NODE_ENV=development babel-node scripts/codegen.js",
+    "prepare": "npm run build",
+    "dev": "cross-env NODE_ENV=development babel-node src/index --extensions \".tsx,.ts,.js\"",
+    "watch": "cross-env NODE_ENV=development babel-watch src/index --extensions \".tsx,.ts,.js\"",
+    "lint": "eslint src --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AssetMantle/mantlejs.git"
+    "url": "https://github.com/AssetMantle/mantlejs"
   },
-  "author": "kamlesh@assetmantle.one",
-  "license": "ISC",
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/AssetMantle/mantlejs/issues"
   },
-  "homepage": "https://github.com/AssetMantle/mantlejs#readme",
-  "dependencies": {
-    "@cosmjs/amino": "^0.25.5",
-    "@cosmjs/launchpad": "^0.25.5",
-    "@cosmjs/proto-signing": "^0.29.3",
-    "@cosmjs/stargate": "^0.29.3",
-    "@tendermint/amino-js": "^0.6.2",
-    "@tendermint/belt": "^0.3.0",
-    "@tendermint/sig": "^0.6.0",
-    "@types/create-hash": "^1.2.2",
-    "@types/request": "^2.48.5",
-    "@types/secp256k1": "^4.0.2",
-    "bip32": "^2.0.6",
-    "bip39": "^3.0.2",
-    "buffer": "^5.6.0",
-    "crypto": "^1.0.1",
-    "es6-promise": "^4.2.8",
-    "node-fetch": "^2.6.1",
-    "prettier": "^2.3.1",
-    "promise": "^8.1.0",
-    "request": "^2.88.2",
-    "tslint": "^6.1.2",
-    "typescript": "^3.9.3"
-  },
   "devDependencies": {
-    "@types/node": "^10.17.60",
-    "@types/node-fetch": "^2.5.10",
-    "husky": "^8.0.2"
+    "@babel/cli": "7.21.0",
+    "@babel/core": "7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-proposal-export-default-from": "7.18.10",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.18.6",
+    "@babel/plugin-proposal-numeric-separator": "7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "7.20.7",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-transform-runtime": "7.21.4",
+    "@babel/preset-env": "7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@osmonauts/telescope": "^0.92.2",
+    "@protobufs/cosmos": "^0.1.0",
+    "@protobufs/gogoproto": "^0.0.10",
+    "@types/jest": "^29.5.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "29.5.0",
+    "babel-watch": "^7.7.2",
+    "cross-env": "^7.0.2",
+    "eslint": "8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.5.0",
+    "jest-in-case": "^1.0.2",
+    "long": "^5.2.1",
+    "prettier": "^2.8.7",
+    "regenerator-runtime": "^0.13.11",
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
   },
-  "resolveJsonModule": true,
-  "esModuleInterop": true,
-  "keywords": []
+  "dependencies": {
+    "@babel/runtime": "^7.21.0",
+    "@cosmjs/amino": "0.29.4",
+    "@cosmjs/proto-signing": "0.29.4",
+    "@cosmjs/stargate": "0.29.4",
+    "@cosmjs/tendermint-rpc": "^0.29.4",
+    "protobufjs": "^6.11.2"
+  }
 }

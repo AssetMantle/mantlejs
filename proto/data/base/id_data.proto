@@ -1,0 +1,11 @@
+syntax = "proto3";
+package assetmantle.schema.data.base;
+
+import "ids/base/any_id.proto";
+import "gogoproto/gogo.proto";
+
+message IDData {
+  option (gogoproto.goproto_getters) = false;
+
+  ids.base.AnyID value = 1;
+}
