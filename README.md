@@ -41,16 +41,38 @@ If you want to contribute to MantleJS, please read the instructions in
     mantlejs description
 </p> -->
 
+## Installation
 
-## install
+### To install the older, testnet based version, use this command
+
+```sh
+yarn add mantlejs
+```
+
+OR
 
 ```sh
 npm install mantlejs
 ```
+
+### To install the newer proto-generated version, use this command
+
+```sh
+yarn add mantlejs@https://github.com/AssetMantle/mantlejs
+```
+
+OR
+
+```sh
+npm install https://github.com/AssetMantle/mantlejs
+```
+
 ## Table of contents
 
 - [Contributing](#contributing)
-- [install](#install)
+- [Installation](#installation)
+  - [To install the older, testnet based version, use this command](#to-install-the-older-testnet-based-version-use-this-command)
+  - [To install the newer proto-generated version, use this command](#to-install-the-newer-proto-generated-version-use-this-command)
 - [Table of contents](#table-of-contents)
 - [Usage](#usage)
   - [RPC Clients](#rpc-clients)
@@ -72,35 +94,33 @@ npm install mantlejs
 - [Disclaimer](#disclaimer)
 
 ## Usage
+
 ### RPC Clients
 
 ```js
-import { assetmantle } from 'mantlejs';
+import { assetmantle } from "mantlejs";
 
-const { createRPCQueryClient } = assetmantle.ClientFactory; 
+const { createRPCQueryClient } = assetmantle.ClientFactory;
 const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
 
 // now you can query the cosmos modules
-const balance = await client.cosmos.bank.v1beta1
-    .allBalances({ address: 'assetmantle1addresshere' });
+const balance = await client.cosmos.bank.v1beta1.allBalances({
+  address: "assetmantle1addresshere",
+});
 
 // you can also query the assetmantle modules
-const balances = await client.assetmantle.exchange.v1beta1
-    .exchangeBalances()
+const balances = await client.assetmantle.exchange.v1beta1.exchangeBalances();
 ```
 
 ### Composing Messages
 
-Import the `assetmantle` object from `mantlejs`. 
+Import the `assetmantle` object from `mantlejs`.
 
 ```js
-import { assetmantle } from 'mantlejs';
+import { assetmantle } from "mantlejs";
 
-const {
-    createSpotLimitOrder,
-    createSpotMarketOrder,
-    deposit
-} = assetmantle.exchange.v1beta1.MessageComposer.withTypeUrl;
+const { createSpotLimitOrder, createSpotMarketOrder, deposit } =
+  assetmantle.exchange.v1beta1.MessageComposer.withTypeUrl;
 ```
 
 #### CosmWasm Messages
@@ -109,56 +129,47 @@ const {
 import { cosmwasm } from "mantlejs";
 
 const {
-    clearAdmin,
-    executeContract,
-    instantiateContract,
-    migrateContract,
-    storeCode,
-    updateAdmin
+  clearAdmin,
+  executeContract,
+  instantiateContract,
+  migrateContract,
+  storeCode,
+  updateAdmin,
 } = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages
 
 ```js
-import { ibc } from 'mantlejs';
+import { ibc } from "mantlejs";
 
-const {
-    transfer
-} = ibc.applications.transfer.v1.MessageComposer.withTypeUrl
+const { transfer } = ibc.applications.transfer.v1.MessageComposer.withTypeUrl;
 ```
 
 #### Cosmos Messages
 
 ```js
-import { cosmos } from 'mantlejs';
+import { cosmos } from "mantlejs";
 
 const {
-    fundCommunityPool,
-    setWithdrawAddress,
-    withdrawDelegatorReward,
-    withdrawValidatorCommission
+  fundCommunityPool,
+  setWithdrawAddress,
+  withdrawDelegatorReward,
+  withdrawValidatorCommission,
 } = cosmos.distribution.v1beta1.MessageComposer.fromPartial;
 
-const {
-    multiSend,
-    send
-} = cosmos.bank.v1beta1.MessageComposer.fromPartial;
+const { multiSend, send } = cosmos.bank.v1beta1.MessageComposer.fromPartial;
 
 const {
-    beginRedelegate,
-    createValidator,
-    delegate,
-    editValidator,
-    undelegate
+  beginRedelegate,
+  createValidator,
+  delegate,
+  editValidator,
+  undelegate,
 } = cosmos.staking.v1beta1.MessageComposer.fromPartial;
 
-const {
-    deposit,
-    submitProposal,
-    vote,
-    voteWeighted
-} = cosmos.gov.v1beta1.MessageComposer.fromPartial;
+const { deposit, submitProposal, vote, voteWeighted } =
+  cosmos.gov.v1beta1.MessageComposer.fromPartial;
 ```
 
 ## Connecting with Wallets and Signing Messages
@@ -172,46 +183,50 @@ Here are the docs on [creating signers](https://github.com/cosmology-tech/cosmos
 Use `getSigningassetmantleClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningassetmantleClient } from 'mantlejs';
+import { getSigningassetmantleClient } from "mantlejs";
 
 const stargateClient = await getSigningassetmantleClient({
   rpcEndpoint,
-  signer // OfflineSigner
+  signer, // OfflineSigner
 });
 ```
+
 ### Creating Signers
 
 To broadcast messages, you can create signers with a variety of options:
 
-* [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit/tree/main/packages/react#signing-clients) (recommended)
-* [keplr](https://docs.keplr.app/api/cosmjs.html)
-* [cosmjs](https://gist.github.com/webmaster128/8444d42a7eceeda2544c8a59fbd7e1d9)
+- [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit/tree/main/packages/react#signing-clients) (recommended)
+- [keplr](https://docs.keplr.app/api/cosmjs.html)
+- [cosmjs](https://gist.github.com/webmaster128/8444d42a7eceeda2544c8a59fbd7e1d9)
+
 ### Amino Signer
 
 Likely you'll want to use the Amino, so unless you need proto, you should use this one:
 
 ```js
-import { getOfflineSignerAmino as getOfflineSigner } from 'cosmjs-utils';
+import { getOfflineSignerAmino as getOfflineSigner } from "cosmjs-utils";
 ```
+
 ### Proto Signer
 
 ```js
-import { getOfflineSignerProto as getOfflineSigner } from 'cosmjs-utils';
+import { getOfflineSignerProto as getOfflineSigner } from "cosmjs-utils";
 ```
 
 WARNING: NOT RECOMMENDED TO USE PLAIN-TEXT MNEMONICS. Please take care of your security and use best practices such as AES encryption and/or methods from 12factor applications.
 
 ```js
-import { chains } from 'chain-registry';
+import { chains } from "chain-registry";
 
 const mnemonic =
-  'unfold client turtle either pilot stock floor glow toward bullet car science';
-  const chain = chains.find(({ chain_name }) => chain_name === 'assetmantle');
-  const signer = await getOfflineSigner({
-    mnemonic,
-    chain
-  });
+  "unfold client turtle either pilot stock floor glow toward bullet car science";
+const chain = chains.find(({ chain_name }) => chain_name === "assetmantle");
+const signer = await getOfflineSigner({
+  mnemonic,
+  chain,
+});
 ```
+
 ### Broadcasting Messages
 
 Now that you have your `stargateClient`, you can broadcast messages:
@@ -220,30 +235,29 @@ Now that you have your `stargateClient`, you can broadcast messages:
 const { send } = cosmos.bank.v1beta1.MessageComposer.withTypeUrl;
 
 const msg = send({
-    amount: [
+  amount: [
     {
-        denom: 'coin',
-        amount: '1000'
-    }
-    ],
-    toAddress: address,
-    fromAddress: address
+      denom: "coin",
+      amount: "1000",
+    },
+  ],
+  toAddress: address,
+  fromAddress: address,
 });
 
 const fee: StdFee = {
-    amount: [
+  amount: [
     {
-        denom: 'coin',
-        amount: '864'
-    }
-    ],
-    gas: '86364'
+      denom: "coin",
+      amount: "864",
+    },
+  ],
+  gas: "86364",
 };
 const response = await stargateClient.signAndBroadcast(address, [msg], fee);
 ```
 
 ## Advanced Usage
-
 
 If you want to manually construct a stargate client
 
@@ -251,7 +265,7 @@ If you want to manually construct a stargate client
 import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 
-import { 
+import {
     cosmosAminoConverters,
     cosmosProtoRegistry,
     cosmwasmAminoConverters,
@@ -313,15 +327,16 @@ Build the types and then publish:
 yarn build:ts
 yarn publish
 ```
+
 ## Credits
 
 🛠 Built by Cosmology — if you like our tools, please consider delegating to [our validator ⚛️](https://cosmology.tech/validator)
 
 Code built with the help of these related projects:
 
-* [@cosmwasm/ts-codegen](https://github.com/CosmWasm/ts-codegen) for generated CosmWasm contract Typescript classes
-* [@osmonauts/telescope](https://github.com/osmosis-labs/telescope) a "babel for the Cosmos", Telescope is a TypeScript Transpiler for Cosmos Protobufs.
-* [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit) A wallet connector for the Cosmos ⚛️
+- [@cosmwasm/ts-codegen](https://github.com/CosmWasm/ts-codegen) for generated CosmWasm contract Typescript classes
+- [@osmonauts/telescope](https://github.com/osmosis-labs/telescope) a "babel for the Cosmos", Telescope is a TypeScript Transpiler for Cosmos Protobufs.
+- [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit) A wallet connector for the Cosmos ⚛️
 
 ## Disclaimer
 
