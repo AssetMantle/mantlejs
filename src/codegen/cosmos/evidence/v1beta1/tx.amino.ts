@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { MsgSubmitEvidence } from "./tx";
 export const AminoConverter = {
   "/cosmos.evidence.v1beta1.MsgSubmitEvidence": {

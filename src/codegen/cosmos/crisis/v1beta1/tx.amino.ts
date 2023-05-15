@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { MsgVerifyInvariant } from "./tx";
 export const AminoConverter = {
   "/cosmos.crisis.v1beta1.MsgVerifyInvariant": {
