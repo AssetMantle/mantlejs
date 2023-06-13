@@ -43,7 +43,7 @@ If you want to contribute to MantleJS, please read the instructions in
 
 ## Installation
 
-### To install the older, testnet based version, use this command
+### To install the npm package, use this command
 
 ```sh
 yarn add mantlejs
@@ -55,24 +55,12 @@ OR
 npm install mantlejs
 ```
 
-### To install the newer proto-generated version, use this command
-
-```sh
-yarn add mantlejs@https://github.com/AssetMantle/mantlejs
-```
-
-OR
-
-```sh
-npm install https://github.com/AssetMantle/mantlejs
-```
 
 ## Table of contents
 
 - [Contributing](#contributing)
 - [Installation](#installation)
-  - [To install the older, testnet based version, use this command](#to-install-the-older-testnet-based-version-use-this-command)
-  - [To install the newer proto-generated version, use this command](#to-install-the-newer-proto-generated-version-use-this-command)
+  - [To install the npm package, use this command](#to-install-the-npm-package-use-this-command)
 - [Table of contents](#table-of-contents)
 - [Usage](#usage)
   - [RPC Clients](#rpc-clients)
