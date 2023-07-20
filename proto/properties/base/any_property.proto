@@ -1,9 +1,9 @@
 syntax = "proto3";
 package assetmantle.schema.properties.base;
 
+import "gogoproto/gogo.proto";
 import "properties/base/mesa_property.proto";
 import "properties/base/meta_property.proto";
-import "gogoproto/gogo.proto";
 
 message AnyProperty {
   option (gogoproto.goproto_getters) = false;

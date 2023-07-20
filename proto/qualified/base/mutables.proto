@@ -1,10 +1,11 @@
 syntax = "proto3";
 package assetmantle.schema.qualified.base;
 
-import "lists/base/property_list.proto";
 import "gogoproto/gogo.proto";
+import "lists/base/property_list.proto";
 
 message Mutables {
   option (gogoproto.goproto_getters) = false;
+
   lists.base.PropertyList property_list = 1;
 }

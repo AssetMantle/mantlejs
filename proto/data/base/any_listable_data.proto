@@ -6,12 +6,11 @@ import "data/base/boolean_data.proto";
 import "data/base/dec_data.proto";
 import "data/base/height_data.proto";
 import "data/base/id_data.proto";
-import "data/base/list_data.proto";
 import "data/base/number_data.proto";
 import "data/base/string_data.proto";
 import "gogoproto/gogo.proto";
 
-message AnyData {
+message AnyListableData {
   option (gogoproto.goproto_getters) = false;
 
   oneof impl {
@@ -20,8 +19,7 @@ message AnyData {
     DecData dec_data = 3;
     HeightData height_data = 4;
     IDData i_d_data = 5;
-    ListData list_data = 6;
-    NumberData number_data = 7;
-    StringData string_data = 8;
+    NumberData number_data = 6;
+    StringData string_data = 7;
   }
 }

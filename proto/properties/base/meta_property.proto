@@ -1,8 +1,8 @@
 syntax = "proto3";
 package assetmantle.schema.properties.base;
 
-import "gogoproto/gogo.proto";
 import "data/base/any_data.proto";
+import "gogoproto/gogo.proto";
 import "ids/base/property_id.proto";
 
 message MetaProperty {

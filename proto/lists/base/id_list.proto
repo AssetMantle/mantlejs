@@ -7,5 +7,5 @@ import "gogoproto/gogo.proto";
 message IDList {
   option (gogoproto.goproto_getters) = false;
 
-  repeated ids.base.AnyID i_d_list = 1;
+  repeated ids.base.AnyID any_i_ds = 1;
 }

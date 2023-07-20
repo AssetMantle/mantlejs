@@ -6,5 +6,6 @@ import "parameters/base/parameter.proto";
 
 message ParameterList {
   option (gogoproto.goproto_getters) = false;
+
   repeated Parameter parameters = 1;
 }

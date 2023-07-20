@@ -1,9 +1,9 @@
 syntax = "proto3";
 package assetmantle.schema.properties.base;
 
-import "ids/base/property_id.proto";
-import "ids/base/data_id.proto";
 import "gogoproto/gogo.proto";
+import "ids/base/data_id.proto";
+import "ids/base/property_id.proto";
 
 message MesaProperty {
   option (gogoproto.goproto_getters) = false;
