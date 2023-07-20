@@ -1,21 +1,24 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryRequest {
-    pageRequest?: PageRequest;
+    key?: Key;
+    limit: number;
 }
 export interface QueryRequestProtoMsg {
     typeUrl: "/assetmantle.modules.orders.queries.orders.QueryRequest";
     value: Uint8Array;
 }
 export interface QueryRequestAmino {
-    page_request?: PageRequestAmino;
+    key?: KeyAmino;
+    limit: number;
 }
 export interface QueryRequestAminoMsg {
     type: "/assetmantle.modules.orders.queries.orders.QueryRequest";
     value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-    page_request?: PageRequestSDKType;
+    key?: KeySDKType;
+    limit: number;
 }
 export declare const QueryRequest: {
     encode(message: QueryRequest, writer?: _m0.Writer): _m0.Writer;

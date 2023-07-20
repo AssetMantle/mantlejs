@@ -1,30 +1,30 @@
 import { AnyProperty, AnyPropertyAmino, AnyPropertySDKType } from "../../properties/base/any_property";
 import * as _m0 from "protobufjs/minimal";
 export interface PropertyList {
-  properties: AnyProperty[];
+  anyProperties: AnyProperty[];
 }
 export interface PropertyListProtoMsg {
   typeUrl: "/assetmantle.schema.lists.base.PropertyList";
   value: Uint8Array;
 }
 export interface PropertyListAmino {
-  properties: AnyPropertyAmino[];
+  any_properties: AnyPropertyAmino[];
 }
 export interface PropertyListAminoMsg {
   type: "/assetmantle.schema.lists.base.PropertyList";
   value: PropertyListAmino;
 }
 export interface PropertyListSDKType {
-  properties: AnyPropertySDKType[];
+  any_properties: AnyPropertySDKType[];
 }
 function createBasePropertyList(): PropertyList {
   return {
-    properties: []
+    anyProperties: []
   };
 }
 export const PropertyList = {
   encode(message: PropertyList, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.properties) {
+    for (const v of message.anyProperties) {
       AnyProperty.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
@@ -37,7 +37,7 @@ export const PropertyList = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.properties.push(AnyProperty.decode(reader, reader.uint32()));
+          message.anyProperties.push(AnyProperty.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,34 +48,34 @@ export const PropertyList = {
   },
   fromJSON(object: any): PropertyList {
     return {
-      properties: Array.isArray(object?.properties) ? object.properties.map((e: any) => AnyProperty.fromJSON(e)) : []
+      anyProperties: Array.isArray(object?.anyProperties) ? object.anyProperties.map((e: any) => AnyProperty.fromJSON(e)) : []
     };
   },
   toJSON(message: PropertyList): unknown {
     const obj: any = {};
-    if (message.properties) {
-      obj.properties = message.properties.map(e => e ? AnyProperty.toJSON(e) : undefined);
+    if (message.anyProperties) {
+      obj.anyProperties = message.anyProperties.map(e => e ? AnyProperty.toJSON(e) : undefined);
     } else {
-      obj.properties = [];
+      obj.anyProperties = [];
     }
     return obj;
   },
   fromPartial(object: Partial<PropertyList>): PropertyList {
     const message = createBasePropertyList();
-    message.properties = object.properties?.map(e => AnyProperty.fromPartial(e)) || [];
+    message.anyProperties = object.anyProperties?.map(e => AnyProperty.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: PropertyListAmino): PropertyList {
     return {
-      properties: Array.isArray(object?.properties) ? object.properties.map((e: any) => AnyProperty.fromAmino(e)) : []
+      anyProperties: Array.isArray(object?.any_properties) ? object.any_properties.map((e: any) => AnyProperty.fromAmino(e)) : []
     };
   },
   toAmino(message: PropertyList): PropertyListAmino {
     const obj: any = {};
-    if (message.properties) {
-      obj.properties = message.properties.map(e => e ? AnyProperty.toAmino(e) : undefined);
+    if (message.anyProperties) {
+      obj.any_properties = message.anyProperties.map(e => e ? AnyProperty.toAmino(e) : undefined);
     } else {
-      obj.properties = [];
+      obj.any_properties = [];
     }
     return obj;
   },

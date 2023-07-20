@@ -1,31 +1,32 @@
+import { ClassificationID, ClassificationIDAmino, ClassificationIDSDKType } from "../../../ids/base/classification_id";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 export interface TransactionResponse {
-  classificationID: string;
+  classificationID?: ClassificationID;
 }
 export interface TransactionResponseProtoMsg {
   typeUrl: "/assetmantle.modules.assets.transactions.define.TransactionResponse";
   value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-  classification_i_d: string;
+  classification_i_d?: ClassificationIDAmino;
 }
 export interface TransactionResponseAminoMsg {
   type: "/assetmantle.modules.assets.transactions.define.TransactionResponse";
   value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-  classification_i_d: string;
+  classification_i_d?: ClassificationIDSDKType;
 }
 function createBaseTransactionResponse(): TransactionResponse {
   return {
-    classificationID: ""
+    classificationID: undefined
   };
 }
 export const TransactionResponse = {
   encode(message: TransactionResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.classificationID !== "") {
-      writer.uint32(10).string(message.classificationID);
+    if (message.classificationID !== undefined) {
+      ClassificationID.encode(message.classificationID, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -37,7 +38,7 @@ export const TransactionResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.classificationID = reader.string();
+          message.classificationID = ClassificationID.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,27 +49,27 @@ export const TransactionResponse = {
   },
   fromJSON(object: any): TransactionResponse {
     return {
-      classificationID: isSet(object.classificationID) ? String(object.classificationID) : ""
+      classificationID: isSet(object.classificationID) ? ClassificationID.fromJSON(object.classificationID) : undefined
     };
   },
   toJSON(message: TransactionResponse): unknown {
     const obj: any = {};
-    message.classificationID !== undefined && (obj.classificationID = message.classificationID);
+    message.classificationID !== undefined && (obj.classificationID = message.classificationID ? ClassificationID.toJSON(message.classificationID) : undefined);
     return obj;
   },
   fromPartial(object: Partial<TransactionResponse>): TransactionResponse {
     const message = createBaseTransactionResponse();
-    message.classificationID = object.classificationID ?? "";
+    message.classificationID = object.classificationID !== undefined && object.classificationID !== null ? ClassificationID.fromPartial(object.classificationID) : undefined;
     return message;
   },
   fromAmino(object: TransactionResponseAmino): TransactionResponse {
     return {
-      classificationID: object.classification_i_d
+      classificationID: object?.classification_i_d ? ClassificationID.fromAmino(object.classification_i_d) : undefined
     };
   },
   toAmino(message: TransactionResponse): TransactionResponseAmino {
     const obj: any = {};
-    obj.classification_i_d = message.classificationID;
+    obj.classification_i_d = message.classificationID ? ClassificationID.toAmino(message.classificationID) : undefined;
     return obj;
   },
   fromAminoMsg(object: TransactionResponseAminoMsg): TransactionResponse {

@@ -1,21 +1,21 @@
-import { Mappable, MappableAmino, MappableSDKType } from "../../mappable/mappable";
+import { Record, RecordAmino, RecordSDKType } from "../../record/record";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryResponse {
-  list: Mappable[];
+  list: Record[];
 }
 export interface QueryResponseProtoMsg {
   typeUrl: "/assetmantle.modules.splits.queries.splits.QueryResponse";
   value: Uint8Array;
 }
 export interface QueryResponseAmino {
-  list: MappableAmino[];
+  list: RecordAmino[];
 }
 export interface QueryResponseAminoMsg {
   type: "/assetmantle.modules.splits.queries.splits.QueryResponse";
   value: QueryResponseAmino;
 }
 export interface QueryResponseSDKType {
-  list: MappableSDKType[];
+  list: RecordSDKType[];
 }
 function createBaseQueryResponse(): QueryResponse {
   return {
@@ -25,7 +25,7 @@ function createBaseQueryResponse(): QueryResponse {
 export const QueryResponse = {
   encode(message: QueryResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.list) {
-      Mappable.encode(v!, writer.uint32(10).fork()).ldelim();
+      Record.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -37,7 +37,7 @@ export const QueryResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.list.push(Mappable.decode(reader, reader.uint32()));
+          message.list.push(Record.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,13 +48,13 @@ export const QueryResponse = {
   },
   fromJSON(object: any): QueryResponse {
     return {
-      list: Array.isArray(object?.list) ? object.list.map((e: any) => Mappable.fromJSON(e)) : []
+      list: Array.isArray(object?.list) ? object.list.map((e: any) => Record.fromJSON(e)) : []
     };
   },
   toJSON(message: QueryResponse): unknown {
     const obj: any = {};
     if (message.list) {
-      obj.list = message.list.map(e => e ? Mappable.toJSON(e) : undefined);
+      obj.list = message.list.map(e => e ? Record.toJSON(e) : undefined);
     } else {
       obj.list = [];
     }
@@ -62,18 +62,18 @@ export const QueryResponse = {
   },
   fromPartial(object: Partial<QueryResponse>): QueryResponse {
     const message = createBaseQueryResponse();
-    message.list = object.list?.map(e => Mappable.fromPartial(e)) || [];
+    message.list = object.list?.map(e => Record.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: QueryResponseAmino): QueryResponse {
     return {
-      list: Array.isArray(object?.list) ? object.list.map((e: any) => Mappable.fromAmino(e)) : []
+      list: Array.isArray(object?.list) ? object.list.map((e: any) => Record.fromAmino(e)) : []
     };
   },
   toAmino(message: QueryResponse): QueryResponseAmino {
     const obj: any = {};
     if (message.list) {
-      obj.list = message.list.map(e => e ? Mappable.toAmino(e) : undefined);
+      obj.list = message.list.map(e => e ? Record.toAmino(e) : undefined);
     } else {
       obj.list = [];
     }

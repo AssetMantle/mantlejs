@@ -1,21 +1,21 @@
 import { AnyID, AnyIDAmino, AnyIDSDKType } from "../../ids/base/any_id";
 import * as _m0 from "protobufjs/minimal";
 export interface IDList {
-    iDList: AnyID[];
+    anyIDs: AnyID[];
 }
 export interface IDListProtoMsg {
     typeUrl: "/assetmantle.schema.lists.base.IDList";
     value: Uint8Array;
 }
 export interface IDListAmino {
-    i_d_list: AnyIDAmino[];
+    any_i_ds: AnyIDAmino[];
 }
 export interface IDListAminoMsg {
     type: "/assetmantle.schema.lists.base.IDList";
     value: IDListAmino;
 }
 export interface IDListSDKType {
-    i_d_list: AnyIDSDKType[];
+    any_i_ds: AnyIDSDKType[];
 }
 export declare const IDList: {
     encode(message: IDList, writer?: _m0.Writer): _m0.Writer;

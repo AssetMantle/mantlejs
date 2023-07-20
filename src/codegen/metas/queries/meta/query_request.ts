@@ -1,32 +1,32 @@
-import { DataID, DataIDAmino, DataIDSDKType } from "../../../ids/base/data_id";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 export interface QueryRequest {
-  dataID?: DataID;
+  key?: Key;
 }
 export interface QueryRequestProtoMsg {
   typeUrl: "/assetmantle.modules.metas.queries.meta.QueryRequest";
   value: Uint8Array;
 }
 export interface QueryRequestAmino {
-  data_i_d?: DataIDAmino;
+  key?: KeyAmino;
 }
 export interface QueryRequestAminoMsg {
   type: "/assetmantle.modules.metas.queries.meta.QueryRequest";
   value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-  data_i_d?: DataIDSDKType;
+  key?: KeySDKType;
 }
 function createBaseQueryRequest(): QueryRequest {
   return {
-    dataID: undefined
+    key: undefined
   };
 }
 export const QueryRequest = {
   encode(message: QueryRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.dataID !== undefined) {
-      DataID.encode(message.dataID, writer.uint32(10).fork()).ldelim();
+    if (message.key !== undefined) {
+      Key.encode(message.key, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -38,7 +38,7 @@ export const QueryRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.dataID = DataID.decode(reader, reader.uint32());
+          message.key = Key.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -49,27 +49,27 @@ export const QueryRequest = {
   },
   fromJSON(object: any): QueryRequest {
     return {
-      dataID: isSet(object.dataID) ? DataID.fromJSON(object.dataID) : undefined
+      key: isSet(object.key) ? Key.fromJSON(object.key) : undefined
     };
   },
   toJSON(message: QueryRequest): unknown {
     const obj: any = {};
-    message.dataID !== undefined && (obj.dataID = message.dataID ? DataID.toJSON(message.dataID) : undefined);
+    message.key !== undefined && (obj.key = message.key ? Key.toJSON(message.key) : undefined);
     return obj;
   },
   fromPartial(object: Partial<QueryRequest>): QueryRequest {
     const message = createBaseQueryRequest();
-    message.dataID = object.dataID !== undefined && object.dataID !== null ? DataID.fromPartial(object.dataID) : undefined;
+    message.key = object.key !== undefined && object.key !== null ? Key.fromPartial(object.key) : undefined;
     return message;
   },
   fromAmino(object: QueryRequestAmino): QueryRequest {
     return {
-      dataID: object?.data_i_d ? DataID.fromAmino(object.data_i_d) : undefined
+      key: object?.key ? Key.fromAmino(object.key) : undefined
     };
   },
   toAmino(message: QueryRequest): QueryRequestAmino {
     const obj: any = {};
-    obj.data_i_d = message.dataID ? DataID.toAmino(message.dataID) : undefined;
+    obj.key = message.key ? Key.toAmino(message.key) : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryRequestAminoMsg): QueryRequest {

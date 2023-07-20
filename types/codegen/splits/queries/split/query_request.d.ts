@@ -1,21 +1,21 @@
-import { SplitID, SplitIDAmino, SplitIDSDKType } from "../../../ids/base/split_id";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryRequest {
-    splitID?: SplitID;
+    key?: Key;
 }
 export interface QueryRequestProtoMsg {
     typeUrl: "/assetmantle.modules.splits.queries.split.QueryRequest";
     value: Uint8Array;
 }
 export interface QueryRequestAmino {
-    split_i_d?: SplitIDAmino;
+    key?: KeyAmino;
 }
 export interface QueryRequestAminoMsg {
     type: "/assetmantle.modules.splits.queries.split.QueryRequest";
     value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-    split_i_d?: SplitIDSDKType;
+    key?: KeySDKType;
 }
 export declare const QueryRequest: {
     encode(message: QueryRequest, writer?: _m0.Writer): _m0.Writer;

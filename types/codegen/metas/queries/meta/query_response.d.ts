@@ -1,21 +1,21 @@
-import { Mappable, MappableAmino, MappableSDKType } from "../../mappable/mappable";
+import { Record, RecordAmino, RecordSDKType } from "../../record/record";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryResponse {
-    list: Mappable[];
+    record?: Record;
 }
 export interface QueryResponseProtoMsg {
     typeUrl: "/assetmantle.modules.metas.queries.meta.QueryResponse";
     value: Uint8Array;
 }
 export interface QueryResponseAmino {
-    list: MappableAmino[];
+    record?: RecordAmino;
 }
 export interface QueryResponseAminoMsg {
     type: "/assetmantle.modules.metas.queries.meta.QueryResponse";
     value: QueryResponseAmino;
 }
 export interface QueryResponseSDKType {
-    list: MappableSDKType[];
+    record?: RecordSDKType;
 }
 export declare const QueryResponse: {
     encode(message: QueryResponse, writer?: _m0.Writer): _m0.Writer;

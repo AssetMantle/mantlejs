@@ -1,21 +1,21 @@
-import { AssetID, AssetIDAmino, AssetIDSDKType } from "../../../ids/base/asset_id";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryRequest {
-    assetID?: AssetID;
+    key?: Key;
 }
 export interface QueryRequestProtoMsg {
     typeUrl: "/assetmantle.modules.assets.queries.asset.QueryRequest";
     value: Uint8Array;
 }
 export interface QueryRequestAmino {
-    asset_i_d?: AssetIDAmino;
+    key?: KeyAmino;
 }
 export interface QueryRequestAminoMsg {
     type: "/assetmantle.modules.assets.queries.asset.QueryRequest";
     value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-    asset_i_d?: AssetIDSDKType;
+    key?: KeySDKType;
 }
 export declare const QueryRequest: {
     encode(message: QueryRequest, writer?: _m0.Writer): _m0.Writer;

@@ -1,26 +1,20 @@
 import * as _m0 from "protobufjs/minimal";
 export interface QueryResponse {
-    success: boolean;
-    error: string;
-    value: string;
+    supply: string;
 }
 export interface QueryResponseProtoMsg {
     typeUrl: "/assetmantle.modules.splits.queries.ownable.QueryResponse";
     value: Uint8Array;
 }
 export interface QueryResponseAmino {
-    success: boolean;
-    error: string;
-    value: string;
+    supply: string;
 }
 export interface QueryResponseAminoMsg {
     type: "/assetmantle.modules.splits.queries.ownable.QueryResponse";
     value: QueryResponseAmino;
 }
 export interface QueryResponseSDKType {
-    success: boolean;
-    error: string;
-    value: string;
+    supply: string;
 }
 export declare const QueryResponse: {
     encode(message: QueryResponse, writer?: _m0.Writer): _m0.Writer;

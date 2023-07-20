@@ -1,32 +1,39 @@
-import { PageRequest, PageRequestAmino, PageRequestSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 export interface QueryRequest {
-  pageRequest?: PageRequest;
+  key?: Key;
+  limit: number;
 }
 export interface QueryRequestProtoMsg {
   typeUrl: "/assetmantle.modules.orders.queries.orders.QueryRequest";
   value: Uint8Array;
 }
 export interface QueryRequestAmino {
-  page_request?: PageRequestAmino;
+  key?: KeyAmino;
+  limit: number;
 }
 export interface QueryRequestAminoMsg {
   type: "/assetmantle.modules.orders.queries.orders.QueryRequest";
   value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-  page_request?: PageRequestSDKType;
+  key?: KeySDKType;
+  limit: number;
 }
 function createBaseQueryRequest(): QueryRequest {
   return {
-    pageRequest: undefined
+    key: undefined,
+    limit: 0
   };
 }
 export const QueryRequest = {
   encode(message: QueryRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.pageRequest !== undefined) {
-      PageRequest.encode(message.pageRequest, writer.uint32(10).fork()).ldelim();
+    if (message.key !== undefined) {
+      Key.encode(message.key, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.limit !== 0) {
+      writer.uint32(16).int32(message.limit);
     }
     return writer;
   },
@@ -38,7 +45,10 @@ export const QueryRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.pageRequest = PageRequest.decode(reader, reader.uint32());
+          message.key = Key.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.limit = reader.int32();
           break;
         default:
           reader.skipType(tag & 7);
@@ -49,27 +59,32 @@ export const QueryRequest = {
   },
   fromJSON(object: any): QueryRequest {
     return {
-      pageRequest: isSet(object.pageRequest) ? PageRequest.fromJSON(object.pageRequest) : undefined
+      key: isSet(object.key) ? Key.fromJSON(object.key) : undefined,
+      limit: isSet(object.limit) ? Number(object.limit) : 0
     };
   },
   toJSON(message: QueryRequest): unknown {
     const obj: any = {};
-    message.pageRequest !== undefined && (obj.pageRequest = message.pageRequest ? PageRequest.toJSON(message.pageRequest) : undefined);
+    message.key !== undefined && (obj.key = message.key ? Key.toJSON(message.key) : undefined);
+    message.limit !== undefined && (obj.limit = Math.round(message.limit));
     return obj;
   },
   fromPartial(object: Partial<QueryRequest>): QueryRequest {
     const message = createBaseQueryRequest();
-    message.pageRequest = object.pageRequest !== undefined && object.pageRequest !== null ? PageRequest.fromPartial(object.pageRequest) : undefined;
+    message.key = object.key !== undefined && object.key !== null ? Key.fromPartial(object.key) : undefined;
+    message.limit = object.limit ?? 0;
     return message;
   },
   fromAmino(object: QueryRequestAmino): QueryRequest {
     return {
-      pageRequest: object?.page_request ? PageRequest.fromAmino(object.page_request) : undefined
+      key: object?.key ? Key.fromAmino(object.key) : undefined,
+      limit: object.limit
     };
   },
   toAmino(message: QueryRequest): QueryRequestAmino {
     const obj: any = {};
-    obj.page_request = message.pageRequest ? PageRequest.toAmino(message.pageRequest) : undefined;
+    obj.key = message.key ? Key.toAmino(message.key) : undefined;
+    obj.limit = message.limit;
     return obj;
   },
   fromAminoMsg(object: QueryRequestAminoMsg): QueryRequest {

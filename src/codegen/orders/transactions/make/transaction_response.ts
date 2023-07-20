@@ -1,31 +1,32 @@
+import { OrderID, OrderIDAmino, OrderIDSDKType } from "../../../ids/base/order_id";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 export interface TransactionResponse {
-  orderID: string;
+  orderID?: OrderID;
 }
 export interface TransactionResponseProtoMsg {
   typeUrl: "/assetmantle.modules.orders.transactions.make.TransactionResponse";
   value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-  order_i_d: string;
+  order_i_d?: OrderIDAmino;
 }
 export interface TransactionResponseAminoMsg {
   type: "/assetmantle.modules.orders.transactions.make.TransactionResponse";
   value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-  order_i_d: string;
+  order_i_d?: OrderIDSDKType;
 }
 function createBaseTransactionResponse(): TransactionResponse {
   return {
-    orderID: ""
+    orderID: undefined
   };
 }
 export const TransactionResponse = {
   encode(message: TransactionResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.orderID !== "") {
-      writer.uint32(10).string(message.orderID);
+    if (message.orderID !== undefined) {
+      OrderID.encode(message.orderID, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -37,7 +38,7 @@ export const TransactionResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.orderID = reader.string();
+          message.orderID = OrderID.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,27 +49,27 @@ export const TransactionResponse = {
   },
   fromJSON(object: any): TransactionResponse {
     return {
-      orderID: isSet(object.orderID) ? String(object.orderID) : ""
+      orderID: isSet(object.orderID) ? OrderID.fromJSON(object.orderID) : undefined
     };
   },
   toJSON(message: TransactionResponse): unknown {
     const obj: any = {};
-    message.orderID !== undefined && (obj.orderID = message.orderID);
+    message.orderID !== undefined && (obj.orderID = message.orderID ? OrderID.toJSON(message.orderID) : undefined);
     return obj;
   },
   fromPartial(object: Partial<TransactionResponse>): TransactionResponse {
     const message = createBaseTransactionResponse();
-    message.orderID = object.orderID ?? "";
+    message.orderID = object.orderID !== undefined && object.orderID !== null ? OrderID.fromPartial(object.orderID) : undefined;
     return message;
   },
   fromAmino(object: TransactionResponseAmino): TransactionResponse {
     return {
-      orderID: object.order_i_d
+      orderID: object?.order_i_d ? OrderID.fromAmino(object.order_i_d) : undefined
     };
   },
   toAmino(message: TransactionResponse): TransactionResponseAmino {
     const obj: any = {};
-    obj.order_i_d = message.orderID;
+    obj.order_i_d = message.orderID ? OrderID.toAmino(message.orderID) : undefined;
     return obj;
   },
   fromAminoMsg(object: TransactionResponseAminoMsg): TransactionResponse {

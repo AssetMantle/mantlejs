@@ -1,21 +1,21 @@
-import { ClassificationID, ClassificationIDAmino, ClassificationIDSDKType } from "../../../ids/base/classification_id";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 export interface QueryRequest {
-    classificationID?: ClassificationID;
+    key?: Key;
 }
 export interface QueryRequestProtoMsg {
     typeUrl: "/assetmantle.modules.classifications.queries.classification.QueryRequest";
     value: Uint8Array;
 }
 export interface QueryRequestAmino {
-    classification_i_d?: ClassificationIDAmino;
+    key?: KeyAmino;
 }
 export interface QueryRequestAminoMsg {
     type: "/assetmantle.modules.classifications.queries.classification.QueryRequest";
     value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-    classification_i_d?: ClassificationIDSDKType;
+    key?: KeySDKType;
 }
 export declare const QueryRequest: {
     encode(message: QueryRequest, writer?: _m0.Writer): _m0.Writer;

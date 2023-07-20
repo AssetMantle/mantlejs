@@ -1,20 +1,21 @@
+import { AssetID, AssetIDAmino, AssetIDSDKType } from "../../../ids/base/asset_id";
 import * as _m0 from "protobufjs/minimal";
 export interface TransactionResponse {
-    assetID: string;
+    assetID?: AssetID;
 }
 export interface TransactionResponseProtoMsg {
     typeUrl: "/assetmantle.modules.assets.transactions.mint.TransactionResponse";
     value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-    asset_i_d: string;
+    asset_i_d?: AssetIDAmino;
 }
 export interface TransactionResponseAminoMsg {
     type: "/assetmantle.modules.assets.transactions.mint.TransactionResponse";
     value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-    asset_i_d: string;
+    asset_i_d?: AssetIDSDKType;
 }
 export declare const TransactionResponse: {
     encode(message: TransactionResponse, writer?: _m0.Writer): _m0.Writer;

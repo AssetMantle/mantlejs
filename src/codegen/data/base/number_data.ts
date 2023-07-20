@@ -1,7 +1,7 @@
-import { Long, isSet } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
+import { isSet } from "../../helpers";
 export interface NumberData {
-  value: Long;
+  value: string;
 }
 export interface NumberDataProtoMsg {
   typeUrl: "/assetmantle.schema.data.base.NumberData";
@@ -15,17 +15,17 @@ export interface NumberDataAminoMsg {
   value: NumberDataAmino;
 }
 export interface NumberDataSDKType {
-  value: Long;
+  value: string;
 }
 function createBaseNumberData(): NumberData {
   return {
-    value: Long.ZERO
+    value: ""
   };
 }
 export const NumberData = {
   encode(message: NumberData, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.value.isZero()) {
-      writer.uint32(8).int64(message.value);
+    if (message.value !== "") {
+      writer.uint32(10).string(message.value);
     }
     return writer;
   },
@@ -37,7 +37,7 @@ export const NumberData = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.value = (reader.int64() as Long);
+          message.value = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,27 +48,27 @@ export const NumberData = {
   },
   fromJSON(object: any): NumberData {
     return {
-      value: isSet(object.value) ? Long.fromValue(object.value) : Long.ZERO
+      value: isSet(object.value) ? String(object.value) : ""
     };
   },
   toJSON(message: NumberData): unknown {
     const obj: any = {};
-    message.value !== undefined && (obj.value = (message.value || Long.ZERO).toString());
+    message.value !== undefined && (obj.value = message.value);
     return obj;
   },
   fromPartial(object: Partial<NumberData>): NumberData {
     const message = createBaseNumberData();
-    message.value = object.value !== undefined && object.value !== null ? Long.fromValue(object.value) : Long.ZERO;
+    message.value = object.value ?? "";
     return message;
   },
   fromAmino(object: NumberDataAmino): NumberData {
     return {
-      value: Long.fromString(object.value)
+      value: object.value
     };
   },
   toAmino(message: NumberData): NumberDataAmino {
     const obj: any = {};
-    obj.value = message.value ? message.value.toString() : undefined;
+    obj.value = message.value;
     return obj;
   },
   fromAminoMsg(object: NumberDataAminoMsg): NumberData {

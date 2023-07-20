@@ -1,7 +1,6 @@
-import { Long } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface NumberData {
-    value: Long;
+    value: string;
 }
 export interface NumberDataProtoMsg {
     typeUrl: "/assetmantle.schema.data.base.NumberData";
@@ -15,7 +14,7 @@ export interface NumberDataAminoMsg {
     value: NumberDataAmino;
 }
 export interface NumberDataSDKType {
-    value: Long;
+    value: string;
 }
 export declare const NumberData: {
     encode(message: NumberData, writer?: _m0.Writer): _m0.Writer;

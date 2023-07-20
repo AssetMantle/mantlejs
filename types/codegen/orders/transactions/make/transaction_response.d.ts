@@ -1,20 +1,21 @@
+import { OrderID, OrderIDAmino, OrderIDSDKType } from "../../../ids/base/order_id";
 import * as _m0 from "protobufjs/minimal";
 export interface TransactionResponse {
-    orderID: string;
+    orderID?: OrderID;
 }
 export interface TransactionResponseProtoMsg {
     typeUrl: "/assetmantle.modules.orders.transactions.make.TransactionResponse";
     value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-    order_i_d: string;
+    order_i_d?: OrderIDAmino;
 }
 export interface TransactionResponseAminoMsg {
     type: "/assetmantle.modules.orders.transactions.make.TransactionResponse";
     value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-    order_i_d: string;
+    order_i_d?: OrderIDSDKType;
 }
 export declare const TransactionResponse: {
     encode(message: TransactionResponse, writer?: _m0.Writer): _m0.Writer;

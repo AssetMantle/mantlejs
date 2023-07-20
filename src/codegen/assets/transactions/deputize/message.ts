@@ -10,8 +10,8 @@ export interface Message {
   classificationID?: ClassificationID;
   maintainedProperties?: PropertyList;
   canMintAsset: boolean;
-  canBurnAsset: boolean;
   canRenumerateAsset: boolean;
+  canBurnAsset: boolean;
   canAddMaintainer: boolean;
   canRemoveMaintainer: boolean;
   canMutateMaintainer: boolean;
@@ -27,8 +27,8 @@ export interface MessageAmino {
   classification_i_d?: ClassificationIDAmino;
   maintained_properties?: PropertyListAmino;
   can_mint_asset: boolean;
-  can_burn_asset: boolean;
   can_renumerate_asset: boolean;
+  can_burn_asset: boolean;
   can_add_maintainer: boolean;
   can_remove_maintainer: boolean;
   can_mutate_maintainer: boolean;
@@ -44,8 +44,8 @@ export interface MessageSDKType {
   classification_i_d?: ClassificationIDSDKType;
   maintained_properties?: PropertyListSDKType;
   can_mint_asset: boolean;
-  can_burn_asset: boolean;
   can_renumerate_asset: boolean;
+  can_burn_asset: boolean;
   can_add_maintainer: boolean;
   can_remove_maintainer: boolean;
   can_mutate_maintainer: boolean;
@@ -58,8 +58,8 @@ function createBaseMessage(): Message {
     classificationID: undefined,
     maintainedProperties: undefined,
     canMintAsset: false,
-    canBurnAsset: false,
     canRenumerateAsset: false,
+    canBurnAsset: false,
     canAddMaintainer: false,
     canRemoveMaintainer: false,
     canMutateMaintainer: false
@@ -85,11 +85,11 @@ export const Message = {
     if (message.canMintAsset === true) {
       writer.uint32(48).bool(message.canMintAsset);
     }
-    if (message.canBurnAsset === true) {
-      writer.uint32(56).bool(message.canBurnAsset);
-    }
     if (message.canRenumerateAsset === true) {
-      writer.uint32(64).bool(message.canRenumerateAsset);
+      writer.uint32(56).bool(message.canRenumerateAsset);
+    }
+    if (message.canBurnAsset === true) {
+      writer.uint32(64).bool(message.canBurnAsset);
     }
     if (message.canAddMaintainer === true) {
       writer.uint32(72).bool(message.canAddMaintainer);
@@ -128,10 +128,10 @@ export const Message = {
           message.canMintAsset = reader.bool();
           break;
         case 7:
-          message.canBurnAsset = reader.bool();
+          message.canRenumerateAsset = reader.bool();
           break;
         case 8:
-          message.canRenumerateAsset = reader.bool();
+          message.canBurnAsset = reader.bool();
           break;
         case 9:
           message.canAddMaintainer = reader.bool();
@@ -157,8 +157,8 @@ export const Message = {
       classificationID: isSet(object.classificationID) ? ClassificationID.fromJSON(object.classificationID) : undefined,
       maintainedProperties: isSet(object.maintainedProperties) ? PropertyList.fromJSON(object.maintainedProperties) : undefined,
       canMintAsset: isSet(object.canMintAsset) ? Boolean(object.canMintAsset) : false,
-      canBurnAsset: isSet(object.canBurnAsset) ? Boolean(object.canBurnAsset) : false,
       canRenumerateAsset: isSet(object.canRenumerateAsset) ? Boolean(object.canRenumerateAsset) : false,
+      canBurnAsset: isSet(object.canBurnAsset) ? Boolean(object.canBurnAsset) : false,
       canAddMaintainer: isSet(object.canAddMaintainer) ? Boolean(object.canAddMaintainer) : false,
       canRemoveMaintainer: isSet(object.canRemoveMaintainer) ? Boolean(object.canRemoveMaintainer) : false,
       canMutateMaintainer: isSet(object.canMutateMaintainer) ? Boolean(object.canMutateMaintainer) : false
@@ -172,8 +172,8 @@ export const Message = {
     message.classificationID !== undefined && (obj.classificationID = message.classificationID ? ClassificationID.toJSON(message.classificationID) : undefined);
     message.maintainedProperties !== undefined && (obj.maintainedProperties = message.maintainedProperties ? PropertyList.toJSON(message.maintainedProperties) : undefined);
     message.canMintAsset !== undefined && (obj.canMintAsset = message.canMintAsset);
-    message.canBurnAsset !== undefined && (obj.canBurnAsset = message.canBurnAsset);
     message.canRenumerateAsset !== undefined && (obj.canRenumerateAsset = message.canRenumerateAsset);
+    message.canBurnAsset !== undefined && (obj.canBurnAsset = message.canBurnAsset);
     message.canAddMaintainer !== undefined && (obj.canAddMaintainer = message.canAddMaintainer);
     message.canRemoveMaintainer !== undefined && (obj.canRemoveMaintainer = message.canRemoveMaintainer);
     message.canMutateMaintainer !== undefined && (obj.canMutateMaintainer = message.canMutateMaintainer);
@@ -187,8 +187,8 @@ export const Message = {
     message.classificationID = object.classificationID !== undefined && object.classificationID !== null ? ClassificationID.fromPartial(object.classificationID) : undefined;
     message.maintainedProperties = object.maintainedProperties !== undefined && object.maintainedProperties !== null ? PropertyList.fromPartial(object.maintainedProperties) : undefined;
     message.canMintAsset = object.canMintAsset ?? false;
-    message.canBurnAsset = object.canBurnAsset ?? false;
     message.canRenumerateAsset = object.canRenumerateAsset ?? false;
+    message.canBurnAsset = object.canBurnAsset ?? false;
     message.canAddMaintainer = object.canAddMaintainer ?? false;
     message.canRemoveMaintainer = object.canRemoveMaintainer ?? false;
     message.canMutateMaintainer = object.canMutateMaintainer ?? false;
@@ -202,8 +202,8 @@ export const Message = {
       classificationID: object?.classification_i_d ? ClassificationID.fromAmino(object.classification_i_d) : undefined,
       maintainedProperties: object?.maintained_properties ? PropertyList.fromAmino(object.maintained_properties) : undefined,
       canMintAsset: object.can_mint_asset,
-      canBurnAsset: object.can_burn_asset,
       canRenumerateAsset: object.can_renumerate_asset,
+      canBurnAsset: object.can_burn_asset,
       canAddMaintainer: object.can_add_maintainer,
       canRemoveMaintainer: object.can_remove_maintainer,
       canMutateMaintainer: object.can_mutate_maintainer
@@ -217,8 +217,8 @@ export const Message = {
     obj.classification_i_d = message.classificationID ? ClassificationID.toAmino(message.classificationID) : undefined;
     obj.maintained_properties = message.maintainedProperties ? PropertyList.toAmino(message.maintainedProperties) : undefined;
     obj.can_mint_asset = message.canMintAsset;
-    obj.can_burn_asset = message.canBurnAsset;
     obj.can_renumerate_asset = message.canRenumerateAsset;
+    obj.can_burn_asset = message.canBurnAsset;
     obj.can_add_maintainer = message.canAddMaintainer;
     obj.can_remove_maintainer = message.canRemoveMaintainer;
     obj.can_mutate_maintainer = message.canMutateMaintainer;

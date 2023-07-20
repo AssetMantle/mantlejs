@@ -3,6 +3,7 @@ import { BooleanData, BooleanDataAmino, BooleanDataSDKType } from "./boolean_dat
 import { DecData, DecDataAmino, DecDataSDKType } from "./dec_data";
 import { HeightData, HeightDataAmino, HeightDataSDKType } from "./height_data";
 import { IDData, IDDataAmino, IDDataSDKType } from "./id_data";
+import { ListData, ListDataAmino, ListDataSDKType } from "./list_data";
 import { NumberData, NumberDataAmino, NumberDataSDKType } from "./number_data";
 import { StringData, StringDataAmino, StringDataSDKType } from "./string_data";
 import * as _m0 from "protobufjs/minimal";
@@ -44,23 +45,6 @@ export interface AnyDataSDKType {
   list_data?: ListDataSDKType;
   number_data?: NumberDataSDKType;
   string_data?: StringDataSDKType;
-}
-export interface ListData {
-  dataList: AnyData[];
-}
-export interface ListDataProtoMsg {
-  typeUrl: "/assetmantle.schema.data.base.ListData";
-  value: Uint8Array;
-}
-export interface ListDataAmino {
-  data_list: AnyDataAmino[];
-}
-export interface ListDataAminoMsg {
-  type: "/assetmantle.schema.data.base.ListData";
-  value: ListDataAmino;
-}
-export interface ListDataSDKType {
-  data_list: AnyDataSDKType[];
 }
 function createBaseAnyData(): AnyData {
   return {
@@ -213,84 +197,6 @@ export const AnyData = {
     return {
       typeUrl: "/assetmantle.schema.data.base.AnyData",
       value: AnyData.encode(message).finish()
-    };
-  }
-};
-function createBaseListData(): ListData {
-  return {
-    dataList: []
-  };
-}
-export const ListData = {
-  encode(message: ListData, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.dataList) {
-      AnyData.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-    return writer;
-  },
-  decode(input: _m0.Reader | Uint8Array, length?: number): ListData {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseListData();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.dataList.push(AnyData.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-  fromJSON(object: any): ListData {
-    return {
-      dataList: Array.isArray(object?.dataList) ? object.dataList.map((e: any) => AnyData.fromJSON(e)) : []
-    };
-  },
-  toJSON(message: ListData): unknown {
-    const obj: any = {};
-    if (message.dataList) {
-      obj.dataList = message.dataList.map(e => e ? AnyData.toJSON(e) : undefined);
-    } else {
-      obj.dataList = [];
-    }
-    return obj;
-  },
-  fromPartial(object: Partial<ListData>): ListData {
-    const message = createBaseListData();
-    message.dataList = object.dataList?.map(e => AnyData.fromPartial(e)) || [];
-    return message;
-  },
-  fromAmino(object: ListDataAmino): ListData {
-    return {
-      dataList: Array.isArray(object?.data_list) ? object.data_list.map((e: any) => AnyData.fromAmino(e)) : []
-    };
-  },
-  toAmino(message: ListData): ListDataAmino {
-    const obj: any = {};
-    if (message.dataList) {
-      obj.data_list = message.dataList.map(e => e ? AnyData.toAmino(e) : undefined);
-    } else {
-      obj.data_list = [];
-    }
-    return obj;
-  },
-  fromAminoMsg(object: ListDataAminoMsg): ListData {
-    return ListData.fromAmino(object.value);
-  },
-  fromProtoMsg(message: ListDataProtoMsg): ListData {
-    return ListData.decode(message.value);
-  },
-  toProto(message: ListData): Uint8Array {
-    return ListData.encode(message).finish();
-  },
-  toProtoMsg(message: ListData): ListDataProtoMsg {
-    return {
-      typeUrl: "/assetmantle.schema.data.base.ListData",
-      value: ListData.encode(message).finish()
     };
   }
 };

@@ -1,20 +1,21 @@
+import { ClassificationID, ClassificationIDAmino, ClassificationIDSDKType } from "../../../ids/base/classification_id";
 import * as _m0 from "protobufjs/minimal";
 export interface TransactionResponse {
-    classificationID: string;
+    classificationID?: ClassificationID;
 }
 export interface TransactionResponseProtoMsg {
     typeUrl: "/assetmantle.modules.orders.transactions.define.TransactionResponse";
     value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-    classification_i_d: string;
+    classification_i_d?: ClassificationIDAmino;
 }
 export interface TransactionResponseAminoMsg {
     type: "/assetmantle.modules.orders.transactions.define.TransactionResponse";
     value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-    classification_i_d: string;
+    classification_i_d?: ClassificationIDSDKType;
 }
 export declare const TransactionResponse: {
     encode(message: TransactionResponse, writer?: _m0.Writer): _m0.Writer;

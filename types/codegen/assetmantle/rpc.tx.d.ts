@@ -20,12 +20,12 @@ export declare const createRPCMsgClient: ({ rpc }: {
                     define: import("../identities/transactions/define/service.rpc.msg").MsgClientImpl;
                     deputize: import("../identities/transactions/deputize/service.rpc.msg").MsgClientImpl;
                     issue: import("../identities/transactions/issue/service.rpc.msg").MsgClientImpl;
-                    mutate: import("../identities/transactions/mutate/service.rpc.msg").MsgClientImpl;
                     nub: import("../identities/transactions/nub/service.rpc.msg").MsgClientImpl;
                     provision: import("../identities/transactions/provision/service.rpc.msg").MsgClientImpl;
                     quash: import("../identities/transactions/quash/service.rpc.msg").MsgClientImpl;
                     revoke: import("../identities/transactions/revoke/service.rpc.msg").MsgClientImpl;
                     unprovision: import("../identities/transactions/unprovision/service.rpc.msg").MsgClientImpl;
+                    mutate: import("../identities/transactions/update/service.rpc.msg").MsgClientImpl;
                 };
             };
             metas: {

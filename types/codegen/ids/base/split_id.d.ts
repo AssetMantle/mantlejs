@@ -1,25 +1,25 @@
-import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "./identity_id";
 import { AnyOwnableID, AnyOwnableIDAmino, AnyOwnableIDSDKType } from "./any_ownable_id";
+import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "./identity_id";
 import * as _m0 from "protobufjs/minimal";
 export interface SplitID {
-    ownerID?: IdentityID;
     ownableID?: AnyOwnableID;
+    ownerID?: IdentityID;
 }
 export interface SplitIDProtoMsg {
     typeUrl: "/assetmantle.schema.ids.base.SplitID";
     value: Uint8Array;
 }
 export interface SplitIDAmino {
-    owner_i_d?: IdentityIDAmino;
     ownable_i_d?: AnyOwnableIDAmino;
+    owner_i_d?: IdentityIDAmino;
 }
 export interface SplitIDAminoMsg {
     type: "/assetmantle.schema.ids.base.SplitID";
     value: SplitIDAmino;
 }
 export interface SplitIDSDKType {
-    owner_i_d?: IdentityIDSDKType;
     ownable_i_d?: AnyOwnableIDSDKType;
+    owner_i_d?: IdentityIDSDKType;
 }
 export declare const SplitID: {
     encode(message: SplitID, writer?: _m0.Writer): _m0.Writer;

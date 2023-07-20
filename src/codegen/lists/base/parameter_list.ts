@@ -1,4 +1,4 @@
-import { Parameter, ParameterAmino, ParameterSDKType } from "./parameter";
+import { Parameter, ParameterAmino, ParameterSDKType } from "../../parameters/base/parameter";
 import * as _m0 from "protobufjs/minimal";
 export interface ParameterList {
   parameters: Parameter[];

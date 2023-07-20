@@ -1,20 +1,21 @@
+import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "../../../ids/base/identity_id";
 import * as _m0 from "protobufjs/minimal";
 export interface TransactionResponse {
-    nubID: string;
+    nubID?: IdentityID;
 }
 export interface TransactionResponseProtoMsg {
     typeUrl: "/assetmantle.modules.identities.transactions.nub.TransactionResponse";
     value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-    nub_i_d: string;
+    nub_i_d?: IdentityIDAmino;
 }
 export interface TransactionResponseAminoMsg {
     type: "/assetmantle.modules.identities.transactions.nub.TransactionResponse";
     value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-    nub_i_d: string;
+    nub_i_d?: IdentityIDSDKType;
 }
 export declare const TransactionResponse: {
     encode(message: TransactionResponse, writer?: _m0.Writer): _m0.Writer;

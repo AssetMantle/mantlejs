@@ -22,12 +22,12 @@ export const createRPCMsgClient = async ({
           define: new (await import("../identities/transactions/define/service.rpc.msg")).MsgClientImpl(rpc),
           deputize: new (await import("../identities/transactions/deputize/service.rpc.msg")).MsgClientImpl(rpc),
           issue: new (await import("../identities/transactions/issue/service.rpc.msg")).MsgClientImpl(rpc),
-          mutate: new (await import("../identities/transactions/mutate/service.rpc.msg")).MsgClientImpl(rpc),
           nub: new (await import("../identities/transactions/nub/service.rpc.msg")).MsgClientImpl(rpc),
           provision: new (await import("../identities/transactions/provision/service.rpc.msg")).MsgClientImpl(rpc),
           quash: new (await import("../identities/transactions/quash/service.rpc.msg")).MsgClientImpl(rpc),
           revoke: new (await import("../identities/transactions/revoke/service.rpc.msg")).MsgClientImpl(rpc),
-          unprovision: new (await import("../identities/transactions/unprovision/service.rpc.msg")).MsgClientImpl(rpc)
+          unprovision: new (await import("../identities/transactions/unprovision/service.rpc.msg")).MsgClientImpl(rpc),
+          mutate: new (await import("../identities/transactions/update/service.rpc.msg")).MsgClientImpl(rpc)
         }
       },
       metas: {

@@ -1,20 +1,21 @@
+import { CoinID, CoinIDAmino, CoinIDSDKType } from "../../../ids/base/coin_id";
 import * as _m0 from "protobufjs/minimal";
 export interface TransactionResponse {
-    coinID: string;
+    coinID?: CoinID;
 }
 export interface TransactionResponseProtoMsg {
     typeUrl: "/assetmantle.modules.splits.transactions.wrap.TransactionResponse";
     value: Uint8Array;
 }
 export interface TransactionResponseAmino {
-    coin_i_d: string;
+    coin_i_d?: CoinIDAmino;
 }
 export interface TransactionResponseAminoMsg {
     type: "/assetmantle.modules.splits.transactions.wrap.TransactionResponse";
     value: TransactionResponseAmino;
 }
 export interface TransactionResponseSDKType {
-    coin_i_d: string;
+    coin_i_d?: CoinIDSDKType;
 }
 export declare const TransactionResponse: {
     encode(message: TransactionResponse, writer?: _m0.Writer): _m0.Writer;

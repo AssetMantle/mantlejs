@@ -9,8 +9,8 @@ export interface Message {
     classificationID?: ClassificationID;
     maintainedProperties?: PropertyList;
     canMintAsset: boolean;
-    canBurnAsset: boolean;
     canRenumerateAsset: boolean;
+    canBurnAsset: boolean;
     canAddMaintainer: boolean;
     canRemoveMaintainer: boolean;
     canMutateMaintainer: boolean;
@@ -26,8 +26,8 @@ export interface MessageAmino {
     classification_i_d?: ClassificationIDAmino;
     maintained_properties?: PropertyListAmino;
     can_mint_asset: boolean;
-    can_burn_asset: boolean;
     can_renumerate_asset: boolean;
+    can_burn_asset: boolean;
     can_add_maintainer: boolean;
     can_remove_maintainer: boolean;
     can_mutate_maintainer: boolean;
@@ -43,8 +43,8 @@ export interface MessageSDKType {
     classification_i_d?: ClassificationIDSDKType;
     maintained_properties?: PropertyListSDKType;
     can_mint_asset: boolean;
-    can_burn_asset: boolean;
     can_renumerate_asset: boolean;
+    can_burn_asset: boolean;
     can_add_maintainer: boolean;
     can_remove_maintainer: boolean;
     can_mutate_maintainer: boolean;

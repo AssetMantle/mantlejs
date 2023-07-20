@@ -62,6 +62,11 @@ export declare const assetmantleAminoConverters: {
         toAmino: (message: import("../metas/transactions/reveal/message").Message) => import("../metas/transactions/reveal/message").MessageAmino;
         fromAmino: (object: import("../metas/transactions/reveal/message").MessageAmino) => import("../metas/transactions/reveal/message").Message;
     };
+    "/assetmantle.modules.identities.transactions.mutate.Message": {
+        aminoType: string;
+        toAmino: (message: import("../identities/transactions/update/message").Message) => import("../identities/transactions/update/message").MessageAmino;
+        fromAmino: (object: import("../identities/transactions/update/message").MessageAmino) => import("../identities/transactions/update/message").Message;
+    };
     "/assetmantle.modules.identities.transactions.unprovision.Message": {
         aminoType: string;
         toAmino: (message: import("../identities/transactions/unprovision/message").Message) => import("../identities/transactions/unprovision/message").MessageAmino;
@@ -86,11 +91,6 @@ export declare const assetmantleAminoConverters: {
         aminoType: string;
         toAmino: (message: import("../identities/transactions/nub/message").Message) => import("../identities/transactions/nub/message").MessageAmino;
         fromAmino: (object: import("../identities/transactions/nub/message").MessageAmino) => import("../identities/transactions/nub/message").Message;
-    };
-    "/assetmantle.modules.identities.transactions.mutate.Message": {
-        aminoType: string;
-        toAmino: (message: import("../identities/transactions/mutate/message").Message) => import("../identities/transactions/mutate/message").MessageAmino;
-        fromAmino: (object: import("../identities/transactions/mutate/message").MessageAmino) => import("../identities/transactions/mutate/message").Message;
     };
     "/assetmantle.modules.identities.transactions.issue.Message": {
         aminoType: string;

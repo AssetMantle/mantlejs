@@ -11,12 +11,12 @@ import * as assetsTransactionsRevokeServiceRegistry from "../assets/transactions
 import * as identitiesTransactionsDefineServiceRegistry from "../identities/transactions/define/service.registry";
 import * as identitiesTransactionsDeputizeServiceRegistry from "../identities/transactions/deputize/service.registry";
 import * as identitiesTransactionsIssueServiceRegistry from "../identities/transactions/issue/service.registry";
-import * as identitiesTransactionsMutateServiceRegistry from "../identities/transactions/mutate/service.registry";
 import * as identitiesTransactionsNubServiceRegistry from "../identities/transactions/nub/service.registry";
 import * as identitiesTransactionsProvisionServiceRegistry from "../identities/transactions/provision/service.registry";
 import * as identitiesTransactionsQuashServiceRegistry from "../identities/transactions/quash/service.registry";
 import * as identitiesTransactionsRevokeServiceRegistry from "../identities/transactions/revoke/service.registry";
 import * as identitiesTransactionsUnprovisionServiceRegistry from "../identities/transactions/unprovision/service.registry";
+import * as identitiesTransactionsUpdateServiceRegistry from "../identities/transactions/update/service.registry";
 import * as metasTransactionsRevealServiceRegistry from "../metas/transactions/reveal/service.registry";
 import * as ordersTransactionsCancelServiceRegistry from "../orders/transactions/cancel/service.registry";
 import * as ordersTransactionsDefineServiceRegistry from "../orders/transactions/define/service.registry";
@@ -39,12 +39,12 @@ import * as assetsTransactionsRevokeServiceAmino from "../assets/transactions/re
 import * as identitiesTransactionsDefineServiceAmino from "../identities/transactions/define/service.amino";
 import * as identitiesTransactionsDeputizeServiceAmino from "../identities/transactions/deputize/service.amino";
 import * as identitiesTransactionsIssueServiceAmino from "../identities/transactions/issue/service.amino";
-import * as identitiesTransactionsMutateServiceAmino from "../identities/transactions/mutate/service.amino";
 import * as identitiesTransactionsNubServiceAmino from "../identities/transactions/nub/service.amino";
 import * as identitiesTransactionsProvisionServiceAmino from "../identities/transactions/provision/service.amino";
 import * as identitiesTransactionsQuashServiceAmino from "../identities/transactions/quash/service.amino";
 import * as identitiesTransactionsRevokeServiceAmino from "../identities/transactions/revoke/service.amino";
 import * as identitiesTransactionsUnprovisionServiceAmino from "../identities/transactions/unprovision/service.amino";
+import * as identitiesTransactionsUpdateServiceAmino from "../identities/transactions/update/service.amino";
 import * as metasTransactionsRevealServiceAmino from "../metas/transactions/reveal/service.amino";
 import * as ordersTransactionsCancelServiceAmino from "../orders/transactions/cancel/service.amino";
 import * as ordersTransactionsDefineServiceAmino from "../orders/transactions/define/service.amino";
@@ -68,12 +68,12 @@ export const assetmantleAminoConverters = {
   ...identitiesTransactionsDefineServiceAmino.AminoConverter,
   ...identitiesTransactionsDeputizeServiceAmino.AminoConverter,
   ...identitiesTransactionsIssueServiceAmino.AminoConverter,
-  ...identitiesTransactionsMutateServiceAmino.AminoConverter,
   ...identitiesTransactionsNubServiceAmino.AminoConverter,
   ...identitiesTransactionsProvisionServiceAmino.AminoConverter,
   ...identitiesTransactionsQuashServiceAmino.AminoConverter,
   ...identitiesTransactionsRevokeServiceAmino.AminoConverter,
   ...identitiesTransactionsUnprovisionServiceAmino.AminoConverter,
+  ...identitiesTransactionsUpdateServiceAmino.AminoConverter,
   ...metasTransactionsRevealServiceAmino.AminoConverter,
   ...ordersTransactionsCancelServiceAmino.AminoConverter,
   ...ordersTransactionsDefineServiceAmino.AminoConverter,
@@ -87,7 +87,7 @@ export const assetmantleAminoConverters = {
   ...splitsTransactionsUnwrapServiceAmino.AminoConverter,
   ...splitsTransactionsWrapServiceAmino.AminoConverter
 };
-export const assetmantleProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...assetsTransactionsBurnServiceRegistry.registry, ...assetsTransactionsDefineServiceRegistry.registry, ...assetsTransactionsDeputizeServiceRegistry.registry, ...assetsTransactionsMintServiceRegistry.registry, ...assetsTransactionsMutateServiceRegistry.registry, ...assetsTransactionsRenumerateServiceRegistry.registry, ...assetsTransactionsRevokeServiceRegistry.registry, ...identitiesTransactionsDefineServiceRegistry.registry, ...identitiesTransactionsDeputizeServiceRegistry.registry, ...identitiesTransactionsIssueServiceRegistry.registry, ...identitiesTransactionsMutateServiceRegistry.registry, ...identitiesTransactionsNubServiceRegistry.registry, ...identitiesTransactionsProvisionServiceRegistry.registry, ...identitiesTransactionsQuashServiceRegistry.registry, ...identitiesTransactionsRevokeServiceRegistry.registry, ...identitiesTransactionsUnprovisionServiceRegistry.registry, ...metasTransactionsRevealServiceRegistry.registry, ...ordersTransactionsCancelServiceRegistry.registry, ...ordersTransactionsDefineServiceRegistry.registry, ...ordersTransactionsDeputizeServiceRegistry.registry, ...ordersTransactionsImmediateServiceRegistry.registry, ...ordersTransactionsMakeServiceRegistry.registry, ...ordersTransactionsModifyServiceRegistry.registry, ...ordersTransactionsRevokeServiceRegistry.registry, ...ordersTransactionsTakeServiceRegistry.registry, ...splitsTransactionsSendServiceRegistry.registry, ...splitsTransactionsUnwrapServiceRegistry.registry, ...splitsTransactionsWrapServiceRegistry.registry];
+export const assetmantleProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...assetsTransactionsBurnServiceRegistry.registry, ...assetsTransactionsDefineServiceRegistry.registry, ...assetsTransactionsDeputizeServiceRegistry.registry, ...assetsTransactionsMintServiceRegistry.registry, ...assetsTransactionsMutateServiceRegistry.registry, ...assetsTransactionsRenumerateServiceRegistry.registry, ...assetsTransactionsRevokeServiceRegistry.registry, ...identitiesTransactionsDefineServiceRegistry.registry, ...identitiesTransactionsDeputizeServiceRegistry.registry, ...identitiesTransactionsIssueServiceRegistry.registry, ...identitiesTransactionsNubServiceRegistry.registry, ...identitiesTransactionsProvisionServiceRegistry.registry, ...identitiesTransactionsQuashServiceRegistry.registry, ...identitiesTransactionsRevokeServiceRegistry.registry, ...identitiesTransactionsUnprovisionServiceRegistry.registry, ...identitiesTransactionsUpdateServiceRegistry.registry, ...metasTransactionsRevealServiceRegistry.registry, ...ordersTransactionsCancelServiceRegistry.registry, ...ordersTransactionsDefineServiceRegistry.registry, ...ordersTransactionsDeputizeServiceRegistry.registry, ...ordersTransactionsImmediateServiceRegistry.registry, ...ordersTransactionsMakeServiceRegistry.registry, ...ordersTransactionsModifyServiceRegistry.registry, ...ordersTransactionsRevokeServiceRegistry.registry, ...ordersTransactionsTakeServiceRegistry.registry, ...splitsTransactionsSendServiceRegistry.registry, ...splitsTransactionsUnwrapServiceRegistry.registry, ...splitsTransactionsWrapServiceRegistry.registry];
 export const getSigningAssetmantleClientOptions = ({
   defaultTypes = defaultRegistryTypes
 }: {

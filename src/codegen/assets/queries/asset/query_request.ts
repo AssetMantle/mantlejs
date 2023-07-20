@@ -1,32 +1,32 @@
-import { AssetID, AssetIDAmino, AssetIDSDKType } from "../../../ids/base/asset_id";
+import { Key, KeyAmino, KeySDKType } from "../../key/key";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 export interface QueryRequest {
-  assetID?: AssetID;
+  key?: Key;
 }
 export interface QueryRequestProtoMsg {
   typeUrl: "/assetmantle.modules.assets.queries.asset.QueryRequest";
   value: Uint8Array;
 }
 export interface QueryRequestAmino {
-  asset_i_d?: AssetIDAmino;
+  key?: KeyAmino;
 }
 export interface QueryRequestAminoMsg {
   type: "/assetmantle.modules.assets.queries.asset.QueryRequest";
   value: QueryRequestAmino;
 }
 export interface QueryRequestSDKType {
-  asset_i_d?: AssetIDSDKType;
+  key?: KeySDKType;
 }
 function createBaseQueryRequest(): QueryRequest {
   return {
-    assetID: undefined
+    key: undefined
   };
 }
 export const QueryRequest = {
   encode(message: QueryRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.assetID !== undefined) {
-      AssetID.encode(message.assetID, writer.uint32(10).fork()).ldelim();
+    if (message.key !== undefined) {
+      Key.encode(message.key, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -38,7 +38,7 @@ export const QueryRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.assetID = AssetID.decode(reader, reader.uint32());
+          message.key = Key.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -49,27 +49,27 @@ export const QueryRequest = {
   },
   fromJSON(object: any): QueryRequest {
     return {
-      assetID: isSet(object.assetID) ? AssetID.fromJSON(object.assetID) : undefined
+      key: isSet(object.key) ? Key.fromJSON(object.key) : undefined
     };
   },
   toJSON(message: QueryRequest): unknown {
     const obj: any = {};
-    message.assetID !== undefined && (obj.assetID = message.assetID ? AssetID.toJSON(message.assetID) : undefined);
+    message.key !== undefined && (obj.key = message.key ? Key.toJSON(message.key) : undefined);
     return obj;
   },
   fromPartial(object: Partial<QueryRequest>): QueryRequest {
     const message = createBaseQueryRequest();
-    message.assetID = object.assetID !== undefined && object.assetID !== null ? AssetID.fromPartial(object.assetID) : undefined;
+    message.key = object.key !== undefined && object.key !== null ? Key.fromPartial(object.key) : undefined;
     return message;
   },
   fromAmino(object: QueryRequestAmino): QueryRequest {
     return {
-      assetID: object?.asset_i_d ? AssetID.fromAmino(object.asset_i_d) : undefined
+      key: object?.key ? Key.fromAmino(object.key) : undefined
     };
   },
   toAmino(message: QueryRequest): QueryRequestAmino {
     const obj: any = {};
-    obj.asset_i_d = message.assetID ? AssetID.toAmino(message.assetID) : undefined;
+    obj.key = message.key ? Key.toAmino(message.key) : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryRequestAminoMsg): QueryRequest {
