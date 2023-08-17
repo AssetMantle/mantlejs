@@ -5,7 +5,7 @@ import { isSet } from "../../../helpers";
 export interface Message {
   from: string;
   fromID?: IdentityID;
-  takerOwnableSplit: string;
+  takerSplit: string;
   orderID?: OrderID;
 }
 export interface MessageProtoMsg {
@@ -15,7 +15,7 @@ export interface MessageProtoMsg {
 export interface MessageAmino {
   from: string;
   from_i_d?: IdentityIDAmino;
-  taker_ownable_split: string;
+  taker_split: string;
   order_i_d?: OrderIDAmino;
 }
 export interface MessageAminoMsg {
@@ -25,14 +25,14 @@ export interface MessageAminoMsg {
 export interface MessageSDKType {
   from: string;
   from_i_d?: IdentityIDSDKType;
-  taker_ownable_split: string;
+  taker_split: string;
   order_i_d?: OrderIDSDKType;
 }
 function createBaseMessage(): Message {
   return {
     from: "",
     fromID: undefined,
-    takerOwnableSplit: "",
+    takerSplit: "",
     orderID: undefined
   };
 }
@@ -44,8 +44,8 @@ export const Message = {
     if (message.fromID !== undefined) {
       IdentityID.encode(message.fromID, writer.uint32(18).fork()).ldelim();
     }
-    if (message.takerOwnableSplit !== "") {
-      writer.uint32(26).string(message.takerOwnableSplit);
+    if (message.takerSplit !== "") {
+      writer.uint32(26).string(message.takerSplit);
     }
     if (message.orderID !== undefined) {
       OrderID.encode(message.orderID, writer.uint32(34).fork()).ldelim();
@@ -66,7 +66,7 @@ export const Message = {
           message.fromID = IdentityID.decode(reader, reader.uint32());
           break;
         case 3:
-          message.takerOwnableSplit = reader.string();
+          message.takerSplit = reader.string();
           break;
         case 4:
           message.orderID = OrderID.decode(reader, reader.uint32());
@@ -82,7 +82,7 @@ export const Message = {
     return {
       from: isSet(object.from) ? String(object.from) : "",
       fromID: isSet(object.fromID) ? IdentityID.fromJSON(object.fromID) : undefined,
-      takerOwnableSplit: isSet(object.takerOwnableSplit) ? String(object.takerOwnableSplit) : "",
+      takerSplit: isSet(object.takerSplit) ? String(object.takerSplit) : "",
       orderID: isSet(object.orderID) ? OrderID.fromJSON(object.orderID) : undefined
     };
   },
@@ -90,7 +90,7 @@ export const Message = {
     const obj: any = {};
     message.from !== undefined && (obj.from = message.from);
     message.fromID !== undefined && (obj.fromID = message.fromID ? IdentityID.toJSON(message.fromID) : undefined);
-    message.takerOwnableSplit !== undefined && (obj.takerOwnableSplit = message.takerOwnableSplit);
+    message.takerSplit !== undefined && (obj.takerSplit = message.takerSplit);
     message.orderID !== undefined && (obj.orderID = message.orderID ? OrderID.toJSON(message.orderID) : undefined);
     return obj;
   },
@@ -98,7 +98,7 @@ export const Message = {
     const message = createBaseMessage();
     message.from = object.from ?? "";
     message.fromID = object.fromID !== undefined && object.fromID !== null ? IdentityID.fromPartial(object.fromID) : undefined;
-    message.takerOwnableSplit = object.takerOwnableSplit ?? "";
+    message.takerSplit = object.takerSplit ?? "";
     message.orderID = object.orderID !== undefined && object.orderID !== null ? OrderID.fromPartial(object.orderID) : undefined;
     return message;
   },
@@ -106,7 +106,7 @@ export const Message = {
     return {
       from: object.from,
       fromID: object?.from_i_d ? IdentityID.fromAmino(object.from_i_d) : undefined,
-      takerOwnableSplit: object.taker_ownable_split,
+      takerSplit: object.taker_split,
       orderID: object?.order_i_d ? OrderID.fromAmino(object.order_i_d) : undefined
     };
   },
@@ -114,7 +114,7 @@ export const Message = {
     const obj: any = {};
     obj.from = message.from;
     obj.from_i_d = message.fromID ? IdentityID.toAmino(message.fromID) : undefined;
-    obj.taker_ownable_split = message.takerOwnableSplit;
+    obj.taker_split = message.takerSplit;
     obj.order_i_d = message.orderID ? OrderID.toAmino(message.orderID) : undefined;
     return obj;
   },

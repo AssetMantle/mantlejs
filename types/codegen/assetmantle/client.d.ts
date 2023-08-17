@@ -2,21 +2,6 @@ import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 export declare const assetmantleAminoConverters: {
-    "/assetmantle.modules.splits.transactions.wrap.Message": {
-        aminoType: string;
-        toAmino: (message: import("../splits/transactions/wrap/message").Message) => import("../splits/transactions/wrap/message").MessageAmino;
-        fromAmino: (object: import("../splits/transactions/wrap/message").MessageAmino) => import("../splits/transactions/wrap/message").Message;
-    };
-    "/assetmantle.modules.splits.transactions.unwrap.Message": {
-        aminoType: string;
-        toAmino: (message: import("../splits/transactions/unwrap/message").Message) => import("../splits/transactions/unwrap/message").MessageAmino;
-        fromAmino: (object: import("../splits/transactions/unwrap/message").MessageAmino) => import("../splits/transactions/unwrap/message").Message;
-    };
-    "/assetmantle.modules.splits.transactions.send.Message": {
-        aminoType: string;
-        toAmino: (message: import("../splits/transactions/send/message").Message) => import("../splits/transactions/send/message").MessageAmino;
-        fromAmino: (object: import("../splits/transactions/send/message").MessageAmino) => import("../splits/transactions/send/message").Message;
-    };
     "/assetmantle.modules.orders.transactions.take.Message": {
         aminoType: string;
         toAmino: (message: import("../orders/transactions/take/message").Message) => import("../orders/transactions/take/message").MessageAmino;
@@ -26,6 +11,11 @@ export declare const assetmantleAminoConverters: {
         aminoType: string;
         toAmino: (message: import("../orders/transactions/revoke/message").Message) => import("../orders/transactions/revoke/message").MessageAmino;
         fromAmino: (object: import("../orders/transactions/revoke/message").MessageAmino) => import("../orders/transactions/revoke/message").Message;
+    };
+    "/assetmantle.modules.orders.transactions.put.Message": {
+        aminoType: string;
+        toAmino: (message: import("../orders/transactions/put/message").Message) => import("../orders/transactions/put/message").MessageAmino;
+        fromAmino: (object: import("../orders/transactions/put/message").MessageAmino) => import("../orders/transactions/put/message").Message;
     };
     "/assetmantle.modules.orders.transactions.modify.Message": {
         aminoType: string;
@@ -41,6 +31,11 @@ export declare const assetmantleAminoConverters: {
         aminoType: string;
         toAmino: (message: import("../orders/transactions/immediate/message").Message) => import("../orders/transactions/immediate/message").MessageAmino;
         fromAmino: (object: import("../orders/transactions/immediate/message").MessageAmino) => import("../orders/transactions/immediate/message").Message;
+    };
+    "/assetmantle.modules.orders.transactions.get.Message": {
+        aminoType: string;
+        toAmino: (message: import("../orders/transactions/get/message").Message) => import("../orders/transactions/get/message").MessageAmino;
+        fromAmino: (object: import("../orders/transactions/get/message").MessageAmino) => import("../orders/transactions/get/message").Message;
     };
     "/assetmantle.modules.orders.transactions.deputize.Message": {
         aminoType: string;
@@ -87,10 +82,10 @@ export declare const assetmantleAminoConverters: {
         toAmino: (message: import("../identities/transactions/provision/message").Message) => import("../identities/transactions/provision/message").MessageAmino;
         fromAmino: (object: import("../identities/transactions/provision/message").MessageAmino) => import("../identities/transactions/provision/message").Message;
     };
-    "/assetmantle.modules.identities.transactions.nub.Message": {
+    "/assetmantle.modules.identities.transactions.name.Message": {
         aminoType: string;
-        toAmino: (message: import("../identities/transactions/nub/message").Message) => import("../identities/transactions/nub/message").MessageAmino;
-        fromAmino: (object: import("../identities/transactions/nub/message").MessageAmino) => import("../identities/transactions/nub/message").Message;
+        toAmino: (message: import("../identities/transactions/name/message").Message) => import("../identities/transactions/name/message").MessageAmino;
+        fromAmino: (object: import("../identities/transactions/name/message").MessageAmino) => import("../identities/transactions/name/message").Message;
     };
     "/assetmantle.modules.identities.transactions.issue.Message": {
         aminoType: string;
@@ -106,6 +101,21 @@ export declare const assetmantleAminoConverters: {
         aminoType: string;
         toAmino: (message: import("../identities/transactions/define/message").Message) => import("../identities/transactions/define/message").MessageAmino;
         fromAmino: (object: import("../identities/transactions/define/message").MessageAmino) => import("../identities/transactions/define/message").Message;
+    };
+    "/assetmantle.modules.assets.transactions.wrap.Message": {
+        aminoType: string;
+        toAmino: (message: import("../assets/transactions/wrap/message").Message) => import("../assets/transactions/wrap/message").MessageAmino;
+        fromAmino: (object: import("../assets/transactions/wrap/message").MessageAmino) => import("../assets/transactions/wrap/message").Message;
+    };
+    "/assetmantle.modules.assets.transactions.unwrap.Message": {
+        aminoType: string;
+        toAmino: (message: import("../assets/transactions/unwrap/message").Message) => import("../assets/transactions/unwrap/message").MessageAmino;
+        fromAmino: (object: import("../assets/transactions/unwrap/message").MessageAmino) => import("../assets/transactions/unwrap/message").Message;
+    };
+    "/assetmantle.modules.assets.transactions.send.Message": {
+        aminoType: string;
+        toAmino: (message: import("../assets/transactions/send/message").Message) => import("../assets/transactions/send/message").MessageAmino;
+        fromAmino: (object: import("../assets/transactions/send/message").MessageAmino) => import("../assets/transactions/send/message").Message;
     };
     "/assetmantle.modules.assets.transactions.revoke.Message": {
         aminoType: string;

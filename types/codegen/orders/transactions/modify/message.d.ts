@@ -7,8 +7,8 @@ export interface Message {
     from: string;
     fromID?: IdentityID;
     orderID?: OrderID;
-    makerOwnableSplit: string;
-    takerOwnableSplit: string;
+    makerSplit: string;
+    takerSplit: string;
     expiresIn?: Height;
     mutableMetaProperties?: PropertyList;
     mutableProperties?: PropertyList;
@@ -21,8 +21,8 @@ export interface MessageAmino {
     from: string;
     from_i_d?: IdentityIDAmino;
     order_i_d?: OrderIDAmino;
-    maker_ownable_split: string;
-    taker_ownable_split: string;
+    maker_split: string;
+    taker_split: string;
     expires_in?: HeightAmino;
     mutable_meta_properties?: PropertyListAmino;
     mutable_properties?: PropertyListAmino;
@@ -35,8 +35,8 @@ export interface MessageSDKType {
     from: string;
     from_i_d?: IdentityIDSDKType;
     order_i_d?: OrderIDSDKType;
-    maker_ownable_split: string;
-    taker_ownable_split: string;
+    maker_split: string;
+    taker_split: string;
     expires_in?: HeightSDKType;
     mutable_meta_properties?: PropertyListSDKType;
     mutable_properties?: PropertyListSDKType;

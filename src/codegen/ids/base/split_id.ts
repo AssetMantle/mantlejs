@@ -1,9 +1,9 @@
-import { AnyOwnableID, AnyOwnableIDAmino, AnyOwnableIDSDKType } from "./any_ownable_id";
+import { AssetID, AssetIDAmino, AssetIDSDKType } from "./asset_id";
 import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "./identity_id";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../helpers";
 export interface SplitID {
-  ownableID?: AnyOwnableID;
+  assetID?: AssetID;
   ownerID?: IdentityID;
 }
 export interface SplitIDProtoMsg {
@@ -11,7 +11,7 @@ export interface SplitIDProtoMsg {
   value: Uint8Array;
 }
 export interface SplitIDAmino {
-  ownable_i_d?: AnyOwnableIDAmino;
+  asset_i_d?: AssetIDAmino;
   owner_i_d?: IdentityIDAmino;
 }
 export interface SplitIDAminoMsg {
@@ -19,19 +19,19 @@ export interface SplitIDAminoMsg {
   value: SplitIDAmino;
 }
 export interface SplitIDSDKType {
-  ownable_i_d?: AnyOwnableIDSDKType;
+  asset_i_d?: AssetIDSDKType;
   owner_i_d?: IdentityIDSDKType;
 }
 function createBaseSplitID(): SplitID {
   return {
-    ownableID: undefined,
+    assetID: undefined,
     ownerID: undefined
   };
 }
 export const SplitID = {
   encode(message: SplitID, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.ownableID !== undefined) {
-      AnyOwnableID.encode(message.ownableID, writer.uint32(10).fork()).ldelim();
+    if (message.assetID !== undefined) {
+      AssetID.encode(message.assetID, writer.uint32(10).fork()).ldelim();
     }
     if (message.ownerID !== undefined) {
       IdentityID.encode(message.ownerID, writer.uint32(18).fork()).ldelim();
@@ -46,7 +46,7 @@ export const SplitID = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.ownableID = AnyOwnableID.decode(reader, reader.uint32());
+          message.assetID = AssetID.decode(reader, reader.uint32());
           break;
         case 2:
           message.ownerID = IdentityID.decode(reader, reader.uint32());
@@ -60,31 +60,31 @@ export const SplitID = {
   },
   fromJSON(object: any): SplitID {
     return {
-      ownableID: isSet(object.ownableID) ? AnyOwnableID.fromJSON(object.ownableID) : undefined,
+      assetID: isSet(object.assetID) ? AssetID.fromJSON(object.assetID) : undefined,
       ownerID: isSet(object.ownerID) ? IdentityID.fromJSON(object.ownerID) : undefined
     };
   },
   toJSON(message: SplitID): unknown {
     const obj: any = {};
-    message.ownableID !== undefined && (obj.ownableID = message.ownableID ? AnyOwnableID.toJSON(message.ownableID) : undefined);
+    message.assetID !== undefined && (obj.assetID = message.assetID ? AssetID.toJSON(message.assetID) : undefined);
     message.ownerID !== undefined && (obj.ownerID = message.ownerID ? IdentityID.toJSON(message.ownerID) : undefined);
     return obj;
   },
   fromPartial(object: Partial<SplitID>): SplitID {
     const message = createBaseSplitID();
-    message.ownableID = object.ownableID !== undefined && object.ownableID !== null ? AnyOwnableID.fromPartial(object.ownableID) : undefined;
+    message.assetID = object.assetID !== undefined && object.assetID !== null ? AssetID.fromPartial(object.assetID) : undefined;
     message.ownerID = object.ownerID !== undefined && object.ownerID !== null ? IdentityID.fromPartial(object.ownerID) : undefined;
     return message;
   },
   fromAmino(object: SplitIDAmino): SplitID {
     return {
-      ownableID: object?.ownable_i_d ? AnyOwnableID.fromAmino(object.ownable_i_d) : undefined,
+      assetID: object?.asset_i_d ? AssetID.fromAmino(object.asset_i_d) : undefined,
       ownerID: object?.owner_i_d ? IdentityID.fromAmino(object.owner_i_d) : undefined
     };
   },
   toAmino(message: SplitID): SplitIDAmino {
     const obj: any = {};
-    obj.ownable_i_d = message.ownableID ? AnyOwnableID.toAmino(message.ownableID) : undefined;
+    obj.asset_i_d = message.assetID ? AssetID.toAmino(message.assetID) : undefined;
     obj.owner_i_d = message.ownerID ? IdentityID.toAmino(message.ownerID) : undefined;
     return obj;
   },

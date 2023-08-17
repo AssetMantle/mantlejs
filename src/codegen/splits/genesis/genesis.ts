@@ -1,9 +1,9 @@
-import { Mappable, MappableAmino, MappableSDKType } from "../mappable/mappable";
+import { Record, RecordAmino, RecordSDKType } from "../record/record";
 import { ParameterList, ParameterListAmino, ParameterListSDKType } from "../../lists/base/parameter_list";
 import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../helpers";
 export interface Genesis {
-  mappables: Mappable[];
+  records: Record[];
   parameterList?: ParameterList;
 }
 export interface GenesisProtoMsg {
@@ -11,7 +11,7 @@ export interface GenesisProtoMsg {
   value: Uint8Array;
 }
 export interface GenesisAmino {
-  mappables: MappableAmino[];
+  records: RecordAmino[];
   parameter_list?: ParameterListAmino;
 }
 export interface GenesisAminoMsg {
@@ -19,19 +19,19 @@ export interface GenesisAminoMsg {
   value: GenesisAmino;
 }
 export interface GenesisSDKType {
-  mappables: MappableSDKType[];
+  records: RecordSDKType[];
   parameter_list?: ParameterListSDKType;
 }
 function createBaseGenesis(): Genesis {
   return {
-    mappables: [],
+    records: [],
     parameterList: undefined
   };
 }
 export const Genesis = {
   encode(message: Genesis, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.mappables) {
-      Mappable.encode(v!, writer.uint32(10).fork()).ldelim();
+    for (const v of message.records) {
+      Record.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     if (message.parameterList !== undefined) {
       ParameterList.encode(message.parameterList, writer.uint32(18).fork()).ldelim();
@@ -46,7 +46,7 @@ export const Genesis = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.mappables.push(Mappable.decode(reader, reader.uint32()));
+          message.records.push(Record.decode(reader, reader.uint32()));
           break;
         case 2:
           message.parameterList = ParameterList.decode(reader, reader.uint32());
@@ -60,38 +60,38 @@ export const Genesis = {
   },
   fromJSON(object: any): Genesis {
     return {
-      mappables: Array.isArray(object?.mappables) ? object.mappables.map((e: any) => Mappable.fromJSON(e)) : [],
+      records: Array.isArray(object?.records) ? object.records.map((e: any) => Record.fromJSON(e)) : [],
       parameterList: isSet(object.parameterList) ? ParameterList.fromJSON(object.parameterList) : undefined
     };
   },
   toJSON(message: Genesis): unknown {
     const obj: any = {};
-    if (message.mappables) {
-      obj.mappables = message.mappables.map(e => e ? Mappable.toJSON(e) : undefined);
+    if (message.records) {
+      obj.records = message.records.map(e => e ? Record.toJSON(e) : undefined);
     } else {
-      obj.mappables = [];
+      obj.records = [];
     }
     message.parameterList !== undefined && (obj.parameterList = message.parameterList ? ParameterList.toJSON(message.parameterList) : undefined);
     return obj;
   },
   fromPartial(object: Partial<Genesis>): Genesis {
     const message = createBaseGenesis();
-    message.mappables = object.mappables?.map(e => Mappable.fromPartial(e)) || [];
+    message.records = object.records?.map(e => Record.fromPartial(e)) || [];
     message.parameterList = object.parameterList !== undefined && object.parameterList !== null ? ParameterList.fromPartial(object.parameterList) : undefined;
     return message;
   },
   fromAmino(object: GenesisAmino): Genesis {
     return {
-      mappables: Array.isArray(object?.mappables) ? object.mappables.map((e: any) => Mappable.fromAmino(e)) : [],
+      records: Array.isArray(object?.records) ? object.records.map((e: any) => Record.fromAmino(e)) : [],
       parameterList: object?.parameter_list ? ParameterList.fromAmino(object.parameter_list) : undefined
     };
   },
   toAmino(message: Genesis): GenesisAmino {
     const obj: any = {};
-    if (message.mappables) {
-      obj.mappables = message.mappables.map(e => e ? Mappable.toAmino(e) : undefined);
+    if (message.records) {
+      obj.records = message.records.map(e => e ? Record.toAmino(e) : undefined);
     } else {
-      obj.mappables = [];
+      obj.records = [];
     }
     obj.parameter_list = message.parameterList ? ParameterList.toAmino(message.parameterList) : undefined;
     return obj;

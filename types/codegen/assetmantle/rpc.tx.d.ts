@@ -13,6 +13,9 @@ export declare const createRPCMsgClient: ({ rpc }: {
                     mutate: import("../assets/transactions/mutate/service.rpc.msg").MsgClientImpl;
                     renumerate: import("../assets/transactions/renumerate/service.rpc.msg").MsgClientImpl;
                     revoke: import("../assets/transactions/revoke/service.rpc.msg").MsgClientImpl;
+                    send: import("../assets/transactions/send/service.rpc.msg").MsgClientImpl;
+                    unwrap: import("../assets/transactions/unwrap/service.rpc.msg").MsgClientImpl;
+                    wrap: import("../assets/transactions/wrap/service.rpc.msg").MsgClientImpl;
                 };
             };
             identities: {
@@ -20,7 +23,7 @@ export declare const createRPCMsgClient: ({ rpc }: {
                     define: import("../identities/transactions/define/service.rpc.msg").MsgClientImpl;
                     deputize: import("../identities/transactions/deputize/service.rpc.msg").MsgClientImpl;
                     issue: import("../identities/transactions/issue/service.rpc.msg").MsgClientImpl;
-                    nub: import("../identities/transactions/nub/service.rpc.msg").MsgClientImpl;
+                    name: import("../identities/transactions/name/service.rpc.msg").MsgClientImpl;
                     provision: import("../identities/transactions/provision/service.rpc.msg").MsgClientImpl;
                     quash: import("../identities/transactions/quash/service.rpc.msg").MsgClientImpl;
                     revoke: import("../identities/transactions/revoke/service.rpc.msg").MsgClientImpl;
@@ -38,18 +41,13 @@ export declare const createRPCMsgClient: ({ rpc }: {
                     cancel: import("../orders/transactions/cancel/service.rpc.msg").MsgClientImpl;
                     define: import("../orders/transactions/define/service.rpc.msg").MsgClientImpl;
                     deputize: import("../orders/transactions/deputize/service.rpc.msg").MsgClientImpl;
+                    get: import("../orders/transactions/get/service.rpc.msg").MsgClientImpl;
                     immediate: import("../orders/transactions/immediate/service.rpc.msg").MsgClientImpl;
                     make: import("../orders/transactions/make/service.rpc.msg").MsgClientImpl;
                     modify: import("../orders/transactions/modify/service.rpc.msg").MsgClientImpl;
+                    put: import("../orders/transactions/put/service.rpc.msg").MsgClientImpl;
                     revoke: import("../orders/transactions/revoke/service.rpc.msg").MsgClientImpl;
                     take: import("../orders/transactions/take/service.rpc.msg").MsgClientImpl;
-                };
-            };
-            splits: {
-                transactions: {
-                    send: import("../splits/transactions/send/service.rpc.msg").MsgClientImpl;
-                    unwrap: import("../splits/transactions/unwrap/service.rpc.msg").MsgClientImpl;
-                    wrap: import("../splits/transactions/wrap/service.rpc.msg").MsgClientImpl;
                 };
             };
         };

@@ -1,30 +1,30 @@
 import { AnyListableData, AnyListableDataAmino, AnyListableDataSDKType } from "./any_listable_data";
 import * as _m0 from "protobufjs/minimal";
 export interface ListData {
-  anyListableData: AnyListableData[];
+  value: AnyListableData[];
 }
 export interface ListDataProtoMsg {
   typeUrl: "/assetmantle.schema.data.base.ListData";
   value: Uint8Array;
 }
 export interface ListDataAmino {
-  any_listable_data: AnyListableDataAmino[];
+  value: AnyListableDataAmino[];
 }
 export interface ListDataAminoMsg {
   type: "/assetmantle.schema.data.base.ListData";
   value: ListDataAmino;
 }
 export interface ListDataSDKType {
-  any_listable_data: AnyListableDataSDKType[];
+  value: AnyListableDataSDKType[];
 }
 function createBaseListData(): ListData {
   return {
-    anyListableData: []
+    value: []
   };
 }
 export const ListData = {
   encode(message: ListData, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.anyListableData) {
+    for (const v of message.value) {
       AnyListableData.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
@@ -37,7 +37,7 @@ export const ListData = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.anyListableData.push(AnyListableData.decode(reader, reader.uint32()));
+          message.value.push(AnyListableData.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -48,34 +48,34 @@ export const ListData = {
   },
   fromJSON(object: any): ListData {
     return {
-      anyListableData: Array.isArray(object?.anyListableData) ? object.anyListableData.map((e: any) => AnyListableData.fromJSON(e)) : []
+      value: Array.isArray(object?.value) ? object.value.map((e: any) => AnyListableData.fromJSON(e)) : []
     };
   },
   toJSON(message: ListData): unknown {
     const obj: any = {};
-    if (message.anyListableData) {
-      obj.anyListableData = message.anyListableData.map(e => e ? AnyListableData.toJSON(e) : undefined);
+    if (message.value) {
+      obj.value = message.value.map(e => e ? AnyListableData.toJSON(e) : undefined);
     } else {
-      obj.anyListableData = [];
+      obj.value = [];
     }
     return obj;
   },
   fromPartial(object: Partial<ListData>): ListData {
     const message = createBaseListData();
-    message.anyListableData = object.anyListableData?.map(e => AnyListableData.fromPartial(e)) || [];
+    message.value = object.value?.map(e => AnyListableData.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: ListDataAmino): ListData {
     return {
-      anyListableData: Array.isArray(object?.any_listable_data) ? object.any_listable_data.map((e: any) => AnyListableData.fromAmino(e)) : []
+      value: Array.isArray(object?.value) ? object.value.map((e: any) => AnyListableData.fromAmino(e)) : []
     };
   },
   toAmino(message: ListData): ListDataAmino {
     const obj: any = {};
-    if (message.anyListableData) {
-      obj.any_listable_data = message.anyListableData.map(e => e ? AnyListableData.toAmino(e) : undefined);
+    if (message.value) {
+      obj.value = message.value.map(e => e ? AnyListableData.toAmino(e) : undefined);
     } else {
-      obj.any_listable_data = [];
+      obj.value = [];
     }
     return obj;
   },

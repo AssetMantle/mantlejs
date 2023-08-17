@@ -5,7 +5,6 @@ import * as _m0 from "protobufjs/minimal";
 export interface Message {
     from: string;
     fromID?: IdentityID;
-    to: string;
     classificationID?: ClassificationID;
     immutableMetaProperties?: PropertyList;
     immutableProperties?: PropertyList;
@@ -19,7 +18,6 @@ export interface MessageProtoMsg {
 export interface MessageAmino {
     from: string;
     from_i_d?: IdentityIDAmino;
-    to: string;
     classification_i_d?: ClassificationIDAmino;
     immutable_meta_properties?: PropertyListAmino;
     immutable_properties?: PropertyListAmino;
@@ -33,7 +31,6 @@ export interface MessageAminoMsg {
 export interface MessageSDKType {
     from: string;
     from_i_d?: IdentityIDSDKType;
-    to: string;
     classification_i_d?: ClassificationIDSDKType;
     immutable_meta_properties?: PropertyListSDKType;
     immutable_properties?: PropertyListSDKType;

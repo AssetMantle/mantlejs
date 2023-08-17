@@ -14,7 +14,10 @@ export const createRPCMsgClient = async ({
           mint: new (await import("../assets/transactions/mint/service.rpc.msg")).MsgClientImpl(rpc),
           mutate: new (await import("../assets/transactions/mutate/service.rpc.msg")).MsgClientImpl(rpc),
           renumerate: new (await import("../assets/transactions/renumerate/service.rpc.msg")).MsgClientImpl(rpc),
-          revoke: new (await import("../assets/transactions/revoke/service.rpc.msg")).MsgClientImpl(rpc)
+          revoke: new (await import("../assets/transactions/revoke/service.rpc.msg")).MsgClientImpl(rpc),
+          send: new (await import("../assets/transactions/send/service.rpc.msg")).MsgClientImpl(rpc),
+          unwrap: new (await import("../assets/transactions/unwrap/service.rpc.msg")).MsgClientImpl(rpc),
+          wrap: new (await import("../assets/transactions/wrap/service.rpc.msg")).MsgClientImpl(rpc)
         }
       },
       identities: {
@@ -22,7 +25,7 @@ export const createRPCMsgClient = async ({
           define: new (await import("../identities/transactions/define/service.rpc.msg")).MsgClientImpl(rpc),
           deputize: new (await import("../identities/transactions/deputize/service.rpc.msg")).MsgClientImpl(rpc),
           issue: new (await import("../identities/transactions/issue/service.rpc.msg")).MsgClientImpl(rpc),
-          nub: new (await import("../identities/transactions/nub/service.rpc.msg")).MsgClientImpl(rpc),
+          name: new (await import("../identities/transactions/name/service.rpc.msg")).MsgClientImpl(rpc),
           provision: new (await import("../identities/transactions/provision/service.rpc.msg")).MsgClientImpl(rpc),
           quash: new (await import("../identities/transactions/quash/service.rpc.msg")).MsgClientImpl(rpc),
           revoke: new (await import("../identities/transactions/revoke/service.rpc.msg")).MsgClientImpl(rpc),
@@ -40,18 +43,13 @@ export const createRPCMsgClient = async ({
           cancel: new (await import("../orders/transactions/cancel/service.rpc.msg")).MsgClientImpl(rpc),
           define: new (await import("../orders/transactions/define/service.rpc.msg")).MsgClientImpl(rpc),
           deputize: new (await import("../orders/transactions/deputize/service.rpc.msg")).MsgClientImpl(rpc),
+          get: new (await import("../orders/transactions/get/service.rpc.msg")).MsgClientImpl(rpc),
           immediate: new (await import("../orders/transactions/immediate/service.rpc.msg")).MsgClientImpl(rpc),
           make: new (await import("../orders/transactions/make/service.rpc.msg")).MsgClientImpl(rpc),
           modify: new (await import("../orders/transactions/modify/service.rpc.msg")).MsgClientImpl(rpc),
+          put: new (await import("../orders/transactions/put/service.rpc.msg")).MsgClientImpl(rpc),
           revoke: new (await import("../orders/transactions/revoke/service.rpc.msg")).MsgClientImpl(rpc),
           take: new (await import("../orders/transactions/take/service.rpc.msg")).MsgClientImpl(rpc)
-        }
-      },
-      splits: {
-        transactions: {
-          send: new (await import("../splits/transactions/send/service.rpc.msg")).MsgClientImpl(rpc),
-          unwrap: new (await import("../splits/transactions/unwrap/service.rpc.msg")).MsgClientImpl(rpc),
-          wrap: new (await import("../splits/transactions/wrap/service.rpc.msg")).MsgClientImpl(rpc)
         }
       }
     }

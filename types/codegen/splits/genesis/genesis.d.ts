@@ -1,8 +1,8 @@
-import { Mappable, MappableAmino, MappableSDKType } from "../mappable/mappable";
+import { Record, RecordAmino, RecordSDKType } from "../record/record";
 import { ParameterList, ParameterListAmino, ParameterListSDKType } from "../../lists/base/parameter_list";
 import * as _m0 from "protobufjs/minimal";
 export interface Genesis {
-    mappables: Mappable[];
+    records: Record[];
     parameterList?: ParameterList;
 }
 export interface GenesisProtoMsg {
@@ -10,7 +10,7 @@ export interface GenesisProtoMsg {
     value: Uint8Array;
 }
 export interface GenesisAmino {
-    mappables: MappableAmino[];
+    records: RecordAmino[];
     parameter_list?: ParameterListAmino;
 }
 export interface GenesisAminoMsg {
@@ -18,7 +18,7 @@ export interface GenesisAminoMsg {
     value: GenesisAmino;
 }
 export interface GenesisSDKType {
-    mappables: MappableSDKType[];
+    records: RecordSDKType[];
     parameter_list?: ParameterListSDKType;
 }
 export declare const Genesis: {

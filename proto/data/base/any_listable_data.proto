@@ -4,6 +4,7 @@ package assetmantle.schema.data.base;
 import "data/base/acc_address_data.proto";
 import "data/base/boolean_data.proto";
 import "data/base/dec_data.proto";
+import "data/base/linked_data.proto";
 import "data/base/height_data.proto";
 import "data/base/id_data.proto";
 import "data/base/number_data.proto";
@@ -19,7 +20,8 @@ message AnyListableData {
     DecData dec_data = 3;
     HeightData height_data = 4;
     IDData i_d_data = 5;
-    NumberData number_data = 6;
-    StringData string_data = 7;
+    LinkedData linked_data = 6;
+    NumberData number_data = 7;
+    StringData string_data = 8;
   }
 }

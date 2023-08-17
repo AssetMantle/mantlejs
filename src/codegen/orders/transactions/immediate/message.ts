@@ -1,6 +1,6 @@
 import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "../../../ids/base/identity_id";
 import { ClassificationID, ClassificationIDAmino, ClassificationIDSDKType } from "../../../ids/base/classification_id";
-import { AnyOwnableID, AnyOwnableIDAmino, AnyOwnableIDSDKType } from "../../../ids/base/any_ownable_id";
+import { AssetID, AssetIDAmino, AssetIDSDKType } from "../../../ids/base/asset_id";
 import { Height, HeightAmino, HeightSDKType } from "../../../types/base/height";
 import { PropertyList, PropertyListAmino, PropertyListSDKType } from "../../../lists/base/property_list";
 import * as _m0 from "protobufjs/minimal";
@@ -10,11 +10,11 @@ export interface Message {
   fromID?: IdentityID;
   classificationID?: ClassificationID;
   takerID?: IdentityID;
-  makerOwnableID?: AnyOwnableID;
-  takerOwnableID?: AnyOwnableID;
+  makerAssetID?: AssetID;
+  takerAssetID?: AssetID;
   expiresIn?: Height;
-  makerOwnableSplit: string;
-  takerOwnableSplit: string;
+  makerSplit: string;
+  takerSplit: string;
   immutableMetaProperties?: PropertyList;
   immutableProperties?: PropertyList;
   mutableMetaProperties?: PropertyList;
@@ -29,11 +29,11 @@ export interface MessageAmino {
   from_i_d?: IdentityIDAmino;
   classification_i_d?: ClassificationIDAmino;
   taker_i_d?: IdentityIDAmino;
-  maker_ownable_i_d?: AnyOwnableIDAmino;
-  taker_ownable_i_d?: AnyOwnableIDAmino;
+  maker_asset_i_d?: AssetIDAmino;
+  taker_asset_i_d?: AssetIDAmino;
   expires_in?: HeightAmino;
-  maker_ownable_split: string;
-  taker_ownable_split: string;
+  maker_split: string;
+  taker_split: string;
   immutable_meta_properties?: PropertyListAmino;
   immutable_properties?: PropertyListAmino;
   mutable_meta_properties?: PropertyListAmino;
@@ -48,11 +48,11 @@ export interface MessageSDKType {
   from_i_d?: IdentityIDSDKType;
   classification_i_d?: ClassificationIDSDKType;
   taker_i_d?: IdentityIDSDKType;
-  maker_ownable_i_d?: AnyOwnableIDSDKType;
-  taker_ownable_i_d?: AnyOwnableIDSDKType;
+  maker_asset_i_d?: AssetIDSDKType;
+  taker_asset_i_d?: AssetIDSDKType;
   expires_in?: HeightSDKType;
-  maker_ownable_split: string;
-  taker_ownable_split: string;
+  maker_split: string;
+  taker_split: string;
   immutable_meta_properties?: PropertyListSDKType;
   immutable_properties?: PropertyListSDKType;
   mutable_meta_properties?: PropertyListSDKType;
@@ -64,11 +64,11 @@ function createBaseMessage(): Message {
     fromID: undefined,
     classificationID: undefined,
     takerID: undefined,
-    makerOwnableID: undefined,
-    takerOwnableID: undefined,
+    makerAssetID: undefined,
+    takerAssetID: undefined,
     expiresIn: undefined,
-    makerOwnableSplit: "",
-    takerOwnableSplit: "",
+    makerSplit: "",
+    takerSplit: "",
     immutableMetaProperties: undefined,
     immutableProperties: undefined,
     mutableMetaProperties: undefined,
@@ -89,20 +89,20 @@ export const Message = {
     if (message.takerID !== undefined) {
       IdentityID.encode(message.takerID, writer.uint32(34).fork()).ldelim();
     }
-    if (message.makerOwnableID !== undefined) {
-      AnyOwnableID.encode(message.makerOwnableID, writer.uint32(42).fork()).ldelim();
+    if (message.makerAssetID !== undefined) {
+      AssetID.encode(message.makerAssetID, writer.uint32(42).fork()).ldelim();
     }
-    if (message.takerOwnableID !== undefined) {
-      AnyOwnableID.encode(message.takerOwnableID, writer.uint32(50).fork()).ldelim();
+    if (message.takerAssetID !== undefined) {
+      AssetID.encode(message.takerAssetID, writer.uint32(50).fork()).ldelim();
     }
     if (message.expiresIn !== undefined) {
       Height.encode(message.expiresIn, writer.uint32(58).fork()).ldelim();
     }
-    if (message.makerOwnableSplit !== "") {
-      writer.uint32(66).string(message.makerOwnableSplit);
+    if (message.makerSplit !== "") {
+      writer.uint32(66).string(message.makerSplit);
     }
-    if (message.takerOwnableSplit !== "") {
-      writer.uint32(74).string(message.takerOwnableSplit);
+    if (message.takerSplit !== "") {
+      writer.uint32(74).string(message.takerSplit);
     }
     if (message.immutableMetaProperties !== undefined) {
       PropertyList.encode(message.immutableMetaProperties, writer.uint32(82).fork()).ldelim();
@@ -138,19 +138,19 @@ export const Message = {
           message.takerID = IdentityID.decode(reader, reader.uint32());
           break;
         case 5:
-          message.makerOwnableID = AnyOwnableID.decode(reader, reader.uint32());
+          message.makerAssetID = AssetID.decode(reader, reader.uint32());
           break;
         case 6:
-          message.takerOwnableID = AnyOwnableID.decode(reader, reader.uint32());
+          message.takerAssetID = AssetID.decode(reader, reader.uint32());
           break;
         case 7:
           message.expiresIn = Height.decode(reader, reader.uint32());
           break;
         case 8:
-          message.makerOwnableSplit = reader.string();
+          message.makerSplit = reader.string();
           break;
         case 9:
-          message.takerOwnableSplit = reader.string();
+          message.takerSplit = reader.string();
           break;
         case 10:
           message.immutableMetaProperties = PropertyList.decode(reader, reader.uint32());
@@ -177,11 +177,11 @@ export const Message = {
       fromID: isSet(object.fromID) ? IdentityID.fromJSON(object.fromID) : undefined,
       classificationID: isSet(object.classificationID) ? ClassificationID.fromJSON(object.classificationID) : undefined,
       takerID: isSet(object.takerID) ? IdentityID.fromJSON(object.takerID) : undefined,
-      makerOwnableID: isSet(object.makerOwnableID) ? AnyOwnableID.fromJSON(object.makerOwnableID) : undefined,
-      takerOwnableID: isSet(object.takerOwnableID) ? AnyOwnableID.fromJSON(object.takerOwnableID) : undefined,
+      makerAssetID: isSet(object.makerAssetID) ? AssetID.fromJSON(object.makerAssetID) : undefined,
+      takerAssetID: isSet(object.takerAssetID) ? AssetID.fromJSON(object.takerAssetID) : undefined,
       expiresIn: isSet(object.expiresIn) ? Height.fromJSON(object.expiresIn) : undefined,
-      makerOwnableSplit: isSet(object.makerOwnableSplit) ? String(object.makerOwnableSplit) : "",
-      takerOwnableSplit: isSet(object.takerOwnableSplit) ? String(object.takerOwnableSplit) : "",
+      makerSplit: isSet(object.makerSplit) ? String(object.makerSplit) : "",
+      takerSplit: isSet(object.takerSplit) ? String(object.takerSplit) : "",
       immutableMetaProperties: isSet(object.immutableMetaProperties) ? PropertyList.fromJSON(object.immutableMetaProperties) : undefined,
       immutableProperties: isSet(object.immutableProperties) ? PropertyList.fromJSON(object.immutableProperties) : undefined,
       mutableMetaProperties: isSet(object.mutableMetaProperties) ? PropertyList.fromJSON(object.mutableMetaProperties) : undefined,
@@ -194,11 +194,11 @@ export const Message = {
     message.fromID !== undefined && (obj.fromID = message.fromID ? IdentityID.toJSON(message.fromID) : undefined);
     message.classificationID !== undefined && (obj.classificationID = message.classificationID ? ClassificationID.toJSON(message.classificationID) : undefined);
     message.takerID !== undefined && (obj.takerID = message.takerID ? IdentityID.toJSON(message.takerID) : undefined);
-    message.makerOwnableID !== undefined && (obj.makerOwnableID = message.makerOwnableID ? AnyOwnableID.toJSON(message.makerOwnableID) : undefined);
-    message.takerOwnableID !== undefined && (obj.takerOwnableID = message.takerOwnableID ? AnyOwnableID.toJSON(message.takerOwnableID) : undefined);
+    message.makerAssetID !== undefined && (obj.makerAssetID = message.makerAssetID ? AssetID.toJSON(message.makerAssetID) : undefined);
+    message.takerAssetID !== undefined && (obj.takerAssetID = message.takerAssetID ? AssetID.toJSON(message.takerAssetID) : undefined);
     message.expiresIn !== undefined && (obj.expiresIn = message.expiresIn ? Height.toJSON(message.expiresIn) : undefined);
-    message.makerOwnableSplit !== undefined && (obj.makerOwnableSplit = message.makerOwnableSplit);
-    message.takerOwnableSplit !== undefined && (obj.takerOwnableSplit = message.takerOwnableSplit);
+    message.makerSplit !== undefined && (obj.makerSplit = message.makerSplit);
+    message.takerSplit !== undefined && (obj.takerSplit = message.takerSplit);
     message.immutableMetaProperties !== undefined && (obj.immutableMetaProperties = message.immutableMetaProperties ? PropertyList.toJSON(message.immutableMetaProperties) : undefined);
     message.immutableProperties !== undefined && (obj.immutableProperties = message.immutableProperties ? PropertyList.toJSON(message.immutableProperties) : undefined);
     message.mutableMetaProperties !== undefined && (obj.mutableMetaProperties = message.mutableMetaProperties ? PropertyList.toJSON(message.mutableMetaProperties) : undefined);
@@ -211,11 +211,11 @@ export const Message = {
     message.fromID = object.fromID !== undefined && object.fromID !== null ? IdentityID.fromPartial(object.fromID) : undefined;
     message.classificationID = object.classificationID !== undefined && object.classificationID !== null ? ClassificationID.fromPartial(object.classificationID) : undefined;
     message.takerID = object.takerID !== undefined && object.takerID !== null ? IdentityID.fromPartial(object.takerID) : undefined;
-    message.makerOwnableID = object.makerOwnableID !== undefined && object.makerOwnableID !== null ? AnyOwnableID.fromPartial(object.makerOwnableID) : undefined;
-    message.takerOwnableID = object.takerOwnableID !== undefined && object.takerOwnableID !== null ? AnyOwnableID.fromPartial(object.takerOwnableID) : undefined;
+    message.makerAssetID = object.makerAssetID !== undefined && object.makerAssetID !== null ? AssetID.fromPartial(object.makerAssetID) : undefined;
+    message.takerAssetID = object.takerAssetID !== undefined && object.takerAssetID !== null ? AssetID.fromPartial(object.takerAssetID) : undefined;
     message.expiresIn = object.expiresIn !== undefined && object.expiresIn !== null ? Height.fromPartial(object.expiresIn) : undefined;
-    message.makerOwnableSplit = object.makerOwnableSplit ?? "";
-    message.takerOwnableSplit = object.takerOwnableSplit ?? "";
+    message.makerSplit = object.makerSplit ?? "";
+    message.takerSplit = object.takerSplit ?? "";
     message.immutableMetaProperties = object.immutableMetaProperties !== undefined && object.immutableMetaProperties !== null ? PropertyList.fromPartial(object.immutableMetaProperties) : undefined;
     message.immutableProperties = object.immutableProperties !== undefined && object.immutableProperties !== null ? PropertyList.fromPartial(object.immutableProperties) : undefined;
     message.mutableMetaProperties = object.mutableMetaProperties !== undefined && object.mutableMetaProperties !== null ? PropertyList.fromPartial(object.mutableMetaProperties) : undefined;
@@ -228,11 +228,11 @@ export const Message = {
       fromID: object?.from_i_d ? IdentityID.fromAmino(object.from_i_d) : undefined,
       classificationID: object?.classification_i_d ? ClassificationID.fromAmino(object.classification_i_d) : undefined,
       takerID: object?.taker_i_d ? IdentityID.fromAmino(object.taker_i_d) : undefined,
-      makerOwnableID: object?.maker_ownable_i_d ? AnyOwnableID.fromAmino(object.maker_ownable_i_d) : undefined,
-      takerOwnableID: object?.taker_ownable_i_d ? AnyOwnableID.fromAmino(object.taker_ownable_i_d) : undefined,
+      makerAssetID: object?.maker_asset_i_d ? AssetID.fromAmino(object.maker_asset_i_d) : undefined,
+      takerAssetID: object?.taker_asset_i_d ? AssetID.fromAmino(object.taker_asset_i_d) : undefined,
       expiresIn: object?.expires_in ? Height.fromAmino(object.expires_in) : undefined,
-      makerOwnableSplit: object.maker_ownable_split,
-      takerOwnableSplit: object.taker_ownable_split,
+      makerSplit: object.maker_split,
+      takerSplit: object.taker_split,
       immutableMetaProperties: object?.immutable_meta_properties ? PropertyList.fromAmino(object.immutable_meta_properties) : undefined,
       immutableProperties: object?.immutable_properties ? PropertyList.fromAmino(object.immutable_properties) : undefined,
       mutableMetaProperties: object?.mutable_meta_properties ? PropertyList.fromAmino(object.mutable_meta_properties) : undefined,
@@ -245,11 +245,11 @@ export const Message = {
     obj.from_i_d = message.fromID ? IdentityID.toAmino(message.fromID) : undefined;
     obj.classification_i_d = message.classificationID ? ClassificationID.toAmino(message.classificationID) : undefined;
     obj.taker_i_d = message.takerID ? IdentityID.toAmino(message.takerID) : undefined;
-    obj.maker_ownable_i_d = message.makerOwnableID ? AnyOwnableID.toAmino(message.makerOwnableID) : undefined;
-    obj.taker_ownable_i_d = message.takerOwnableID ? AnyOwnableID.toAmino(message.takerOwnableID) : undefined;
+    obj.maker_asset_i_d = message.makerAssetID ? AssetID.toAmino(message.makerAssetID) : undefined;
+    obj.taker_asset_i_d = message.takerAssetID ? AssetID.toAmino(message.takerAssetID) : undefined;
     obj.expires_in = message.expiresIn ? Height.toAmino(message.expiresIn) : undefined;
-    obj.maker_ownable_split = message.makerOwnableSplit;
-    obj.taker_ownable_split = message.takerOwnableSplit;
+    obj.maker_split = message.makerSplit;
+    obj.taker_split = message.takerSplit;
     obj.immutable_meta_properties = message.immutableMetaProperties ? PropertyList.toAmino(message.immutableMetaProperties) : undefined;
     obj.immutable_properties = message.immutableProperties ? PropertyList.toAmino(message.immutableProperties) : undefined;
     obj.mutable_meta_properties = message.mutableMetaProperties ? PropertyList.toAmino(message.mutableMetaProperties) : undefined;

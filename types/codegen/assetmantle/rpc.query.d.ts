@@ -66,14 +66,17 @@ export declare const createRPCQueryClient: ({ rpcEndpoint }: {
             };
             splits: {
                 queries: {
-                    ownable: {
-                        handle(request: import("../splits/queries/ownable/query_request").QueryRequest): Promise<import("../splits/queries/ownable/query_response").QueryResponse>;
+                    balances: {
+                        handle(request: import("../splits/queries/balances/query_request").QueryRequest): Promise<import("../splits/queries/balances/query_response").QueryResponse>;
                     };
                     split: {
                         handle(request: import("../splits/queries/split/query_request").QueryRequest): Promise<import("../splits/queries/split/query_response").QueryResponse>;
                     };
                     splits: {
                         handle(request: import("../splits/queries/splits/query_request").QueryRequest): Promise<import("../splits/queries/splits/query_response").QueryResponse>;
+                    };
+                    supply: {
+                        handle(request: import("../splits/queries/supply/query_request").QueryRequest): Promise<import("../splits/queries/supply/query_response").QueryResponse>;
                     };
                 };
             };

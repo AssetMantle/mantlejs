@@ -2,13 +2,9 @@ syntax = "proto3";
 package assetmantle.schema.types.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/any_ownable_id.proto";
-import "ids/base/identity_id.proto";
 
 message Split {
   option (gogoproto.goproto_getters) = false;
 
-  ids.base.AnyOwnableID ownable_i_d = 1;
-  ids.base.IdentityID owner_i_d = 2;
-  string value = 3;
+  string value = 1;
 }

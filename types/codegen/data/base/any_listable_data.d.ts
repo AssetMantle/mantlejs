@@ -3,6 +3,7 @@ import { BooleanData, BooleanDataAmino, BooleanDataSDKType } from "./boolean_dat
 import { DecData, DecDataAmino, DecDataSDKType } from "./dec_data";
 import { HeightData, HeightDataAmino, HeightDataSDKType } from "./height_data";
 import { IDData, IDDataAmino, IDDataSDKType } from "./id_data";
+import { LinkedData, LinkedDataAmino, LinkedDataSDKType } from "./linked_data";
 import { NumberData, NumberDataAmino, NumberDataSDKType } from "./number_data";
 import { StringData, StringDataAmino, StringDataSDKType } from "./string_data";
 import * as _m0 from "protobufjs/minimal";
@@ -12,6 +13,7 @@ export interface AnyListableData {
     decData?: DecData;
     heightData?: HeightData;
     iDData?: IDData;
+    linkedData?: LinkedData;
     numberData?: NumberData;
     stringData?: StringData;
 }
@@ -25,6 +27,7 @@ export interface AnyListableDataAmino {
     dec_data?: DecDataAmino;
     height_data?: HeightDataAmino;
     i_d_data?: IDDataAmino;
+    linked_data?: LinkedDataAmino;
     number_data?: NumberDataAmino;
     string_data?: StringDataAmino;
 }
@@ -38,6 +41,7 @@ export interface AnyListableDataSDKType {
     dec_data?: DecDataSDKType;
     height_data?: HeightDataSDKType;
     i_d_data?: IDDataSDKType;
+    linked_data?: LinkedDataSDKType;
     number_data?: NumberDataSDKType;
     string_data?: StringDataSDKType;
 }

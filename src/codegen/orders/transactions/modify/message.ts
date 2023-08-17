@@ -8,8 +8,8 @@ export interface Message {
   from: string;
   fromID?: IdentityID;
   orderID?: OrderID;
-  makerOwnableSplit: string;
-  takerOwnableSplit: string;
+  makerSplit: string;
+  takerSplit: string;
   expiresIn?: Height;
   mutableMetaProperties?: PropertyList;
   mutableProperties?: PropertyList;
@@ -22,8 +22,8 @@ export interface MessageAmino {
   from: string;
   from_i_d?: IdentityIDAmino;
   order_i_d?: OrderIDAmino;
-  maker_ownable_split: string;
-  taker_ownable_split: string;
+  maker_split: string;
+  taker_split: string;
   expires_in?: HeightAmino;
   mutable_meta_properties?: PropertyListAmino;
   mutable_properties?: PropertyListAmino;
@@ -36,8 +36,8 @@ export interface MessageSDKType {
   from: string;
   from_i_d?: IdentityIDSDKType;
   order_i_d?: OrderIDSDKType;
-  maker_ownable_split: string;
-  taker_ownable_split: string;
+  maker_split: string;
+  taker_split: string;
   expires_in?: HeightSDKType;
   mutable_meta_properties?: PropertyListSDKType;
   mutable_properties?: PropertyListSDKType;
@@ -47,8 +47,8 @@ function createBaseMessage(): Message {
     from: "",
     fromID: undefined,
     orderID: undefined,
-    makerOwnableSplit: "",
-    takerOwnableSplit: "",
+    makerSplit: "",
+    takerSplit: "",
     expiresIn: undefined,
     mutableMetaProperties: undefined,
     mutableProperties: undefined
@@ -65,11 +65,11 @@ export const Message = {
     if (message.orderID !== undefined) {
       OrderID.encode(message.orderID, writer.uint32(26).fork()).ldelim();
     }
-    if (message.makerOwnableSplit !== "") {
-      writer.uint32(34).string(message.makerOwnableSplit);
+    if (message.makerSplit !== "") {
+      writer.uint32(34).string(message.makerSplit);
     }
-    if (message.takerOwnableSplit !== "") {
-      writer.uint32(42).string(message.takerOwnableSplit);
+    if (message.takerSplit !== "") {
+      writer.uint32(42).string(message.takerSplit);
     }
     if (message.expiresIn !== undefined) {
       Height.encode(message.expiresIn, writer.uint32(50).fork()).ldelim();
@@ -99,10 +99,10 @@ export const Message = {
           message.orderID = OrderID.decode(reader, reader.uint32());
           break;
         case 4:
-          message.makerOwnableSplit = reader.string();
+          message.makerSplit = reader.string();
           break;
         case 5:
-          message.takerOwnableSplit = reader.string();
+          message.takerSplit = reader.string();
           break;
         case 6:
           message.expiresIn = Height.decode(reader, reader.uint32());
@@ -125,8 +125,8 @@ export const Message = {
       from: isSet(object.from) ? String(object.from) : "",
       fromID: isSet(object.fromID) ? IdentityID.fromJSON(object.fromID) : undefined,
       orderID: isSet(object.orderID) ? OrderID.fromJSON(object.orderID) : undefined,
-      makerOwnableSplit: isSet(object.makerOwnableSplit) ? String(object.makerOwnableSplit) : "",
-      takerOwnableSplit: isSet(object.takerOwnableSplit) ? String(object.takerOwnableSplit) : "",
+      makerSplit: isSet(object.makerSplit) ? String(object.makerSplit) : "",
+      takerSplit: isSet(object.takerSplit) ? String(object.takerSplit) : "",
       expiresIn: isSet(object.expiresIn) ? Height.fromJSON(object.expiresIn) : undefined,
       mutableMetaProperties: isSet(object.mutableMetaProperties) ? PropertyList.fromJSON(object.mutableMetaProperties) : undefined,
       mutableProperties: isSet(object.mutableProperties) ? PropertyList.fromJSON(object.mutableProperties) : undefined
@@ -137,8 +137,8 @@ export const Message = {
     message.from !== undefined && (obj.from = message.from);
     message.fromID !== undefined && (obj.fromID = message.fromID ? IdentityID.toJSON(message.fromID) : undefined);
     message.orderID !== undefined && (obj.orderID = message.orderID ? OrderID.toJSON(message.orderID) : undefined);
-    message.makerOwnableSplit !== undefined && (obj.makerOwnableSplit = message.makerOwnableSplit);
-    message.takerOwnableSplit !== undefined && (obj.takerOwnableSplit = message.takerOwnableSplit);
+    message.makerSplit !== undefined && (obj.makerSplit = message.makerSplit);
+    message.takerSplit !== undefined && (obj.takerSplit = message.takerSplit);
     message.expiresIn !== undefined && (obj.expiresIn = message.expiresIn ? Height.toJSON(message.expiresIn) : undefined);
     message.mutableMetaProperties !== undefined && (obj.mutableMetaProperties = message.mutableMetaProperties ? PropertyList.toJSON(message.mutableMetaProperties) : undefined);
     message.mutableProperties !== undefined && (obj.mutableProperties = message.mutableProperties ? PropertyList.toJSON(message.mutableProperties) : undefined);
@@ -149,8 +149,8 @@ export const Message = {
     message.from = object.from ?? "";
     message.fromID = object.fromID !== undefined && object.fromID !== null ? IdentityID.fromPartial(object.fromID) : undefined;
     message.orderID = object.orderID !== undefined && object.orderID !== null ? OrderID.fromPartial(object.orderID) : undefined;
-    message.makerOwnableSplit = object.makerOwnableSplit ?? "";
-    message.takerOwnableSplit = object.takerOwnableSplit ?? "";
+    message.makerSplit = object.makerSplit ?? "";
+    message.takerSplit = object.takerSplit ?? "";
     message.expiresIn = object.expiresIn !== undefined && object.expiresIn !== null ? Height.fromPartial(object.expiresIn) : undefined;
     message.mutableMetaProperties = object.mutableMetaProperties !== undefined && object.mutableMetaProperties !== null ? PropertyList.fromPartial(object.mutableMetaProperties) : undefined;
     message.mutableProperties = object.mutableProperties !== undefined && object.mutableProperties !== null ? PropertyList.fromPartial(object.mutableProperties) : undefined;
@@ -161,8 +161,8 @@ export const Message = {
       from: object.from,
       fromID: object?.from_i_d ? IdentityID.fromAmino(object.from_i_d) : undefined,
       orderID: object?.order_i_d ? OrderID.fromAmino(object.order_i_d) : undefined,
-      makerOwnableSplit: object.maker_ownable_split,
-      takerOwnableSplit: object.taker_ownable_split,
+      makerSplit: object.maker_split,
+      takerSplit: object.taker_split,
       expiresIn: object?.expires_in ? Height.fromAmino(object.expires_in) : undefined,
       mutableMetaProperties: object?.mutable_meta_properties ? PropertyList.fromAmino(object.mutable_meta_properties) : undefined,
       mutableProperties: object?.mutable_properties ? PropertyList.fromAmino(object.mutable_properties) : undefined
@@ -173,8 +173,8 @@ export const Message = {
     obj.from = message.from;
     obj.from_i_d = message.fromID ? IdentityID.toAmino(message.fromID) : undefined;
     obj.order_i_d = message.orderID ? OrderID.toAmino(message.orderID) : undefined;
-    obj.maker_ownable_split = message.makerOwnableSplit;
-    obj.taker_ownable_split = message.takerOwnableSplit;
+    obj.maker_split = message.makerSplit;
+    obj.taker_split = message.takerSplit;
     obj.expires_in = message.expiresIn ? Height.toAmino(message.expiresIn) : undefined;
     obj.mutable_meta_properties = message.mutableMetaProperties ? PropertyList.toAmino(message.mutableMetaProperties) : undefined;
     obj.mutable_properties = message.mutableProperties ? PropertyList.toAmino(message.mutableProperties) : undefined;

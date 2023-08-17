@@ -4,6 +4,7 @@ import { DecData, DecDataAmino, DecDataSDKType } from "./dec_data";
 import { HeightData, HeightDataAmino, HeightDataSDKType } from "./height_data";
 import { IDData, IDDataAmino, IDDataSDKType } from "./id_data";
 import { ListData, ListDataAmino, ListDataSDKType } from "./list_data";
+import { LinkedData, LinkedDataAmino, LinkedDataSDKType } from "./linked_data";
 import { NumberData, NumberDataAmino, NumberDataSDKType } from "./number_data";
 import { StringData, StringDataAmino, StringDataSDKType } from "./string_data";
 import * as _m0 from "protobufjs/minimal";
@@ -15,6 +16,7 @@ export interface AnyData {
   heightData?: HeightData;
   iDData?: IDData;
   listData?: ListData;
+  linkedData?: LinkedData;
   numberData?: NumberData;
   stringData?: StringData;
 }
@@ -29,6 +31,7 @@ export interface AnyDataAmino {
   height_data?: HeightDataAmino;
   i_d_data?: IDDataAmino;
   list_data?: ListDataAmino;
+  linked_data?: LinkedDataAmino;
   number_data?: NumberDataAmino;
   string_data?: StringDataAmino;
 }
@@ -43,6 +46,7 @@ export interface AnyDataSDKType {
   height_data?: HeightDataSDKType;
   i_d_data?: IDDataSDKType;
   list_data?: ListDataSDKType;
+  linked_data?: LinkedDataSDKType;
   number_data?: NumberDataSDKType;
   string_data?: StringDataSDKType;
 }
@@ -54,6 +58,7 @@ function createBaseAnyData(): AnyData {
     heightData: undefined,
     iDData: undefined,
     listData: undefined,
+    linkedData: undefined,
     numberData: undefined,
     stringData: undefined
   };
@@ -78,11 +83,14 @@ export const AnyData = {
     if (message.listData !== undefined) {
       ListData.encode(message.listData, writer.uint32(50).fork()).ldelim();
     }
+    if (message.linkedData !== undefined) {
+      LinkedData.encode(message.linkedData, writer.uint32(58).fork()).ldelim();
+    }
     if (message.numberData !== undefined) {
-      NumberData.encode(message.numberData, writer.uint32(58).fork()).ldelim();
+      NumberData.encode(message.numberData, writer.uint32(66).fork()).ldelim();
     }
     if (message.stringData !== undefined) {
-      StringData.encode(message.stringData, writer.uint32(66).fork()).ldelim();
+      StringData.encode(message.stringData, writer.uint32(74).fork()).ldelim();
     }
     return writer;
   },
@@ -112,9 +120,12 @@ export const AnyData = {
           message.listData = ListData.decode(reader, reader.uint32());
           break;
         case 7:
-          message.numberData = NumberData.decode(reader, reader.uint32());
+          message.linkedData = LinkedData.decode(reader, reader.uint32());
           break;
         case 8:
+          message.numberData = NumberData.decode(reader, reader.uint32());
+          break;
+        case 9:
           message.stringData = StringData.decode(reader, reader.uint32());
           break;
         default:
@@ -132,6 +143,7 @@ export const AnyData = {
       heightData: isSet(object.heightData) ? HeightData.fromJSON(object.heightData) : undefined,
       iDData: isSet(object.iDData) ? IDData.fromJSON(object.iDData) : undefined,
       listData: isSet(object.listData) ? ListData.fromJSON(object.listData) : undefined,
+      linkedData: isSet(object.linkedData) ? LinkedData.fromJSON(object.linkedData) : undefined,
       numberData: isSet(object.numberData) ? NumberData.fromJSON(object.numberData) : undefined,
       stringData: isSet(object.stringData) ? StringData.fromJSON(object.stringData) : undefined
     };
@@ -144,6 +156,7 @@ export const AnyData = {
     message.heightData !== undefined && (obj.heightData = message.heightData ? HeightData.toJSON(message.heightData) : undefined);
     message.iDData !== undefined && (obj.iDData = message.iDData ? IDData.toJSON(message.iDData) : undefined);
     message.listData !== undefined && (obj.listData = message.listData ? ListData.toJSON(message.listData) : undefined);
+    message.linkedData !== undefined && (obj.linkedData = message.linkedData ? LinkedData.toJSON(message.linkedData) : undefined);
     message.numberData !== undefined && (obj.numberData = message.numberData ? NumberData.toJSON(message.numberData) : undefined);
     message.stringData !== undefined && (obj.stringData = message.stringData ? StringData.toJSON(message.stringData) : undefined);
     return obj;
@@ -156,6 +169,7 @@ export const AnyData = {
     message.heightData = object.heightData !== undefined && object.heightData !== null ? HeightData.fromPartial(object.heightData) : undefined;
     message.iDData = object.iDData !== undefined && object.iDData !== null ? IDData.fromPartial(object.iDData) : undefined;
     message.listData = object.listData !== undefined && object.listData !== null ? ListData.fromPartial(object.listData) : undefined;
+    message.linkedData = object.linkedData !== undefined && object.linkedData !== null ? LinkedData.fromPartial(object.linkedData) : undefined;
     message.numberData = object.numberData !== undefined && object.numberData !== null ? NumberData.fromPartial(object.numberData) : undefined;
     message.stringData = object.stringData !== undefined && object.stringData !== null ? StringData.fromPartial(object.stringData) : undefined;
     return message;
@@ -168,6 +182,7 @@ export const AnyData = {
       heightData: object?.height_data ? HeightData.fromAmino(object.height_data) : undefined,
       iDData: object?.i_d_data ? IDData.fromAmino(object.i_d_data) : undefined,
       listData: object?.list_data ? ListData.fromAmino(object.list_data) : undefined,
+      linkedData: object?.linked_data ? LinkedData.fromAmino(object.linked_data) : undefined,
       numberData: object?.number_data ? NumberData.fromAmino(object.number_data) : undefined,
       stringData: object?.string_data ? StringData.fromAmino(object.string_data) : undefined
     };
@@ -180,6 +195,7 @@ export const AnyData = {
     obj.height_data = message.heightData ? HeightData.toAmino(message.heightData) : undefined;
     obj.i_d_data = message.iDData ? IDData.toAmino(message.iDData) : undefined;
     obj.list_data = message.listData ? ListData.toAmino(message.listData) : undefined;
+    obj.linked_data = message.linkedData ? LinkedData.toAmino(message.linkedData) : undefined;
     obj.number_data = message.numberData ? NumberData.toAmino(message.numberData) : undefined;
     obj.string_data = message.stringData ? StringData.toAmino(message.stringData) : undefined;
     return obj;

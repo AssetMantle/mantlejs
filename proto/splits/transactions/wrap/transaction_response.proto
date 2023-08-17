@@ -1,8 +1,0 @@
-syntax = "proto3";
-package assetmantle.modules.splits.transactions.wrap;
-
-import "ids/base/coin_id.proto";
-
-message TransactionResponse {
-  assetmantle.schema.ids.base.CoinID coin_i_d = 1;
-}

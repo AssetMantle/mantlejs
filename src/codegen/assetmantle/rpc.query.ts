@@ -12,45 +12,46 @@ export const createRPCQueryClient = async ({
       modules: {
         assets: {
           queries: {
-            asset: (await import("../assets/queries/asset/service.rpc.Service")).createRpcQueryExtension(client),
-            assets: (await import("../assets/queries/assets/service.rpc.Service")).createRpcQueryExtension(client)
+            asset: (await import("../assets/queries/asset/service.rpc.Query")).createRpcQueryExtension(client),
+            assets: (await import("../assets/queries/assets/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         classifications: {
           queries: {
-            classification: (await import("../classifications/queries/classification/service.rpc.Service")).createRpcQueryExtension(client),
-            classifications: (await import("../classifications/queries/classifications/service.rpc.Service")).createRpcQueryExtension(client)
+            classification: (await import("../classifications/queries/classification/service.rpc.Query")).createRpcQueryExtension(client),
+            classifications: (await import("../classifications/queries/classifications/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         identities: {
           queries: {
-            identities: (await import("../identities/queries/identities/service.rpc.Service")).createRpcQueryExtension(client),
-            identity: (await import("../identities/queries/identity/service.rpc.Service")).createRpcQueryExtension(client)
+            identities: (await import("../identities/queries/identities/service.rpc.Query")).createRpcQueryExtension(client),
+            identity: (await import("../identities/queries/identity/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         maintainers: {
           queries: {
-            maintainer: (await import("../maintainers/queries/maintainer/service.rpc.Service")).createRpcQueryExtension(client),
-            maintainers: (await import("../maintainers/queries/maintainers/service.rpc.Service")).createRpcQueryExtension(client)
+            maintainer: (await import("../maintainers/queries/maintainer/service.rpc.Query")).createRpcQueryExtension(client),
+            maintainers: (await import("../maintainers/queries/maintainers/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         metas: {
           queries: {
-            meta: (await import("../metas/queries/meta/service.rpc.Service")).createRpcQueryExtension(client),
-            metas: (await import("../metas/queries/metas/service.rpc.Service")).createRpcQueryExtension(client)
+            meta: (await import("../metas/queries/meta/service.rpc.Query")).createRpcQueryExtension(client),
+            metas: (await import("../metas/queries/metas/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         orders: {
           queries: {
-            order: (await import("../orders/queries/order/service.rpc.Service")).createRpcQueryExtension(client),
-            orders: (await import("../orders/queries/orders/service.rpc.Service")).createRpcQueryExtension(client)
+            order: (await import("../orders/queries/order/service.rpc.Query")).createRpcQueryExtension(client),
+            orders: (await import("../orders/queries/orders/service.rpc.Query")).createRpcQueryExtension(client)
           }
         },
         splits: {
           queries: {
-            ownable: (await import("../splits/queries/ownable/service.rpc.Service")).createRpcQueryExtension(client),
-            split: (await import("../splits/queries/split/service.rpc.Service")).createRpcQueryExtension(client),
-            splits: (await import("../splits/queries/splits/service.rpc.Service")).createRpcQueryExtension(client)
+            balances: (await import("../splits/queries/balances/service.rpc.Query")).createRpcQueryExtension(client),
+            split: (await import("../splits/queries/split/service.rpc.Query")).createRpcQueryExtension(client),
+            splits: (await import("../splits/queries/splits/service.rpc.Query")).createRpcQueryExtension(client),
+            supply: (await import("../splits/queries/supply/service.rpc.Query")).createRpcQueryExtension(client)
           }
         }
       }

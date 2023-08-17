@@ -6,6 +6,7 @@ import "data/base/boolean_data.proto";
 import "data/base/dec_data.proto";
 import "data/base/height_data.proto";
 import "data/base/id_data.proto";
+import "data/base/linked_data.proto";
 import "data/base/list_data.proto";
 import "data/base/number_data.proto";
 import "data/base/string_data.proto";
@@ -21,7 +22,8 @@ message AnyData {
     HeightData height_data = 4;
     IDData i_d_data = 5;
     ListData list_data = 6;
-    NumberData number_data = 7;
-    StringData string_data = 8;
+    LinkedData linked_data = 7;
+    NumberData number_data = 8;
+    StringData string_data = 9;
   }
 }

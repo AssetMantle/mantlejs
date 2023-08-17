@@ -6,7 +6,6 @@ import { isSet } from "../../../helpers";
 export interface Message {
   from: string;
   fromID?: IdentityID;
-  to: string;
   classificationID?: ClassificationID;
   immutableMetaProperties?: PropertyList;
   immutableProperties?: PropertyList;
@@ -20,7 +19,6 @@ export interface MessageProtoMsg {
 export interface MessageAmino {
   from: string;
   from_i_d?: IdentityIDAmino;
-  to: string;
   classification_i_d?: ClassificationIDAmino;
   immutable_meta_properties?: PropertyListAmino;
   immutable_properties?: PropertyListAmino;
@@ -34,7 +32,6 @@ export interface MessageAminoMsg {
 export interface MessageSDKType {
   from: string;
   from_i_d?: IdentityIDSDKType;
-  to: string;
   classification_i_d?: ClassificationIDSDKType;
   immutable_meta_properties?: PropertyListSDKType;
   immutable_properties?: PropertyListSDKType;
@@ -45,7 +42,6 @@ function createBaseMessage(): Message {
   return {
     from: "",
     fromID: undefined,
-    to: "",
     classificationID: undefined,
     immutableMetaProperties: undefined,
     immutableProperties: undefined,
@@ -61,23 +57,20 @@ export const Message = {
     if (message.fromID !== undefined) {
       IdentityID.encode(message.fromID, writer.uint32(18).fork()).ldelim();
     }
-    if (message.to !== "") {
-      writer.uint32(26).string(message.to);
-    }
     if (message.classificationID !== undefined) {
-      ClassificationID.encode(message.classificationID, writer.uint32(34).fork()).ldelim();
+      ClassificationID.encode(message.classificationID, writer.uint32(26).fork()).ldelim();
     }
     if (message.immutableMetaProperties !== undefined) {
-      PropertyList.encode(message.immutableMetaProperties, writer.uint32(42).fork()).ldelim();
+      PropertyList.encode(message.immutableMetaProperties, writer.uint32(34).fork()).ldelim();
     }
     if (message.immutableProperties !== undefined) {
-      PropertyList.encode(message.immutableProperties, writer.uint32(50).fork()).ldelim();
+      PropertyList.encode(message.immutableProperties, writer.uint32(42).fork()).ldelim();
     }
     if (message.mutableMetaProperties !== undefined) {
-      PropertyList.encode(message.mutableMetaProperties, writer.uint32(58).fork()).ldelim();
+      PropertyList.encode(message.mutableMetaProperties, writer.uint32(50).fork()).ldelim();
     }
     if (message.mutableProperties !== undefined) {
-      PropertyList.encode(message.mutableProperties, writer.uint32(66).fork()).ldelim();
+      PropertyList.encode(message.mutableProperties, writer.uint32(58).fork()).ldelim();
     }
     return writer;
   },
@@ -95,21 +88,18 @@ export const Message = {
           message.fromID = IdentityID.decode(reader, reader.uint32());
           break;
         case 3:
-          message.to = reader.string();
-          break;
-        case 4:
           message.classificationID = ClassificationID.decode(reader, reader.uint32());
           break;
-        case 5:
+        case 4:
           message.immutableMetaProperties = PropertyList.decode(reader, reader.uint32());
           break;
-        case 6:
+        case 5:
           message.immutableProperties = PropertyList.decode(reader, reader.uint32());
           break;
-        case 7:
+        case 6:
           message.mutableMetaProperties = PropertyList.decode(reader, reader.uint32());
           break;
-        case 8:
+        case 7:
           message.mutableProperties = PropertyList.decode(reader, reader.uint32());
           break;
         default:
@@ -123,7 +113,6 @@ export const Message = {
     return {
       from: isSet(object.from) ? String(object.from) : "",
       fromID: isSet(object.fromID) ? IdentityID.fromJSON(object.fromID) : undefined,
-      to: isSet(object.to) ? String(object.to) : "",
       classificationID: isSet(object.classificationID) ? ClassificationID.fromJSON(object.classificationID) : undefined,
       immutableMetaProperties: isSet(object.immutableMetaProperties) ? PropertyList.fromJSON(object.immutableMetaProperties) : undefined,
       immutableProperties: isSet(object.immutableProperties) ? PropertyList.fromJSON(object.immutableProperties) : undefined,
@@ -135,7 +124,6 @@ export const Message = {
     const obj: any = {};
     message.from !== undefined && (obj.from = message.from);
     message.fromID !== undefined && (obj.fromID = message.fromID ? IdentityID.toJSON(message.fromID) : undefined);
-    message.to !== undefined && (obj.to = message.to);
     message.classificationID !== undefined && (obj.classificationID = message.classificationID ? ClassificationID.toJSON(message.classificationID) : undefined);
     message.immutableMetaProperties !== undefined && (obj.immutableMetaProperties = message.immutableMetaProperties ? PropertyList.toJSON(message.immutableMetaProperties) : undefined);
     message.immutableProperties !== undefined && (obj.immutableProperties = message.immutableProperties ? PropertyList.toJSON(message.immutableProperties) : undefined);
@@ -147,7 +135,6 @@ export const Message = {
     const message = createBaseMessage();
     message.from = object.from ?? "";
     message.fromID = object.fromID !== undefined && object.fromID !== null ? IdentityID.fromPartial(object.fromID) : undefined;
-    message.to = object.to ?? "";
     message.classificationID = object.classificationID !== undefined && object.classificationID !== null ? ClassificationID.fromPartial(object.classificationID) : undefined;
     message.immutableMetaProperties = object.immutableMetaProperties !== undefined && object.immutableMetaProperties !== null ? PropertyList.fromPartial(object.immutableMetaProperties) : undefined;
     message.immutableProperties = object.immutableProperties !== undefined && object.immutableProperties !== null ? PropertyList.fromPartial(object.immutableProperties) : undefined;
@@ -159,7 +146,6 @@ export const Message = {
     return {
       from: object.from,
       fromID: object?.from_i_d ? IdentityID.fromAmino(object.from_i_d) : undefined,
-      to: object.to,
       classificationID: object?.classification_i_d ? ClassificationID.fromAmino(object.classification_i_d) : undefined,
       immutableMetaProperties: object?.immutable_meta_properties ? PropertyList.fromAmino(object.immutable_meta_properties) : undefined,
       immutableProperties: object?.immutable_properties ? PropertyList.fromAmino(object.immutable_properties) : undefined,
@@ -171,7 +157,6 @@ export const Message = {
     const obj: any = {};
     obj.from = message.from;
     obj.from_i_d = message.fromID ? IdentityID.toAmino(message.fromID) : undefined;
-    obj.to = message.to;
     obj.classification_i_d = message.classificationID ? ClassificationID.toAmino(message.classificationID) : undefined;
     obj.immutable_meta_properties = message.immutableMetaProperties ? PropertyList.toAmino(message.immutableMetaProperties) : undefined;
     obj.immutable_properties = message.immutableProperties ? PropertyList.toAmino(message.immutableProperties) : undefined;

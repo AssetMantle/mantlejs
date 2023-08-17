@@ -4,7 +4,7 @@ import * as _m0 from "protobufjs/minimal";
 export interface Message {
     from: string;
     fromID?: IdentityID;
-    takerOwnableSplit: string;
+    takerSplit: string;
     orderID?: OrderID;
 }
 export interface MessageProtoMsg {
@@ -14,7 +14,7 @@ export interface MessageProtoMsg {
 export interface MessageAmino {
     from: string;
     from_i_d?: IdentityIDAmino;
-    taker_ownable_split: string;
+    taker_split: string;
     order_i_d?: OrderIDAmino;
 }
 export interface MessageAminoMsg {
@@ -24,7 +24,7 @@ export interface MessageAminoMsg {
 export interface MessageSDKType {
     from: string;
     from_i_d?: IdentityIDSDKType;
-    taker_ownable_split: string;
+    taker_split: string;
     order_i_d?: OrderIDSDKType;
 }
 export declare const Message: {

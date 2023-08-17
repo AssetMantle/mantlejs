@@ -4,6 +4,7 @@ import { DecData, DecDataAmino, DecDataSDKType } from "./dec_data";
 import { HeightData, HeightDataAmino, HeightDataSDKType } from "./height_data";
 import { IDData, IDDataAmino, IDDataSDKType } from "./id_data";
 import { ListData, ListDataAmino, ListDataSDKType } from "./list_data";
+import { LinkedData, LinkedDataAmino, LinkedDataSDKType } from "./linked_data";
 import { NumberData, NumberDataAmino, NumberDataSDKType } from "./number_data";
 import { StringData, StringDataAmino, StringDataSDKType } from "./string_data";
 import * as _m0 from "protobufjs/minimal";
@@ -14,6 +15,7 @@ export interface AnyData {
     heightData?: HeightData;
     iDData?: IDData;
     listData?: ListData;
+    linkedData?: LinkedData;
     numberData?: NumberData;
     stringData?: StringData;
 }
@@ -28,6 +30,7 @@ export interface AnyDataAmino {
     height_data?: HeightDataAmino;
     i_d_data?: IDDataAmino;
     list_data?: ListDataAmino;
+    linked_data?: LinkedDataAmino;
     number_data?: NumberDataAmino;
     string_data?: StringDataAmino;
 }
@@ -42,6 +45,7 @@ export interface AnyDataSDKType {
     height_data?: HeightDataSDKType;
     i_d_data?: IDDataSDKType;
     list_data?: ListDataSDKType;
+    linked_data?: LinkedDataSDKType;
     number_data?: NumberDataSDKType;
     string_data?: StringDataSDKType;
 }

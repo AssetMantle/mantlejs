@@ -1,21 +1,21 @@
 import { AnyListableData, AnyListableDataAmino, AnyListableDataSDKType } from "./any_listable_data";
 import * as _m0 from "protobufjs/minimal";
 export interface ListData {
-    anyListableData: AnyListableData[];
+    value: AnyListableData[];
 }
 export interface ListDataProtoMsg {
     typeUrl: "/assetmantle.schema.data.base.ListData";
     value: Uint8Array;
 }
 export interface ListDataAmino {
-    any_listable_data: AnyListableDataAmino[];
+    value: AnyListableDataAmino[];
 }
 export interface ListDataAminoMsg {
     type: "/assetmantle.schema.data.base.ListData";
     value: ListDataAmino;
 }
 export interface ListDataSDKType {
-    any_listable_data: AnyListableDataSDKType[];
+    value: AnyListableDataSDKType[];
 }
 export declare const ListData: {
     encode(message: ListData, writer?: _m0.Writer): _m0.Writer;

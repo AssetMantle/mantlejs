@@ -1,8 +1,8 @@
-import { AnyOwnableID, AnyOwnableIDAmino, AnyOwnableIDSDKType } from "./any_ownable_id";
+import { AssetID, AssetIDAmino, AssetIDSDKType } from "./asset_id";
 import { IdentityID, IdentityIDAmino, IdentityIDSDKType } from "./identity_id";
 import * as _m0 from "protobufjs/minimal";
 export interface SplitID {
-    ownableID?: AnyOwnableID;
+    assetID?: AssetID;
     ownerID?: IdentityID;
 }
 export interface SplitIDProtoMsg {
@@ -10,7 +10,7 @@ export interface SplitIDProtoMsg {
     value: Uint8Array;
 }
 export interface SplitIDAmino {
-    ownable_i_d?: AnyOwnableIDAmino;
+    asset_i_d?: AssetIDAmino;
     owner_i_d?: IdentityIDAmino;
 }
 export interface SplitIDAminoMsg {
@@ -18,7 +18,7 @@ export interface SplitIDAminoMsg {
     value: SplitIDAmino;
 }
 export interface SplitIDSDKType {
-    ownable_i_d?: AnyOwnableIDSDKType;
+    asset_i_d?: AssetIDSDKType;
     owner_i_d?: IdentityIDSDKType;
 }
 export declare const SplitID: {
