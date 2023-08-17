@@ -1,6 +1,6 @@
 {
   "name": "@assetmantle/mantlejs",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Javascript / TypeScript endpoints for AssetMantle SDK for query and transaction creation",
   "author": "kombos <kamlesh@assetmantle.one>",
   "homepage": "https://github.com/AssetMantle/mantlejs#readme",
