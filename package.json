@@ -84,6 +84,7 @@
     "@cosmjs/proto-signing": "0.29.4",
     "@cosmjs/stargate": "0.29.4",
     "@cosmjs/tendermint-rpc": "^0.29.4",
+    "base64url": "^3.0.1",
     "protobufjs": "^6.11.2"
   }
 }
