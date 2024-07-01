@@ -1,17 +1,17 @@
 syntax = "proto3";
-package assetmantle.schema.ids.base;
+package AssetMantle.schema.ids.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/asset_id.proto";
-import "ids/base/classification_id.proto";
-import "ids/base/data_id.proto";
-import "ids/base/hash_id.proto";
-import "ids/base/identity_id.proto";
-import "ids/base/maintainer_id.proto";
-import "ids/base/order_id.proto";
-import "ids/base/property_id.proto";
-import "ids/base/split_id.proto";
-import "ids/base/string_id.proto";
+import "AssetMantle/schema/ids/base/asset_id.proto";
+import "AssetMantle/schema/ids/base/classification_id.proto";
+import "AssetMantle/schema/ids/base/data_id.proto";
+import "AssetMantle/schema/ids/base/hash_id.proto";
+import "AssetMantle/schema/ids/base/identity_id.proto";
+import "AssetMantle/schema/ids/base/maintainer_id.proto";
+import "AssetMantle/schema/ids/base/order_id.proto";
+import "AssetMantle/schema/ids/base/property_id.proto";
+import "AssetMantle/schema/ids/base/split_id.proto";
+import "AssetMantle/schema/ids/base/string_id.proto";
 
 message AnyID {
   option (gogoproto.goproto_getters) = false;

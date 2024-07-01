@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.schema.ids.base;
+package AssetMantle.schema.ids.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/asset_id.proto";
-import "ids/base/identity_id.proto";
+import "AssetMantle/schema/ids/base/asset_id.proto";
+import "AssetMantle/schema/ids/base/identity_id.proto";
 
 message SplitID {
   option (gogoproto.goproto_getters) = false;

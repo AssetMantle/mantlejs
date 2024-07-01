@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.schema.ids.base;
+package AssetMantle.schema.ids.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/hash_id.proto";
+import "AssetMantle/schema/ids/base/hash_id.proto";
 
 message IdentityID {
   option (gogoproto.goproto_getters) = false;

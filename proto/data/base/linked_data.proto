@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.schema.data.base;
+package AssetMantle.schema.data.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/hash_id.proto";
-import "ids/base/string_id.proto";
+import "AssetMantle/schema/ids/base/hash_id.proto";
+import "AssetMantle/schema/ids/base/string_id.proto";
 
 message LinkedData {
   option (gogoproto.goproto_getters) = false;

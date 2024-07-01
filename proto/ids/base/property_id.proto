@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.schema.ids.base;
+package AssetMantle.schema.ids.base;
 
-import "ids/base/string_id.proto";
+import "AssetMantle/schema/ids/base/string_id.proto";
 import "gogoproto/gogo.proto";
 
 message PropertyID{
