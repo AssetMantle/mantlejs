@@ -1,10 +1,10 @@
 syntax = "proto3";
-package assetmantle.schema.documents.base;
+package AssetMantle.schema.documents.base;
 
 import "gogoproto/gogo.proto";
-import "ids/base/classification_id.proto";
-import "qualified/base/immutables.proto";
-import "qualified/base/mutables.proto";
+import "AssetMantle/schema/ids/base/classification_id.proto";
+import "AssetMantle/schema/qualified/base/immutables.proto";
+import "AssetMantle/schema/qualified/base/mutables.proto";
 
 message Document {
   option (gogoproto.goproto_getters) = false;

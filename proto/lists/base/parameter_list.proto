@@ -1,11 +1,11 @@
 syntax = "proto3";
-package assetmantle.schema.parameters.base;
+package AssetMantle.schema.lists.base;
 
 import "gogoproto/gogo.proto";
-import "parameters/base/parameter.proto";
+import "AssetMantle/schema/parameters/base/parameter.proto";
 
 message ParameterList {
   option (gogoproto.goproto_getters) = false;
 
-  repeated Parameter parameters = 1;
+  repeated parameters.base.Parameter parameters = 1;
 }

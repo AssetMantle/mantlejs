@@ -1,14 +1,14 @@
 syntax = "proto3";
-package assetmantle.schema.data.base;
+package AssetMantle.schema.data.base;
 
-import "data/base/acc_address_data.proto";
-import "data/base/boolean_data.proto";
-import "data/base/dec_data.proto";
-import "data/base/linked_data.proto";
-import "data/base/height_data.proto";
-import "data/base/id_data.proto";
-import "data/base/number_data.proto";
-import "data/base/string_data.proto";
+import "AssetMantle/schema/data/base/acc_address_data.proto";
+import "AssetMantle/schema/data/base/boolean_data.proto";
+import "AssetMantle/schema/data/base/dec_data.proto";
+import "AssetMantle/schema/data/base/linked_data.proto";
+import "AssetMantle/schema/data/base/height_data.proto";
+import "AssetMantle/schema/data/base/id_data.proto";
+import "AssetMantle/schema/data/base/number_data.proto";
+import "AssetMantle/schema/data/base/string_data.proto";
 import "gogoproto/gogo.proto";
 
 message AnyListableData {

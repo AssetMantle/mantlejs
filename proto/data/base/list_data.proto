@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.schema.data.base;
+package AssetMantle.schema.data.base;
 
-import "data/base/any_listable_data.proto";
+import "AssetMantle/schema/data/base/any_listable_data.proto";
 import "gogoproto/gogo.proto";
 
 message ListData {
