@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.identities.record;
+package AssetMantle.modules.x.identities.record;
 
-import "identities/key/key.proto";
-import "identities/mappable/mappable.proto";
+import "AssetMantle/modules/x/identities/key/key.proto";
+import "AssetMantle/modules/x/identities/mappable/mappable.proto";
 import "gogoproto/gogo.proto";
 
 message Record {

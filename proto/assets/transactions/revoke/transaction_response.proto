@@ -1,4 +1,4 @@
 syntax = "proto3";
-package assetmantle.modules.assets.transactions.revoke;
+package AssetMantle.modules.x.assets.transactions.revoke;
 
 message TransactionResponse {}

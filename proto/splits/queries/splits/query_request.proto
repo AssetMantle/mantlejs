@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.modules.splits.queries.splits;
+package AssetMantle.modules.x.splits.queries.splits;
 
-import "splits/key/key.proto";
+import "AssetMantle/modules/x/splits/key/key.proto";
 
 message QueryRequest {
   key.Key key = 1;

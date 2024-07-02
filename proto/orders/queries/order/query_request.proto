@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.modules.orders.queries.order;
+package AssetMantle.modules.x.orders.queries.order;
 
-import "orders/key/key.proto";
+import "AssetMantle/modules/x/orders/key/key.proto";
 
 message QueryRequest {
   key.Key key = 1;

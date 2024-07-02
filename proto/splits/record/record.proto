@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.modules.splits.record;
+package AssetMantle.modules.x.splits.record;
 
 import "gogoproto/gogo.proto";
-import "splits/key/key.proto";
-import "splits/mappable/mappable.proto";
+import "AssetMantle/modules/x/splits/key/key.proto";
+import "AssetMantle/modules/x/splits/mappable/mappable.proto";
 
 message Record {
   option (gogoproto.goproto_getters) = false;

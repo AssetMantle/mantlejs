@@ -1,4 +1,4 @@
 syntax = "proto3";
-package assetmantle.modules.identities.transactions.unprovision;
+package AssetMantle.modules.x.identities.transactions.unprovision;
 
 message TransactionResponse {}

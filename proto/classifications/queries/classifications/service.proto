@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.modules.classifications.queries.classifications;
+package AssetMantle.modules.x.classifications.queries.classifications;
 
 import "google/api/annotations.proto";
-import "classifications/queries/classifications/query_request.proto";
-import "classifications/queries/classifications/query_response.proto";
+import "AssetMantle/modules/x/classifications/queries/classifications/query_request.proto";
+import "AssetMantle/modules/x/classifications/queries/classifications/query_response.proto";
 
 service Query {
   rpc Handle(QueryRequest) returns(QueryResponse){

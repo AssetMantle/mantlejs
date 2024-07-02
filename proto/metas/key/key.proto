@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.metas.key;
+package AssetMantle.modules.x.metas.key;
 
-import "ids/base/data_id.proto";
+import "AssetMantle/schema/ids/base/data_id.proto";
 
 message Key {
-  assetmantle.schema.ids.base.DataID data_i_d = 1;
+  AssetMantle.schema.ids.base.DataID data_i_d = 1;
 }
