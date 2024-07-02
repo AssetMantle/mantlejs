@@ -1,8 +1,0 @@
-syntax = "proto3";
-package AssetMantle.modules.x.orders.mappable;
-
-import "AssetMantle/schema/documents/base/document.proto";
-
-message Mappable {
-  AssetMantle.schema.documents.base.Document order = 1;
-}
