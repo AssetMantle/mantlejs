@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.maintainers.mappable;
+package AssetMantle.modules.x.maintainers.mappable;
 
-import "documents/base/document.proto";
+import "AssetMantle/schema/documents/base/document.proto";
 
 message Mappable {
-  assetmantle.schema.documents.base.Document maintainer = 1;
+  AssetMantle.schema.documents.base.Document maintainer = 1;
 }

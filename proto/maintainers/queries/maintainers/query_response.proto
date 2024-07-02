@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.maintainers.queries.maintainers;
+package AssetMantle.modules.x.maintainers.queries.maintainers;
 
 import "gogoproto/gogo.proto";
-import "maintainers/record/record.proto";
+import "AssetMantle/modules/x/maintainers/record/record.proto";
 
 message QueryResponse {
   option (gogoproto.goproto_getters) = false;

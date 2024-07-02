@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.orders.queries.order;
+package AssetMantle.modules.x.orders.queries.order;
 
 import "gogoproto/gogo.proto";
-import "orders/record/record.proto";
+import "AssetMantle/modules/x/orders/record/record.proto";
 
 message QueryResponse {
   option (gogoproto.goproto_getters) = false;

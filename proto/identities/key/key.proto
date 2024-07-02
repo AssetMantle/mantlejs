@@ -1,8 +1,8 @@
 syntax = "proto3";
-package assetmantle.modules.identities.key;
+package AssetMantle.modules.x.identities.key;
 
-import "ids/base/identity_id.proto";
+import "AssetMantle/schema/ids/base/identity_id.proto";
 
 message Key {
-  assetmantle.schema.ids.base.IdentityID identity_i_d = 1;
+  AssetMantle.schema.ids.base.IdentityID identity_i_d = 1;
 }

@@ -1,4 +1,4 @@
 syntax = "proto3";
-package assetmantle.modules.assets.transactions.wrap;
+package AssetMantle.modules.x.assets.transactions.wrap;
 
 message TransactionResponse {}

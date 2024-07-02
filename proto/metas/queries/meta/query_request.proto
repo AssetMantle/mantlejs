@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.modules.metas.queries.meta;
+package AssetMantle.modules.x.metas.queries.meta;
 
-import "metas/key/key.proto";
+import "AssetMantle/modules/x/metas/key/key.proto";
 
 message QueryRequest {
   key.Key key = 1;

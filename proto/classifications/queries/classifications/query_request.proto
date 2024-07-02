@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.modules.classifications.queries.classifications;
+package AssetMantle.modules.x.classifications.queries.classifications;
 
-import "classifications/key/key.proto";
+import "AssetMantle/modules/x/classifications/key/key.proto";
 
 message QueryRequest {
   key.Key key = 1;

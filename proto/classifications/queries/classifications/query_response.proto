@@ -1,7 +1,7 @@
 syntax = "proto3";
-package assetmantle.modules.classifications.queries.classifications;
+package AssetMantle.modules.x.classifications.queries.classifications;
 
-import "classifications/record/record.proto";
+import "AssetMantle/modules/x/classifications/record/record.proto";
 import "gogoproto/gogo.proto";
 
 message QueryResponse {

@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.modules.metas.queries.meta;
+package AssetMantle.modules.x.metas.queries.meta;
 
 import "google/api/annotations.proto";
-import "metas/queries/meta/query_request.proto";
-import "metas/queries/meta/query_response.proto";
+import "AssetMantle/modules/x/metas/queries/meta/query_request.proto";
+import "AssetMantle/modules/x/metas/queries/meta/query_response.proto";
 
 service Query {
   rpc Handle(QueryRequest) returns(QueryResponse){

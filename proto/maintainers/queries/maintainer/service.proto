@@ -1,9 +1,9 @@
 syntax = "proto3";
-package assetmantle.modules.maintainers.queries.maintainer;
+package AssetMantle.modules.x.maintainers.queries.maintainer;
 
 import "google/api/annotations.proto";
-import "maintainers/queries/maintainer/query_request.proto";
-import "maintainers/queries/maintainer/query_response.proto";
+import "AssetMantle/modules/x/maintainers/queries/maintainer/query_request.proto";
+import "AssetMantle/modules/x/maintainers/queries/maintainer/query_response.proto";
 
 service Query {
   rpc Handle(QueryRequest) returns(QueryResponse){
