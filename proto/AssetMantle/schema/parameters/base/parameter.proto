@@ -1,0 +1,11 @@
+syntax = "proto3";
+package AssetMantle.schema.parameters.base;
+
+import "gogoproto/gogo.proto";
+import "AssetMantle/schema/properties/base/meta_property.proto";
+
+message Parameter {
+  option (gogoproto.goproto_getters) = false;
+
+  properties.base.MetaProperty meta_property = 1;
+}

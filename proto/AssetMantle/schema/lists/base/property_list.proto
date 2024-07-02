@@ -1,0 +1,11 @@
+syntax = "proto3";
+package AssetMantle.schema.lists.base;
+
+import "AssetMantle/schema/properties/base/any_property.proto";
+import "gogoproto/gogo.proto";
+
+message PropertyList {
+  option (gogoproto.goproto_getters) = false;
+
+  repeated properties.base.AnyProperty any_properties = 1;
+}

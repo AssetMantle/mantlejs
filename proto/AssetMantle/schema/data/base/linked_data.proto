@@ -1,0 +1,14 @@
+syntax = "proto3";
+package AssetMantle.schema.data.base;
+
+import "gogoproto/gogo.proto";
+import "AssetMantle/schema/ids/base/hash_id.proto";
+import "AssetMantle/schema/ids/base/string_id.proto";
+
+message LinkedData {
+  option (gogoproto.goproto_getters) = false;
+
+  ids.base.HashID resource_i_d = 1;
+  ids.base.StringID extension_i_d = 2;
+  string service_endpoint = 3;
+}
