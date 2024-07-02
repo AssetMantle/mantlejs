@@ -1,0 +1,12 @@
+syntax = "proto3";
+package AssetMantle.schema.ids.base;
+
+import "AssetMantle/schema/ids/base/string_id.proto";
+import "gogoproto/gogo.proto";
+
+message PropertyID{
+  option (gogoproto.goproto_getters) = false;
+
+  StringID key_i_d = 1;
+  StringID type_i_d = 2;
+}

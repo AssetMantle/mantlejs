@@ -1,0 +1,27 @@
+syntax = "proto3";
+package AssetMantle.schema.data.base;
+
+import "AssetMantle/schema/data/base/acc_address_data.proto";
+import "AssetMantle/schema/data/base/boolean_data.proto";
+import "AssetMantle/schema/data/base/dec_data.proto";
+import "AssetMantle/schema/data/base/linked_data.proto";
+import "AssetMantle/schema/data/base/height_data.proto";
+import "AssetMantle/schema/data/base/id_data.proto";
+import "AssetMantle/schema/data/base/number_data.proto";
+import "AssetMantle/schema/data/base/string_data.proto";
+import "gogoproto/gogo.proto";
+
+message AnyListableData {
+  option (gogoproto.goproto_getters) = false;
+
+  oneof impl {
+    AccAddressData acc_address_data = 1;
+    BooleanData boolean_data = 2;
+    DecData dec_data = 3;
+    HeightData height_data = 4;
+    IDData i_d_data = 5;
+    LinkedData linked_data = 6;
+    NumberData number_data = 7;
+    StringData string_data = 8;
+  }
+}

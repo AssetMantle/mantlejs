@@ -1,0 +1,13 @@
+syntax = "proto3";
+package AssetMantle.schema.properties.base;
+
+import "gogoproto/gogo.proto";
+import "AssetMantle/schema/ids/base/data_id.proto";
+import "AssetMantle/schema/ids/base/property_id.proto";
+
+message MesaProperty {
+  option (gogoproto.goproto_getters) = false;
+
+  ids.base.PropertyID i_d = 1;
+  ids.base.DataID data_i_d = 2;
+}

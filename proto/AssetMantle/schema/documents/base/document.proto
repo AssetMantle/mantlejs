@@ -1,0 +1,15 @@
+syntax = "proto3";
+package AssetMantle.schema.documents.base;
+
+import "gogoproto/gogo.proto";
+import "AssetMantle/schema/ids/base/classification_id.proto";
+import "AssetMantle/schema/qualified/base/immutables.proto";
+import "AssetMantle/schema/qualified/base/mutables.proto";
+
+message Document {
+  option (gogoproto.goproto_getters) = false;
+
+  ids.base.ClassificationID classification_i_d = 1;
+  qualified.base.Immutables immutables = 2;
+  qualified.base.Mutables mutables = 3;
+}

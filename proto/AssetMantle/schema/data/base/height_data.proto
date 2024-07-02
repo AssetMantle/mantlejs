@@ -1,0 +1,11 @@
+syntax = "proto3";
+package AssetMantle.schema.data.base;
+
+import "AssetMantle/schema/types/base/height.proto";
+import "gogoproto/gogo.proto";
+
+message HeightData{
+  option (gogoproto.goproto_getters) = false;
+
+  types.base.Height value = 1;
+}

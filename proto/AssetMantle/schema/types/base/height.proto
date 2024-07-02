@@ -1,0 +1,10 @@
+syntax = "proto3";
+package AssetMantle.schema.types.base;
+
+import "gogoproto/gogo.proto";
+
+message Height {
+  option (gogoproto.goproto_getters) = false;
+
+  int64 value = 1;
+}

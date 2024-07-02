@@ -1,0 +1,11 @@
+syntax = "proto3";
+package AssetMantle.schema.qualified.base;
+
+import "gogoproto/gogo.proto";
+import "AssetMantle/schema/lists/base/property_list.proto";
+
+message Immutables {
+  option (gogoproto.goproto_getters) = false;
+
+  lists.base.PropertyList property_list = 1;
+}
