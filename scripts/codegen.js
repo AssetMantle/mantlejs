@@ -16,7 +16,8 @@ telescope({
         'cosmos/authz/v1beta1/tx.amino.ts',
         'cosmos/staking/v1beta1/tx.amino.ts'
       ],
-      patterns: ['**/*amino.ts', '**/*registry.ts']
+      patterns: ['cosmos/**/*.ts', 'AssetMantle/**/*.ts']
+      // patterns: ['**/*amino.ts', '**/*registry.ts']
     },
     prototypes: {
       includePackageVar: false,
