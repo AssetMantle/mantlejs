@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.orders.queries.orders;
+package AssetMantle.modules.orders.queries.orders;
 
 import "google/api/annotations.proto";
 import "AssetMantle/modules/x/orders/queries/orders/query_request.proto";

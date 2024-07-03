@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.orders.record;
+package AssetMantle.modules.orders.record;
 
 import "AssetMantle/modules/x/orders/key/key.proto";
 import "AssetMantle/modules/x/orders/mappable/mappable.proto";

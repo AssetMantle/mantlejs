@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.identities.transactions.name;
+package AssetMantle.modules.identities.transactions.name;
 
 import "google/api/annotations.proto";
 import "AssetMantle/modules/x/identities/transactions/name/message.proto";

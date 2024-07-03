@@ -1,4 +1,4 @@
 syntax = "proto3";
-package AssetMantle.modules.x.assets.transactions.renumerate;
+package AssetMantle.modules.assets.transactions.renumerate;
 
 message TransactionResponse {}

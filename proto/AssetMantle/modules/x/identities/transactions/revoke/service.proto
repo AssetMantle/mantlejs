@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.identities.transactions.revoke;
+package AssetMantle.modules.identities.transactions.revoke;
 
 import "google/api/annotations.proto";
 import "AssetMantle/modules/x/identities/transactions/revoke/message.proto";

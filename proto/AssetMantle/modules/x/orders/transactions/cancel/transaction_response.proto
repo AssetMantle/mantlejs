@@ -1,4 +1,4 @@
 syntax = "proto3";
-package AssetMantle.modules.x.orders.transactions.cancel;
+package AssetMantle.modules.orders.transactions.cancel;
 
 message TransactionResponse {}

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.orders.key;
+package AssetMantle.modules.orders.key;
 
 import "AssetMantle/schema/ids/base/order_id.proto";
 

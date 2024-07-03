@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.identities.genesis;
+package AssetMantle.modules.identities.genesis;
 
 import "gogoproto/gogo.proto";
 import "AssetMantle/modules/x/identities/record/record.proto";

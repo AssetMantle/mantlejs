@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.assets.transactions.deputize;
+package AssetMantle.modules.assets.transactions.deputize;
 
 import "google/api/annotations.proto";
 import "AssetMantle/modules/x/assets/transactions/deputize/message.proto";

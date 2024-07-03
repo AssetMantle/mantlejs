@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.splits.mappable;
+package AssetMantle.modules.splits.mappable;
 
 import "AssetMantle/schema/types/base/split.proto";
 
