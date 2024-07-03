@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.assets.queries.assets;
+package AssetMantle.modules.assets.queries.assets;
 
 import "AssetMantle/modules/x/assets/queries/assets/query_request.proto";
 import "AssetMantle/modules/x/assets/queries/assets/query_response.proto";

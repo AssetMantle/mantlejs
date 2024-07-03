@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.assets.transactions.renumerate;
+package AssetMantle.modules.assets.transactions.renumerate;
 
 import "google/api/annotations.proto";
 import "AssetMantle/modules/x/assets/transactions/renumerate/message.proto";

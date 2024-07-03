@@ -1,4 +1,4 @@
 syntax = "proto3";
-package AssetMantle.modules.x.orders.transactions.immediate;
+package AssetMantle.modules.orders.transactions.immediate;
 
 message TransactionResponse {}

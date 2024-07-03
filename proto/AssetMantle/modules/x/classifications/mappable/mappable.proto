@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.classifications.mappable;
+package AssetMantle.modules.classifications.mappable;
 
 import "AssetMantle/schema/documents/base/document.proto";
 

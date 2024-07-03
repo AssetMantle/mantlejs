@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.maintainers.queries.maintainers;
+package AssetMantle.modules.maintainers.queries.maintainers;
 
 import "AssetMantle/modules/x/maintainers/key/key.proto";
 

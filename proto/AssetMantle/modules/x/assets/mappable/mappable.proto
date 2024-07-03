@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.assets.mappable;
+package AssetMantle.modules.assets.mappable;
 
 import "AssetMantle/schema/documents/base/document.proto";
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.identities.transactions.name;
+package AssetMantle.modules.identities.transactions.name;
 
 import "AssetMantle/schema/ids/base/identity_id.proto";
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package AssetMantle.modules.x.splits.key;
+package AssetMantle.modules.splits.key;
 
 import "AssetMantle/schema/ids/base/split_id.proto";
 
